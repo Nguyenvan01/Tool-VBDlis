@@ -1,0 +1,65 @@
+{
+ "renderRun Gỡ duyệt": [
+  {
+   "line": "Bước 1/2 · Đang đọc đơn đã xử lý 5 / 20",
+   "pct": "25%",
+   "boxes": [
+    "0",
+    "1",
+    "5"
+   ],
+   "note": "\"Cần kiểm tra tay\": đơn ở trạng thái lạ (VD khung phải đã Cập nhật lịch sử mà khung trái chưa Thêm vào, đã đồng bộ) – extension không gửi gì, hãy xử lý tay."
+  },
+  {
+   "line": "Bước 1/2 · Đang đọc hồ sơ 5 / ?",
+   "pct": "0%",
+   "boxes": [
+    "0",
+    "1",
+    "5"
+   ],
+   "note": "\"Cần kiểm tra tay\": đơn ở trạng thái lạ (VD khung phải đã Cập nhật lịch sử mà khung trái chưa Thêm vào, đã đồng bộ) – extension không gửi gì, hãy xử lý tay."
+  },
+  {
+   "line": "Bước 2/2 · Đang gỡ duyệt 3 / 8 đơn",
+   "pct": "38%",
+   "boxes": [
+    "0",
+    "1",
+    "5"
+   ],
+   "note": "\"Cần kiểm tra tay\": đơn ở trạng thái lạ (VD khung phải đã Cập nhật lịch sử mà khung trái chưa Thêm vào, đã đồng bộ) – extension không gửi gì, hãy xử lý tay."
+  },
+  {
+   "line": "Đang dừng – chờ gửi xong các đơn đang dở…",
+   "pct": "0%",
+   "boxes": [
+    "0",
+    "1",
+    "5"
+   ],
+   "note": "\"Cần kiểm tra tay\": đơn ở trạng thái lạ (VD khung phải đã Cập nhật lịch sử mà khung trái chưa Thêm vào, đã đồng bộ) – extension không gửi gì, hãy xử lý tay."
+  },
+  {
+   "line": "Đã đọc 20 / 20 đơn đã xử lý · gỡ 8 / 8 đơn",
+   "pct": "0%",
+   "boxes": [
+    "8",
+    "0",
+    "12"
+   ],
+   "note": ""
+  },
+  {
+   "line": "Không có đơn nào cần gỡ",
+   "pct": "100%",
+   "boxes": [
+    "0",
+    "1",
+    "5"
+   ],
+   "note": "\"Cần kiểm tra tay\": đơn ở trạng thái lạ (VD khung phải đã Cập nhật lịch sử mà khung trái chưa Thêm vào, đã đồng bộ) – extension không gửi gì, hãy xử lý tay."
+  }
+ ],
+ "toCsv nhật ký": "﻿STT,Thời gian quét,Vị trí hồ sơ,Mã đơn,Chủ – khung trái (đơn mới),Chủ – khung phải (dữ liệu cũ),Kết quả,Số phát hành,Số vào sổ,Hành động đã làm,Thời gian hành động,Ghi chú\r\n1,1/1,#3/10,DON_1,\"'=HYPERLINK(\"\"x\"\")\",A; B,KIỂM TRA TAY,,,\"LỖI – x, \"\"y\"\"\",1/1,\"dòng 1\ndòng 2\"\r\n2,1/1,,DON_2,'-a,,ĐÃ GỠ DUYỆT,CS 1 | CS 2,'@x,GỠ,,"
+}

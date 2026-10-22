@@ -1,0 +1,13 @@
+[
+  { "name": "thiCong đúng", "resp": { "success": true, "value": { "trangThai": 0, "actionProcessSyncDataThiCong": -1 } }, "expect": { "trangThai": 0, "thiCong": -1 } },
+  { "name": "thiCong sai trangThai", "resp": { "success": true, "value": { "trangThai": 1, "actionProcessSyncDataThiCong": -1 } }, "expect": { "trangThai": 0, "thiCong": -1 } },
+  { "name": "thiCong sai action", "resp": { "success": true, "value": { "trangThai": 0, "actionProcessSyncDataThiCong": 1 } }, "expect": { "trangThai": 0, "thiCong": -1 } },
+  { "name": "thiCong 0 đúng (Không xử lý)", "resp": { "success": true, "value": { "trangThai": 1, "actionProcessSyncDataThiCong": 0 } }, "expect": { "trangThai": 1, "thiCong": 0 } },
+  { "name": "vanHanh đủ 2 id", "resp": { "success": true, "value": { "trangThai": 0, "actionProcessSyncDataVanHanh": "{\"ListProcessSyncData\":[{\"tinhHinhDangKyId\":101,\"actionProcessSyncData\":-1},{\"tinhHinhDangKyId\":102,\"actionProcessSyncData\":-1}]}" } }, "expect": { "trangThai": 0, "vanHanh": { "ids": [101, 102], "action": -1 } } },
+  { "name": "vanHanh thiếu 1 id", "resp": { "success": true, "value": { "trangThai": 0, "actionProcessSyncDataVanHanh": "{\"ListProcessSyncData\":[{\"tinhHinhDangKyId\":101,\"actionProcessSyncData\":-1}]}" } }, "expect": { "trangThai": 0, "vanHanh": { "ids": [101, 102], "action": -1 } } },
+  { "name": "vanHanh sai action", "resp": { "success": true, "value": { "trangThai": 1, "actionProcessSyncDataVanHanh": "{\"ListProcessSyncData\":[{\"tinhHinhDangKyId\":101,\"actionProcessSyncData\":0}]}" } }, "expect": { "trangThai": 1, "vanHanh": { "ids": [101], "action": 3 } } },
+  { "name": "vanHanh không phải JSON", "resp": { "success": true, "value": { "trangThai": 0, "actionProcessSyncDataVanHanh": "<html>" } }, "expect": { "trangThai": 0, "vanHanh": { "ids": [101], "action": -1 } } },
+  { "name": "vanHanh trống", "resp": { "success": true, "value": { "trangThai": 0 } }, "expect": { "trangThai": 0, "vanHanh": { "ids": [101], "action": -1 } } },
+  { "name": "phản hồi null", "resp": null, "expect": { "trangThai": 0, "thiCong": -1 } },
+  { "name": "không có value", "resp": { "success": true }, "expect": { "trangThai": 1, "thiCong": 1 } }
+]

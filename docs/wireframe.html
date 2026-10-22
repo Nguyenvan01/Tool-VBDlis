@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wireframe Side Panel</title>
+  <!--
+    WIREFRAME SIDE PANEL – Bộ công cụ hỗ trợ VBDLIS (thiết kế "Technical Control Center")
+    Mở file này bằng Chrome. Mỗi khung là Side Panel ở một trạng thái: panel/panel.css (+ CSS thử trong <template id="sua-giao-dien">).
+    Thêm ?w=320 / ?w=360 / ?w=420 vào cuối địa chỉ để đặt bề rộng mọi khung.
+
+    Cách sửa:
+      1. Chữ, thứ tự, thêm / bớt phần tử: HTML trong các <template> (đầu trang ở "dau-trang", chân trang ở "chan-trang",
+         mỗi trạng thái một <template data-title="…">).
+      2. Màu, font, khoảng cách: CSS thử trong <template id="sua-giao-dien"> (biến thiết kế gốc ở :root của panel/panel.css). Không ảnh hưởng extension.
+      3. Lưu, F5. Dưới mỗi khung có dòng tự kiểm: tràn ngang / chữ bị cắt.
+
+    Thiết kế hiện tại đã nằm trong extension (panel/panel.css, panel.html, panel.js, view.js); các khung dưới đây
+    là bản tĩnh của đúng DOM đó. Sửa thử ở đây xong gửi lại để chuyển vào extension.
+    Font Inter / JetBrains Mono chỉ dùng nếu máy đã cài; không có thì dùng font hệ thống (không tải font từ mạng).
+  -->
+  <style>
+    /* Kiểu của trang wireframe (không phải của Side Panel) */
+    body { margin: 0; padding: 24px; background: #e5e7eb; color: #111827; font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+    h1 { margin: 0 0 4px; font-size: 20px; }
+    .huong-dan { max-width: 900px; margin: 0 0 16px; color: #4b5563; }
+    .huong-dan code { background: #fff; border: 1px solid #d1d5db; border-radius: 4px; padding: 0 4px; }
+    .be-rong { display: flex; gap: 8px; align-items: center; margin: 0 0 20px; }
+    .be-rong button { font: inherit; padding: 4px 10px; border: 1px solid #d1d5db; border-radius: 6px; background: #fff; cursor: pointer; }
+    .khung-list { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+    figure { margin: 0; }
+    figcaption { margin: 0 0 6px; font-size: 13px; font-weight: 600; color: #374151; }
+    figcaption small { display: block; font-weight: 400; color: #15803d; }
+    figcaption small.loi { color: #b91c1c; }
+    .khung { width: 320px; min-width: 260px; max-width: 720px; resize: horizontal; overflow: hidden; background: #fff; border: 1px solid #9ca3af; border-radius: 12px; box-shadow: 0 4px 16px -6px rgba(0, 0, 0, .2); }
+    .khung iframe { display: block; width: 100%; min-height: 360px; border: 0; }
+  </style>
+</head>
+<body>
+  <h1>Wireframe Side Panel</h1>
+  <p class="huong-dan">
+    Mỗi khung là Side Panel ở một trạng thái (<code>panel/panel.css</code> + CSS trong <code>&lt;template id="sua-giao-dien"&gt;</code>).
+    Sửa HTML trong các <code>&lt;template&gt;</code>, lưu, F5. Kéo góc phải dưới khung để đổi bề rộng; dòng xanh / đỏ dưới tên khung là kết quả tự kiểm tràn ngang và chữ bị cắt.
+  </p>
+  <div class="be-rong">Bề rộng mọi khung:
+    <button type="button" data-w="320">320px</button>
+    <button type="button" data-w="360">360px</button>
+    <button type="button" data-w="420">420px</button>
+  </div>
+  <div class="khung-list" id="khung-list"></div>
+
+  <!-- ================================================================ THIẾT KẾ (ghi đè panel.css, chỉ trong wireframe) -->
+  <template id="sua-giao-dien">
+    <style>
+      /* Viết CSS thử ở đây (ghi đè panel/panel.css, chỉ trong wireframe). VD:
+         .card { border-radius: 8px; }   .tab[aria-selected="true"] { color: #b45309; } */
+    </style>
+  </template>
+
+  <!-- ================================================================ ICON (giống panel.html) -->
+  <template id="icons">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 0 0 1.5.9l12-7.5a1 1 0 0 0 0-1.8l-12-7.5A1 1 0 0 0 7 4.5z"/></symbol>
+      <symbol id="i-stop" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15.3-6.4L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.3 6.4L3 16"/><path d="M3 21v-5h5"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+    </svg>
+  </template>
+
+  <!-- ================================================================ ĐẦU TRANG + THANH TAB (dùng chung mọi khung)
+       Tab đang chọn: data-tab của từng trạng thái; tab có chấm "đang chạy": data-running (0, 1, 2) -->
+  <template id="dau-trang">
+    <header class="top">
+      <div class="brand">
+        <div class="logo"><svg class="ic" aria-hidden="true"><use href="#i-shield"/></svg></div>
+        <div>
+          <h1>Bộ công cụ hỗ trợ VBDLIS</h1>
+          <p>MPLIS · mỗi lúc chạy một công cụ</p>
+        </div>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Công cụ" style="grid-template-columns: repeat(3, minmax(0, 1fr))">
+        <button class="tab" type="button" role="tab"><span class="tab-label">Duyệt đơn</span><span class="sr-only"></span><span class="tab-dot" aria-hidden="true"></span></button>
+        <button class="tab" type="button" role="tab"><span class="tab-label">Gỡ duyệt</span><span class="sr-only"></span><span class="tab-dot" aria-hidden="true"></span></button>
+        <button class="tab" type="button" role="tab"><span class="tab-label">Không xử lý hết</span><span class="sr-only"></span><span class="tab-dot" aria-hidden="true"></span></button>
+      </nav>
+    </header>
+  </template>
+
+  <!-- Chân trang (giống panel.html) -->
+  <template id="chan-trang">
+    <footer>
+      <span>Dừng khẩn cấp</span>
+      <span class="phim"><kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> / <kbd>Esc</kbd></span>
+    </footer>
+  </template>
+
+  <!-- ================================================================ 1. Duyệt đơn · sẵn sàng (đã mở hộp thoại, chưa chạy) -->
+  <template data-title="1. Duyệt đơn · sẵn sàng" data-tab="0">
+    <main>
+      <div class="tab-panel" role="tabpanel">
+        <section class="card">
+          <div class="card-head"><h2>Chạy tự động</h2><span class="muted">Đợt 3f2a9c1e…</span></div>
+          <div class="row">
+            <button class="btn go" type="button"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg><span>Bắt đầu</span></button>
+            <button class="btn danger" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Quét và sửa lỡ duyệt GCN</h2><span class="muted">Đợt 3f2a9c1e…</span></div>
+          <div class="row">
+            <button class="btn go" type="button"><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Quét và sửa</span></button>
+            <button class="btn danger" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <!-- Báo cáo lần quét gần nhất (bảng lỡ duyệt) -->
+          <div>
+            <div class="api-state err">Đã quét hết 120/120 đơn · có GCN 14 · 1 đơn cần kiểm tra tay · còn 3 đơn chưa xử lý</div>
+            <div class="stats four" style="grid-template-columns: repeat(4, 1fr)">
+              <div class="stat"><b>120</b><span>Đã quét</span></div>
+              <div class="stat no"><b>3</b><span>Lỡ duyệt</span></div>
+              <div class="stat ok"><b>2</b><span>Đã sửa</span></div>
+              <div class="stat warn"><b>1</b><span>Kiểm tra tay</span></div>
+            </div>
+            <div class="muted small">Lần quét: 11/10/2026, 10:15:02 · lỡ duyệt ở trang: 2, 7 (10 đơn/trang)</div>
+            <div class="audit-table-wrap">
+              <table class="audit-table">
+                <thead><tr><th>Trang</th><th>#</th><th>Mã đơn</th><th>Lỡ</th><th>Kết quả</th></tr></thead>
+                <tbody>
+                  <tr class="fixed"><td class="num">2</td><td class="num">16</td><td class="code">DON_00000016</td><td>Cập nhật lịch sử</td><td>✓ đã sửa 11/10/2026, 10:14:40</td></tr>
+                  <tr class="fixed"><td class="num">2</td><td class="num">19</td><td class="code">DON_00000019</td><td>Thêm vào DLVH</td><td>✓ đã sửa 11/10/2026, 10:14:41</td></tr>
+                  <tr class="manual"><td class="num">7</td><td class="num">68</td><td class="code">DON_00000068</td><td>Cập nhật lịch sử</td><td>Kiểm tra tay – trạng thái khác (trangThai=2, thiCong=1, vanHanh=3)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <button class="btn ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Xuất CSV bảng lỡ duyệt</span></button>
+              <span></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Thống kê duyệt</h2><span class="muted">1.248 đơn</span></div>
+          <div class="bar"><i class="ok" style="width: 62%"></i><i class="no" style="width: 30%"></i><i class="warn" style="width: 8%"></i></div>
+          <div class="stats" style="grid-template-columns: repeat(3, 1fr)">
+            <div class="stat ok"><b>774</b><span>Được duyệt</span></div>
+            <div class="stat no"><b>374</b><span>Không duyệt</span></div>
+            <div class="stat warn"><b>100</b><span>Kiểm tra tay</span></div>
+          </div>
+          <div class="row">
+            <button class="btn ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Xuất CSV</span></button>
+            <button class="btn ghost subtle" type="button"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg><span>Xóa log</span></button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </template>
+
+  <!-- ================================================================ 2. Duyệt đơn · Chạy tự động đang chạy -->
+  <template data-title="2. Duyệt đơn · Chạy tự động đang chạy" data-tab="0" data-running="0">
+    <main>
+      <div class="tab-panel" role="tabpanel">
+        <section class="card">
+          <div class="card-head"><h2>Chạy tự động</h2><span class="badge run">Đang chạy</span><span class="muted">Đợt 3f2a9c1e…</span></div>
+          <div class="row">
+            <button class="btn go" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg><span>Bắt đầu</span></button>
+            <button class="btn danger" type="button"><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <div class="run-report">
+            <div class="run-line"><span>Đang xử lý hồ sơ 12 / 40</span><b>30%</b></div>
+            <div class="progress"><i class="live" style="width: 30%"></i></div>
+            <div class="stats run" style="grid-template-columns: repeat(4, 1fr)">
+              <div class="stat ok"><b>5</b><span>Đã duyệt</span></div>
+              <div class="stat no"><b>3</b><span>Không xử lý (có GCN)</span></div>
+              <div class="stat warn"><b>2</b><span>Cần kiểm tra tay</span></div>
+              <div class="stat"><b>0</b><span>Đã xử lý từ trước</span></div>
+            </div>
+            <div class="muted small">"Cần kiểm tra tay": đơn đã bị "Bỏ duyệt" trước đó, thiếu dữ liệu hoặc dữ liệu không khớp – extension không gửi gì, hãy xử lý tay.</div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Quét và sửa lỡ duyệt GCN</h2><span class="muted">Đợt 3f2a9c1e…</span></div>
+          <div class="row">
+            <button class="btn go" type="button" disabled><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Quét và sửa</span></button>
+            <button class="btn danger" type="button"><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <div class="api-state live">Đang chạy: Chạy tự động</div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Thống kê duyệt</h2><span class="muted">1.258 đơn</span></div>
+          <div class="bar"><i class="ok" style="width: 62%"></i><i class="no" style="width: 30%"></i><i class="warn" style="width: 8%"></i></div>
+          <div class="stats" style="grid-template-columns: repeat(3, 1fr)">
+            <div class="stat ok"><b>779</b><span>Được duyệt</span></div>
+            <div class="stat no"><b>377</b><span>Không duyệt</span></div>
+            <div class="stat warn"><b>102</b><span>Kiểm tra tay</span></div>
+          </div>
+          <div class="row">
+            <button class="btn ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Xuất CSV</span></button>
+            <button class="btn ghost subtle" type="button"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg><span>Xóa log</span></button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </template>
+
+  <!-- ================================================================ 3. Gỡ duyệt · chạy xong -->
+  <template data-title="3. Gỡ duyệt · chạy xong" data-tab="1">
+    <main>
+      <div class="tab-panel" role="tabpanel">
+        <section class="card">
+          <div class="card-head"><h2>Gỡ duyệt</h2><span class="badge ok">Hoàn thành</span><span class="muted">Đợt 3f2a9c1e…</span></div>
+          <div class="row">
+            <button class="btn warn" type="button"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg><span>Gỡ duyệt</span></button>
+            <button class="btn danger" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <div class="api-state ok">Xong – đã gỡ duyệt 8 đơn trong 1 phút 12 giây.</div>
+          <div class="run-report">
+            <div class="run-line"><span>Đã đọc 20 / 20 đơn đã xử lý · gỡ 8 / 8 đơn</span><b>100%</b></div>
+            <div class="progress"><i style="width: 100%"></i></div>
+            <div class="stats run" style="grid-template-columns: repeat(3, 1fr)">
+              <div class="stat ok"><b>8</b><span>Đã gỡ duyệt</span></div>
+              <div class="stat warn"><b>0</b><span>Cần kiểm tra tay</span></div>
+              <div class="stat"><b>112</b><span>Bỏ qua (chưa duyệt)</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Thống kê bỏ duyệt</h2><span class="muted">35 đơn</span></div>
+          <div class="bar"><i class="ok" style="width: 91%"></i><i class="warn" style="width: 9%"></i></div>
+          <div class="stats" style="grid-template-columns: repeat(2, 1fr)">
+            <div class="stat ok"><b>32</b><span>Đã gỡ duyệt</span></div>
+            <div class="stat warn"><b>3</b><span>Kiểm tra tay</span></div>
+          </div>
+          <div class="row">
+            <button class="btn ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Xuất CSV</span></button>
+            <button class="btn ghost subtle" type="button"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg><span>Xóa log</span></button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </template>
+
+  <!-- ================================================================ 4. Gỡ duyệt · lệnh hỏng giữa chừng (dừng hẳn)
+       Câu lỗi thật của lõi: "Lỗi: Đơn DON_00000042: đã làm: Bỏ duyệt (khung phải); HỎNG: Bỏ duyệt (khung trái) – trạng thái trả về 1, cần 0. Đã dừng, kiểm tra tay đơn này."
+       Khối dưới là câu đó đã tách thành phần (view.js splitError); không bỏ chữ nào. -->
+  <template data-title="4. Gỡ duyệt · lệnh hỏng, đã dừng" data-tab="1">
+    <main>
+      <div class="tab-panel" role="tabpanel">
+        <section class="card">
+          <div class="card-head"><h2>Gỡ duyệt</h2><span class="badge err">Lỗi</span><span class="muted">Đợt 3f2a9c1e…</span></div>
+          <div class="row">
+            <button class="btn warn" type="button"><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg><span>Gỡ duyệt</span></button>
+            <button class="btn danger" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <div class="api-state err">
+            <div class="state-body">
+              <div class="state-title">Lỗi · Đơn <code>DON_00000042</code></div>
+              <dl class="state-steps">
+                <dt>Đã làm</dt><dd>Bỏ duyệt (khung phải)</dd>
+                <dt>HỎNG</dt><dd>Bỏ duyệt (khung trái)</dd>
+                <dt>Lý do</dt><dd>trạng thái trả về 1, cần 0</dd>
+              </dl>
+              <div class="state-hint">Đã dừng, kiểm tra tay đơn này.</div>
+            </div>
+          </div>
+          <div class="run-report">
+            <div class="run-line"><span>Đã đọc 20 / 20 đơn đã xử lý · gỡ 3 / 8 đơn</span><b>38%</b></div>
+            <div class="progress"><i style="width: 38%"></i></div>
+            <div class="stats run" style="grid-template-columns: repeat(3, 1fr)">
+              <div class="stat ok"><b>3</b><span>Đã gỡ duyệt</span></div>
+              <div class="stat warn"><b>0</b><span>Cần kiểm tra tay</span></div>
+              <div class="stat"><b>112</b><span>Bỏ qua (chưa duyệt)</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Thống kê bỏ duyệt</h2><span class="muted">30 đơn</span></div>
+          <div class="bar"><i class="ok" style="width: 87%"></i><i class="warn" style="width: 13%"></i></div>
+          <div class="stats" style="grid-template-columns: repeat(2, 1fr)">
+            <div class="stat ok"><b>26</b><span>Đã gỡ duyệt</span></div>
+            <div class="stat warn"><b>4</b><span>Kiểm tra tay</span></div>
+          </div>
+          <div class="row">
+            <button class="btn ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Xuất CSV</span></button>
+            <button class="btn ghost subtle" type="button"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg><span>Xóa log</span></button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </template>
+
+  <!-- ================================================================ 5. Không xử lý hết · Gỡ duyệt đang chạy (xem ở tab khác) -->
+  <template data-title="5. Không xử lý hết · Gỡ duyệt đang chạy" data-tab="2" data-running="1">
+    <main>
+      <div class="tab-panel" role="tabpanel">
+        <section class="card">
+          <div class="card-head"><h2>Không xử lý hết</h2><span class="muted">Đợt 3f2a9c1e…</span></div>
+          <div class="row">
+            <button class="btn warn" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg><span>Không xử lý hết</span></button>
+            <button class="btn danger" type="button"><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <div class="api-state live">Đang chạy: Gỡ duyệt</div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Thống kê Không xử lý hết</h2><span class="muted">0 đơn</span></div>
+          <div class="bar"><i class="no" style="width: 0%"></i><i class="warn" style="width: 0%"></i></div>
+          <div class="stats" style="grid-template-columns: repeat(2, 1fr)">
+            <div class="stat no"><b>0</b><span>Đã Không xử lý</span></div>
+            <div class="stat warn"><b>0</b><span>Kiểm tra tay</span></div>
+          </div>
+          <div class="row">
+            <button class="btn ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Xuất CSV</span></button>
+            <button class="btn ghost subtle" type="button"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg><span>Xóa log</span></button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </template>
+
+  <!-- ================================================================ 6. Duyệt đơn · chưa mở hộp thoại "Xử lý đơn đăng ký" -->
+  <template data-title="6. Duyệt đơn · chưa có danh sách đơn" data-tab="0">
+    <main>
+      <div class="tab-panel" role="tabpanel">
+        <section class="card">
+          <div class="card-head"><h2>Chạy tự động</h2><span class="badge idle">Chưa sẵn sàng</span><span class="muted"></span></div>
+          <div class="row">
+            <button class="btn go" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg><span>Bắt đầu</span></button>
+            <button class="btn danger" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <div class="api-state">Chưa thấy danh sách đơn: F5 trang rồi mở hộp thoại "Xử lý đơn đăng ký" (extension cần lấy đợt bàn giao và mã xác thực từ lần trang tải danh sách).</div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Quét và sửa lỡ duyệt GCN</h2><span class="badge idle">Chưa sẵn sàng</span><span class="muted"></span></div>
+          <div class="row">
+            <button class="btn go" type="button" disabled><svg class="ic" aria-hidden="true"><use href="#i-refresh"/></svg><span>Quét và sửa</span></button>
+            <button class="btn danger" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <div class="api-state">Chưa thấy danh sách đơn: F5 trang rồi mở hộp thoại "Xử lý đơn đăng ký" (extension cần lấy đợt bàn giao và mã xác thực từ lần trang tải danh sách).</div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Thống kê duyệt</h2><span class="muted">0 đơn</span></div>
+          <div class="bar"><i class="ok" style="width: 0%"></i><i class="no" style="width: 0%"></i><i class="warn" style="width: 0%"></i></div>
+          <div class="stats" style="grid-template-columns: repeat(3, 1fr)">
+            <div class="stat ok"><b>0</b><span>Được duyệt</span></div>
+            <div class="stat no"><b>0</b><span>Không duyệt</span></div>
+            <div class="stat warn"><b>0</b><span>Kiểm tra tay</span></div>
+          </div>
+          <div class="row">
+            <button class="btn ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Xuất CSV</span></button>
+            <button class="btn ghost subtle" type="button"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg><span>Xóa log</span></button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </template>
+
+  <!-- ================================================================ 7. Không xử lý hết · trang đang chạy bản cũ (khoá nút chạy) -->
+  <template data-title="7. Không xử lý hết · lệch phiên bản" data-tab="2">
+    <main>
+      <div class="tab-panel" role="tabpanel">
+        <section class="card">
+          <div class="card-head"><h2>Không xử lý hết</h2><span class="badge idle">Chưa sẵn sàng</span><span class="muted">Đợt 3f2a9c1e…</span></div>
+          <div class="row">
+            <button class="btn warn" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-play"/></svg><span>Không xử lý hết</span></button>
+            <button class="btn danger" type="button" disabled><svg class="ic fill" aria-hidden="true"><use href="#i-stop"/></svg><span>Dừng</span></button>
+          </div>
+          <div class="api-state err">⚠ Trang đang chạy bản cũ của extension: bấm F5 trang MPLIS rồi mở lại hộp thoại "Xử lý đơn đăng ký".</div>
+        </section>
+
+        <section class="card">
+          <div class="card-head"><h2>Thống kê Không xử lý hết</h2><span class="muted">57 đơn</span></div>
+          <div class="bar"><i class="no" style="width: 93%"></i><i class="warn" style="width: 7%"></i></div>
+          <div class="stats" style="grid-template-columns: repeat(2, 1fr)">
+            <div class="stat no"><b>53</b><span>Đã Không xử lý</span></div>
+            <div class="stat warn"><b>4</b><span>Kiểm tra tay</span></div>
+          </div>
+          <div class="row">
+            <button class="btn ghost" type="button"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg><span>Xuất CSV</span></button>
+            <button class="btn ghost subtle" type="button"><svg class="ic" aria-hidden="true"><use href="#i-trash"/></svg><span>Xóa log</span></button>
+          </div>
+        </section>
+      </div>
+    </main>
+  </template>
+
+  <script>
+    // Dựng mỗi <template data-title> thành một khung iframe riêng: iframe có bề rộng riêng nên cỡ chữ (vw) và
+    // @media theo bề rộng chạy đúng như trong Side Panel thật.
+    const css = new URL('../panel/panel.css', location.href).href;
+    const html = (id) => document.getElementById(id).innerHTML;
+    const list = document.getElementById('khung-list');
+    const frames = [];
+
+    function header(tab, running) {
+      const box = document.createElement('div');
+      box.innerHTML = html('dau-trang');
+      box.querySelectorAll('[role="tab"]').forEach((t, i) => {
+        t.setAttribute('aria-selected', String(i === tab));
+        t.tabIndex = i === tab ? 0 : -1;
+        t.classList.toggle('running', i === running);
+        t.querySelector('.sr-only').textContent = i === running ? ' (đang chạy)' : '';
+      });
+      return box.innerHTML;
+    }
+
+    // Tự kiểm một khung: trang tràn ngang, phần tử vượt mép phải, chữ bị cắt "…".
+    // Bảng lỡ duyệt được phép cuộn ngang trong khung riêng của nó.
+    function check(f, note) {
+      let d;
+      try { d = f.contentDocument; } catch (e) { return; }
+      if (!d || !d.body) return;
+      const W = d.documentElement.clientWidth;
+      const name = (el) => el.tagName.toLowerCase() + (el.className && typeof el.className === 'string' ? '.' + el.className.trim().split(/\s+/).join('.') : '')
+        + ' "' + el.textContent.trim().slice(0, 24) + '"';
+      const issues = [];
+      if (d.documentElement.scrollWidth > W) issues.push('trang tràn ngang');
+      for (const el of d.body.querySelectorAll('*')) {
+        if (el.closest('svg') || el.classList.contains('sr-only')) continue;
+        const wrap = el.closest('.audit-table-wrap');
+        if (wrap && wrap !== el) continue;
+        const cs = getComputedStyle(el);
+        if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+        if (el.getBoundingClientRect().right > W + 0.5) issues.push('vượt mép: ' + name(el));
+        if (cs.textOverflow === 'ellipsis' && el.scrollWidth > el.clientWidth + 1) issues.push('chữ bị cắt: ' + name(el));
+      }
+      note.className = issues.length ? 'loi' : '';
+      note.textContent = issues.length ? '⚠ ' + [...new Set(issues)].join(' · ') : `✓ ${W}px: không tràn, không cắt chữ`;
+      document.body.dataset.kiemTra = [...list.querySelectorAll('figcaption')].map((c) => c.textContent).join(' || ');
+    }
+
+    for (const tpl of document.querySelectorAll('template[data-title]')) {
+      const fig = document.createElement('figure');
+      const cap = document.createElement('figcaption');
+      cap.textContent = tpl.dataset.title;
+      const note = document.createElement('small');
+      cap.append(note);
+      const box = document.createElement('div');
+      box.className = 'khung';
+      const f = document.createElement('iframe');
+      f.title = tpl.dataset.title;
+      const running = tpl.dataset.running == null ? -1 : Number(tpl.dataset.running);
+      f.srcdoc = '<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">'
+        + `<link rel="stylesheet" href="${css}">${html('sua-giao-dien')}</head><body>`
+        + html('icons') + header(Number(tpl.dataset.tab), running) + tpl.innerHTML + html('chan-trang') + '</body></html>';
+      // Chiều cao khung theo nội dung (đổi bề rộng thì tính lại và tự kiểm lại)
+      const fit = () => {
+        try { f.style.height = f.contentDocument.documentElement.scrollHeight + 'px'; } catch (e) { f.style.height = '900px'; }
+        check(f, note);
+      };
+      f.addEventListener('load', fit);
+      new ResizeObserver(fit).observe(box);
+      box.append(f);
+      fig.append(cap, box);
+      list.append(fig);
+      frames.push(box);
+    }
+
+    const setWidth = (w) => frames.forEach((box) => { box.style.width = w + 'px'; });
+    document.querySelectorAll('.be-rong button').forEach((b) => { b.onclick = () => setWidth(b.dataset.w); });
+    const w = new URLSearchParams(location.search).get('w');
+    if (w) setWidth(w);
+  </script>
+</body>
+</html>

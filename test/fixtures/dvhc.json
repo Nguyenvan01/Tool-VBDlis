@@ -1,0 +1,928 @@
+[
+ {
+  "name": "trùng số phát hành và tên chủ (1 bản ghi khung phải)",
+  "kind": "approve",
+  "v": {
+   "goiTinDongBoNId": "V01",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    101
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V01"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Nguyễn Văn An"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "1"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AA 000001"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 101
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn An"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AA 000001"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "khung phải 2 bản ghi, cùng tập số phát hành và chủ → một lệnh Cập nhật lịch sử cho cả 2",
+  "kind": "approve",
+  "v": {
+   "goiTinDongBoNId": "V02",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    201,
+    202
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V02"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Trần Thị Bình"
+      },
+      {
+       "hoTen": "Lê Văn Cường"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "2"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AB 000002"
+     },
+     {
+      "soPhatHanh": "AB 000003"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 201
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Trần Thị Bình"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AB 000002"
+      }
+     ]
+    },
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 202
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lê Văn Cường"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AB 000003"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "khác khoảng trắng / hoa thường trong số phát hành, khác thứ tự chủ, thừa dấu cách trong tên",
+  "kind": "approve",
+  "v": {
+   "goiTinDongBoNId": "V03",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    301
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V03"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Phạm  Thị Dung"
+      },
+      {
+       "hoTen": "Hồ Văn Em"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "3"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "ac 000004"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 301
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hồ Văn Em"
+       },
+       {
+        "hoTen": "Phạm Thị Dung"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AC000004"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "tên chủ khác hoa / thường",
+  "kind": "reject",
+  "v": {
+   "goiTinDongBoNId": "V04",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    401
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V04"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Nguyễn văn Phúc"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "4"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AD 000005"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 401
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn Phúc"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AD 000005"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "số phát hành khác",
+  "kind": "reject",
+  "v": {
+   "goiTinDongBoNId": "V05",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    501
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V05"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Đỗ Văn Giang"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "5"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AE 000006"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 501
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đỗ Văn Giang"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AE 000007"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "cả hai bên đều không có số phát hành, cùng tên chủ → duyệt",
+  "kind": "approve",
+  "v": {
+   "goiTinDongBoNId": "V06",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    601
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V06"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Vũ Thị Hoa"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "6"
+      }
+     ]
+    },
+    "ListGiayChungNhan": []
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 601
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị Hoa"
+       }
+      ]
+     },
+     "ListGiayChungNhan": []
+    }
+   ]
+  }
+ },
+ {
+  "name": "cả hai bên đều không có số phát hành, tên chủ khác → Không xử lý",
+  "kind": "reject",
+  "v": {
+   "goiTinDongBoNId": "V15",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    1501
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V15"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Vũ Thị Hoa"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "6"
+      }
+     ]
+    },
+    "ListGiayChungNhan": []
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 1501
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Văn Hòa"
+       }
+      ]
+     },
+     "ListGiayChungNhan": []
+    }
+   ]
+  }
+ },
+ {
+  "name": "khung phải nhiều số phát hành hơn khung trái",
+  "kind": "reject",
+  "v": {
+   "goiTinDongBoNId": "V07",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    701
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V07"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Bùi Văn Khánh"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "7"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AF 000008"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 701
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Văn Khánh"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AF 000008"
+      },
+      {
+       "soPhatHanh": "AF 000009"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "khung phải trống (không có bản ghi)",
+  "kind": "reject",
+  "v": {
+   "goiTinDongBoNId": "V08",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V08"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Đặng Thị Lan"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "8"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AG 000010"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": []
+  }
+ },
+ {
+  "name": "không có mã gói tin",
+  "kind": "unknown",
+  "v": {
+   "goiTinDongBoNId": "",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    901
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V09"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Mai Văn Minh"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "0"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AH 000011"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 1
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Mai Văn Minh"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AH 000011"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "không có mã đơn nhưng trùng số phát hành và tên chủ → vẫn duyệt",
+  "kind": "approve",
+  "v": {
+   "goiTinDongBoNId": "V10",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    1001
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": ""
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Lý Thị Nga"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "10"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AI 000012"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 1001
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Thị Nga"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AI 000012"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "khung phải không khớp mã tình hình đăng ký → Không xử lý",
+  "kind": "reject",
+  "v": {
+   "goiTinDongBoNId": "V11",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    1199
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V11"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Tô Văn Oanh"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "11"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AK 000013"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 1101
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tô Văn Oanh"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AK 000013"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "đơn đã bị Bỏ duyệt trước đó (khung trái -1), trùng → đánh lại: duyệt",
+  "kind": "approve",
+  "v": {
+   "goiTinDongBoNId": "V12",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    1201
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": -1,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V12"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Hà Văn Phong"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "12"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AL 000014"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 1201
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hà Văn Phong"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AL 000014"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "đã duyệt rồi",
+  "kind": "skip",
+  "v": {
+   "goiTinDongBoNId": "V13",
+   "trangThaiGoiTinDongBo": 1,
+   "tinhHinhDangKyVanHanhIds": [
+    1301
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 1,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V13"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Cao Thị Quỳnh"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "13"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AM 000015"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 3,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 1301
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Cao Thị Quỳnh"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AM 000015"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "đã Không xử lý rồi",
+  "kind": "skip",
+  "v": {
+   "goiTinDongBoNId": "V14",
+   "trangThaiGoiTinDongBo": 1,
+   "tinhHinhDangKyVanHanhIds": [
+    1401
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V14"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Lâm Văn Sơn"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "14"
+      }
+     ]
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AN 000016"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 1401
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lâm Văn Sơn"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AN 000016"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "name": "số phát hành lạ nằm ngoài mục Giấy chứng nhận (VD trong tài sản) → bỏ qua, vẫn duyệt",
+  "kind": "approve",
+  "v": {
+   "goiTinDongBoNId": "V16",
+   "trangThaiGoiTinDongBo": 0,
+   "tinhHinhDangKyVanHanhIds": [
+    1601
+   ],
+   "ThongTinDangKyThiCong": {
+    "ActionProcessSyncData": 0,
+    "TinhHinhDangKy": {
+     "maDon": "DON_V16"
+    },
+    "ChuSoHuu": {
+     "ListCaNhan": [
+      {
+       "hoTen": "Nguyễn Văn An"
+      }
+     ]
+    },
+    "TaiSan": {
+     "ListThuaDat": [
+      {
+       "soTo": "12",
+       "soThua": "1"
+      }
+     ],
+     "Khac": {
+      "soPhatHanh": "DG859608"
+     }
+    },
+    "ListGiayChungNhan": [
+     {
+      "soPhatHanh": "AA 000001"
+     }
+    ]
+   },
+   "ThongTinDangKyVanHanh": [
+    {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "tinhHinhDangKyId": 1601
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn An"
+       }
+      ]
+     },
+     "ListGiayChungNhan": [
+      {
+       "soPhatHanh": "AA 000001"
+      }
+     ],
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "ListGiayChungNhan": [
+         {
+          "soPhatHanh": "CX489046"
+         },
+         {
+          "soPhatHanh": "BY416608"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+]

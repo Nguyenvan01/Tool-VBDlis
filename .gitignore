@@ -1,0 +1,6 @@
+# Rác hệ thống / file khoá Office
+.DS_Store
+~$*
+# Log xuất từ extension có tên người thật – KHÔNG đưa lên
+*.csv
+node_modules/

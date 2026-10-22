@@ -1,0 +1,7603 @@
+{
+ "CSV bảng lỡ duyệt": "﻿Trang,Vị trí,Mã đơn,Lỡ,Chủ (khung trái),Mã GCN (khung phải),Lý do không được duyệt,Trạng thái trên hệ thống,Kết quả\r\n1,3,DON_1,đã Cập nhật lịch sử,'=CMD(),\"9, 10\",Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1),đã thêm vào dữ liệu vận hành,✓ đã sửa 1/1/2026\r\n2,14,DON_2,đã Thêm vào dữ liệu vận hành,\"A, \"\"B\"\"\",,x,trạng thái khác (trangThai=2),Kiểm tra tay – trạng thái khác (trangThai=2)\r\n2,15,DON_3,đã Cập nhật lịch sử,,11,y,,LỖI: hỏng",
+ "quét cả đợt": {
+  "error": "",
+  "writes": [
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D18\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D18-1\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D24\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D24-1\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"G11\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"G11-1\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D18\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":3181},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":3182}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D18-1\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":103181},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":103182}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D24\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":3241}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D24-1\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":103241}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"G11\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":1101},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":1102}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"G11-1\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":101101},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":101102}],\"trangThai\":0}]"
+  ],
+  "items": [
+   {
+    "goiTinDongBoNId": "D01",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D01"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn An"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "34"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D02",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3101,
+     3102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D02"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Trần Thị Bình"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "45"
+       },
+       {
+        "soTo": "3",
+        "soThua": "46"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Văn Cũ"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     },
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3102
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D03",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3301
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D03"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lê Văn Cường"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "7",
+        "soThua": "8"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3301
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9301,
+        "soPhatHanh": "CS 009301",
+        "soVaoSo": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D04",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "giayChungNhanIds": [
+     9401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D04"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Phạm Thị Dung"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "1"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D05",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D05"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn Em"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "9"
+       }
+      ]
+     },
+     "ListFile": [
+      {
+       "tenFile": "scan.pdf",
+       "laGiayChungNhan": true
+      }
+     ]
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D06",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D06",
+      "ThongTinCu": {
+       "soVaoSo": "VS-123"
+      }
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị Gấm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "4"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D07",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D07",
+      "ngayVaoSo": "/Date(-62135596800000)/",
+      "soPhatHanh": "-",
+      "loaiGiayChungNhan": "GCN mới"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Đặng Văn Hải"
+        },
+        "GiayChungNhanKetHon": {
+         "so": "KH-01"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "10",
+        "soThua": "11"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D08"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Văn Ích"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D09",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": ""
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Thị Kim"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D10",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D10"
+     },
+     "ChuSoHuu": {},
+     "TaiSan": {}
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D11",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D11"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Văn Lâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": " "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D12",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D12"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Thị Mai"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "12a"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D13",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D13"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Mai Văn Nam"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "0",
+        "soThua": "0"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D14",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D14"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tô Thị Oanh"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListNha": [
+       {
+        "dienTich": 50
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D15",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3151
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D15"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hà Văn Phúc"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3152
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D16",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D16"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Kiều Văn Quang"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "8",
+        "soThua": "9"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D17",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D17"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lưu Thị Rạng"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "9",
+        "soThua": "10"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D19",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     3191
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D19"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đinh Thị Tâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3191
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9191,
+        "soPhatHanh": "CS 009191"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D20",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     3201
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D20"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Châu Văn Út"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3201
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9201,
+        "soPhatHanh": "CS 009201"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D21",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D21"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Quách Thị Vân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D22",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D22"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "HTX Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "ThuaDat": {
+         "soHieuToBanDo": "15",
+         "soThuTuThua": "16"
+        }
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D23",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3231
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D23"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Từ Văn Xuân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3231,
+       "ThongTinGCN": {
+        "soVaoSo": "VS-3231"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D01-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D01-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn An"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "34"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D02-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103101,
+     103102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D02-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Trần Thị Bình"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "45"
+       },
+       {
+        "soTo": "3",
+        "soThua": "46"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Văn Cũ"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     },
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103102
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D03-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103301
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D03-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lê Văn Cường"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "7",
+        "soThua": "8"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103301
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9301,
+        "soPhatHanh": "CS 009301",
+        "soVaoSo": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D04-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "giayChungNhanIds": [
+     109401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D04-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Phạm Thị Dung"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "1"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D05-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D05-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn Em"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "9"
+       }
+      ]
+     },
+     "ListFile": [
+      {
+       "tenFile": "scan.pdf",
+       "laGiayChungNhan": true
+      }
+     ]
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D06-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D06-1",
+      "ThongTinCu": {
+       "soVaoSo": "VS-123"
+      }
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị Gấm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "4"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D07-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D07-1",
+      "ngayVaoSo": "/Date(-62135596800000)/",
+      "soPhatHanh": "-",
+      "loaiGiayChungNhan": "GCN mới"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Đặng Văn Hải"
+        },
+        "GiayChungNhanKetHon": {
+         "so": "KH-01"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "10",
+        "soThua": "11"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D09-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": ""
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Thị Kim"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D10-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D10-1"
+     },
+     "ChuSoHuu": {},
+     "TaiSan": {}
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D11-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D11-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Văn Lâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": " "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D12-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D12-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Thị Mai"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "12a"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D13-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D13-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Mai Văn Nam"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "0",
+        "soThua": "0"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D14-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D14-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tô Thị Oanh"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListNha": [
+       {
+        "dienTich": 50
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D15-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103151
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D15-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hà Văn Phúc"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103152
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D16-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D16-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Kiều Văn Quang"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "8",
+        "soThua": "9"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D17-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D17-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lưu Thị Rạng"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "9",
+        "soThua": "10"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D19-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103191
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D19-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đinh Thị Tâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103191
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9191,
+        "soPhatHanh": "CS 009191"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D20-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     103201
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D20-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Châu Văn Út"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103201
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9201,
+        "soPhatHanh": "CS 009201"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D21-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D21-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Quách Thị Vân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D22-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D22-1"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "HTX Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "ThuaDat": {
+         "soHieuToBanDo": "15",
+         "soThuTuThua": "16"
+        }
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D23-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103231
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D23-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Từ Văn Xuân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103231,
+       "ThongTinGCN": {
+        "soVaoSo": "VS-3231"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G01",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     101
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T01"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn A"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "345"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Thị B"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G02",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     201,
+     202,
+     203
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T02"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Lê Văn C"
+        },
+        "Vo": {
+         "hoTen": "Phạm Thị D"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 201
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Lê Văn C"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 202
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Phạm Thị D"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 203
+      },
+      "ChuSoHuu": {}
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G03",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T03"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "Công ty  TNHH   Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": null,
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T04"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn E"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 401
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G05",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     501
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T05"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị F"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 501
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G06",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     601
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T06"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đặng Văn G"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 601
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G07",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     701
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T07"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Thị H"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 701
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9001,
+        "soPhatHanh": "CS 000001",
+        "soVaoSo": "VS-01"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G08",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     801
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T08"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Văn I"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 801
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G09",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T09"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Thị K"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G10",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     1001
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T10"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Văn L"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1001
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G12",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": null,
+    "ThongTinDangKyVanHanh": null
+   },
+   {
+    "goiTinDongBoNId": "G01-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100101
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T01-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn A"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "345"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Thị B"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G02-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100201,
+     100202,
+     100203
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T02-1"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Lê Văn C"
+        },
+        "Vo": {
+         "hoTen": "Phạm Thị D"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100201
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Lê Văn C"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100202
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Phạm Thị D"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100203
+      },
+      "ChuSoHuu": {}
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G03-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T03-1"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "Công ty  TNHH   Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G05-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     100501
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T05-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị F"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100501
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G06-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     100601
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T06-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đặng Văn G"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100601
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G07-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100701
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T07-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Thị H"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100701
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9001,
+        "soPhatHanh": "CS 000001",
+        "soVaoSo": "VS-01"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G08-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     100801
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T08-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Văn I"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100801
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G09-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T09-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Thị K"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G10-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     101001
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T10-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Văn L"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101001
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G12-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": null,
+    "ThongTinDangKyVanHanh": null
+   },
+   {
+    "goiTinDongBoNId": "D18",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     3181,
+     3182
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D18"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tạ Văn Sơn"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3181
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9181,
+        "soPhatHanh": "CS 009181",
+        "soVaoSo": "VS-9181"
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3182
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D24",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     3241
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D24"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Văn Thị Yến"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3241
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9241,
+        "soPhatHanh": "CS 009241"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D18-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103181,
+     103182
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D18-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tạ Văn Sơn"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103181
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9181,
+        "soPhatHanh": "CS 009181",
+        "soVaoSo": "VS-9181"
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103182
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D24-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103241
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D24-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Văn Thị Yến"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103241
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9241,
+        "soPhatHanh": "CS 009241"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G11",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     1101,
+     1102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T11"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": " Mai  Văn M "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1101
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9101,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": "VS-02"
+       },
+       {
+        "giayChungNhanId": 9102,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": ""
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1102
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9103,
+        "soPhatHanh": "CS 000003"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G11-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     101101,
+     101102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T11-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": " Mai  Văn M "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101101
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9101,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": "VS-02"
+       },
+       {
+        "giayChungNhanId": 9102,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": ""
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101102
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9103,
+        "soPhatHanh": "CS 000003"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "state": {
+   "audit": {
+    "scanned": 70,
+    "gcn": 22,
+    "wrong": 8,
+    "pending": 41,
+    "fixed": 6,
+    "manual": 2,
+    "error": 0
+   },
+   "counts": {
+    "approve": 0,
+    "reject": 0,
+    "fix": 6,
+    "skip": 0,
+    "unknown": 0,
+    "warn": 0
+   },
+   "pos": 70,
+   "total": 70,
+   "scope": "all",
+   "running": false,
+   "stopping": false
+  },
+  "msg": "Xong: quét 70/70 đơn trong … giây · lỡ duyệt 8 · đã sửa 6 · kiểm tra tay 2",
+  "report": {
+   "time": "",
+   "dot": "DOT-0001-ABCD",
+   "total": 70,
+   "scanned": 70,
+   "gcn": 22,
+   "pending": 41,
+   "pendingManual": 15,
+   "complete": true,
+   "findings": [
+    {
+     "pos": 18,
+     "page": 2,
+     "maDon": "DON_D18",
+     "goi": "D18",
+     "owners": "Tạ Văn Sơn",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181",
+     "gcnIds": "9181",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 20,
+     "page": 2,
+     "maDon": "DON_D20",
+     "goi": "D20",
+     "owners": "Châu Văn Út",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9201, soPhatHanh=CS 009201",
+     "gcnIds": "9201",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "other",
+     "stateLabel": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3)",
+     "result": "manual",
+     "fixed": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3) – kiểm tra tay"
+    },
+    {
+     "pos": 24,
+     "page": 3,
+     "maDon": "DON_D24",
+     "goi": "D24",
+     "owners": "Văn Thị Yến",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9241, soPhatHanh=CS 009241",
+     "gcnIds": "9241",
+     "why": "đã Thêm vào dữ liệu vận hành",
+     "history": false,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 41,
+     "page": 5,
+     "maDon": "DON_D18-1",
+     "goi": "D18-1",
+     "owners": "Tạ Văn Sơn",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181",
+     "gcnIds": "9181",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 43,
+     "page": 5,
+     "maDon": "DON_D20-1",
+     "goi": "D20-1",
+     "owners": "Châu Văn Út",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9201, soPhatHanh=CS 009201",
+     "gcnIds": "9201",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "other",
+     "stateLabel": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3)",
+     "result": "manual",
+     "fixed": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3) – kiểm tra tay"
+    },
+    {
+     "pos": 47,
+     "page": 5,
+     "maDon": "DON_D24-1",
+     "goi": "D24-1",
+     "owners": "Văn Thị Yến",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9241, soPhatHanh=CS 009241",
+     "gcnIds": "9241",
+     "why": "đã Thêm vào dữ liệu vận hành",
+     "history": false,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 58,
+     "page": 6,
+     "maDon": "DON_T11",
+     "goi": "G11",
+     "owners": "Mai Văn M",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (2), giayChungNhanId=9101, soPhatHanh=CS 000002, soVaoSo=VS-02",
+     "gcnIds": "9101, 9102, 9103",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 69,
+     "page": 7,
+     "maDon": "DON_T11-1",
+     "goi": "G11-1",
+     "owners": "Mai Văn M",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (2), giayChungNhanId=9101, soPhatHanh=CS 000002, soVaoSo=VS-02",
+     "gcnIds": "9101, 9102, 9103",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    }
+   ],
+   "states": {
+    "trangThai=0, thiCong=0, vanHanh=-": 25,
+    "trangThai=0, thiCong=0, vanHanh=0/0": 2,
+    "trangThai=0, thiCong=0, vanHanh=0": 8,
+    "trangThai=0, thiCong=-1, vanHanh=-": 2,
+    "trangThai=1, thiCong=1, vanHanh=-": 4,
+    "trangThai=1, thiCong=1, vanHanh=3/3": 2,
+    "trangThai=1, thiCong=0, vanHanh=0": 4,
+    "trangThai=2, thiCong=1, vanHanh=3": 4,
+    "trangThai=2, thiCong=1, vanHanh=-": 2,
+    "trangThai=1, thiCong=1, vanHanh=0": 2,
+    "trangThai=1, thiCong=1, vanHanh=3": 3,
+    "trangThai=1, thiCong=1, vanHanh=3/3/3": 2,
+    "trangThai=0, thiCong=0, vanHanh=3": 2,
+    "trangThai=1, thiCong=-1, vanHanh=-": 2,
+    "trangThai=0, thiCong=-1, vanHanh=-1": 2,
+    "trangThai=1, thiCong=1, vanHanh=3/0": 2,
+    "trangThai=1, thiCong=undefined, vanHanh=-": 2
+   }
+  },
+  "logs": {
+   "DON_D18": {
+    "key": "DON_D18",
+    "maDon": "DON_D18",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "18/70",
+    "owners": "Tạ Văn Sơn",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009181",
+    "soVaoSo": "VS-9181",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181"
+   },
+   "DON_D24": {
+    "key": "DON_D24",
+    "maDon": "DON_D24",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "24/70",
+    "owners": "Văn Thị Yến",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009241",
+    "soVaoSo": "",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9241, soPhatHanh=CS 009241"
+   },
+   "DON_D18-1": {
+    "key": "DON_D18-1",
+    "maDon": "DON_D18-1",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "41/70",
+    "owners": "Tạ Văn Sơn",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009181",
+    "soVaoSo": "VS-9181",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181"
+   },
+   "DON_D24-1": {
+    "key": "DON_D24-1",
+    "maDon": "DON_D24-1",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "47/70",
+    "owners": "Văn Thị Yến",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009241",
+    "soVaoSo": "",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9241, soPhatHanh=CS 009241"
+   },
+   "DON_T11": {
+    "key": "DON_T11",
+    "maDon": "DON_T11",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "58/70",
+    "owners": "Mai Văn M",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 000002 | CS 000003",
+    "soVaoSo": "VS-02",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (2), giayChungNhanId=9101, soPhatHanh=CS 000002, soVaoSo=VS-02"
+   },
+   "DON_T11-1": {
+    "key": "DON_T11-1",
+    "maDon": "DON_T11-1",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "69/70",
+    "owners": "Mai Văn M",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 000002 | CS 000003",
+    "soVaoSo": "VS-02",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (2), giayChungNhanId=9101, soPhatHanh=CS 000002, soVaoSo=VS-02"
+   }
+  }
+ },
+ "sửa hỏng": {
+  "error": "",
+  "writes": [
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D18\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D18\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":3181},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":3182}],\"trangThai\":0}]"
+  ],
+  "items": [
+   {
+    "goiTinDongBoNId": "D01",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D01"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn An"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "34"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D02",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3101,
+     3102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D02"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Trần Thị Bình"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "45"
+       },
+       {
+        "soTo": "3",
+        "soThua": "46"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Văn Cũ"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     },
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3102
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D03",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3301
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D03"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lê Văn Cường"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "7",
+        "soThua": "8"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3301
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9301,
+        "soPhatHanh": "CS 009301",
+        "soVaoSo": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D04",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "giayChungNhanIds": [
+     9401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D04"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Phạm Thị Dung"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "1"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D05",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D05"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn Em"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "9"
+       }
+      ]
+     },
+     "ListFile": [
+      {
+       "tenFile": "scan.pdf",
+       "laGiayChungNhan": true
+      }
+     ]
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D06",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D06",
+      "ThongTinCu": {
+       "soVaoSo": "VS-123"
+      }
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị Gấm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "4"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D07",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D07",
+      "ngayVaoSo": "/Date(-62135596800000)/",
+      "soPhatHanh": "-",
+      "loaiGiayChungNhan": "GCN mới"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Đặng Văn Hải"
+        },
+        "GiayChungNhanKetHon": {
+         "so": "KH-01"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "10",
+        "soThua": "11"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D08"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Văn Ích"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D09",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": ""
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Thị Kim"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D10",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D10"
+     },
+     "ChuSoHuu": {},
+     "TaiSan": {}
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D11",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D11"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Văn Lâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": " "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D12",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D12"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Thị Mai"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "12a"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D13",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D13"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Mai Văn Nam"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "0",
+        "soThua": "0"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D14",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D14"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tô Thị Oanh"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListNha": [
+       {
+        "dienTich": 50
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D15",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3151
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D15"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hà Văn Phúc"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3152
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D16",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D16"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Kiều Văn Quang"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "8",
+        "soThua": "9"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D17",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D17"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lưu Thị Rạng"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "9",
+        "soThua": "10"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D19",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     3191
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D19"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đinh Thị Tâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3191
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9191,
+        "soPhatHanh": "CS 009191"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D20",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     3201
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D20"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Châu Văn Út"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3201
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9201,
+        "soPhatHanh": "CS 009201"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D21",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D21"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Quách Thị Vân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D22",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D22"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "HTX Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "ThuaDat": {
+         "soHieuToBanDo": "15",
+         "soThuTuThua": "16"
+        }
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D23",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3231
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D23"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Từ Văn Xuân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3231,
+       "ThongTinGCN": {
+        "soVaoSo": "VS-3231"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D24",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     3241
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D24"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Văn Thị Yến"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3241
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9241,
+        "soPhatHanh": "CS 009241"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D01-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D01-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn An"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "34"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D02-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103101,
+     103102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D02-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Trần Thị Bình"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "45"
+       },
+       {
+        "soTo": "3",
+        "soThua": "46"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Văn Cũ"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     },
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103102
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D03-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103301
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D03-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lê Văn Cường"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "7",
+        "soThua": "8"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103301
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9301,
+        "soPhatHanh": "CS 009301",
+        "soVaoSo": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D04-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "giayChungNhanIds": [
+     109401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D04-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Phạm Thị Dung"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "1"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D05-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D05-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn Em"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "9"
+       }
+      ]
+     },
+     "ListFile": [
+      {
+       "tenFile": "scan.pdf",
+       "laGiayChungNhan": true
+      }
+     ]
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D06-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D06-1",
+      "ThongTinCu": {
+       "soVaoSo": "VS-123"
+      }
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị Gấm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "4"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D07-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D07-1",
+      "ngayVaoSo": "/Date(-62135596800000)/",
+      "soPhatHanh": "-",
+      "loaiGiayChungNhan": "GCN mới"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Đặng Văn Hải"
+        },
+        "GiayChungNhanKetHon": {
+         "so": "KH-01"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "10",
+        "soThua": "11"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D09-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": ""
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Thị Kim"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D10-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D10-1"
+     },
+     "ChuSoHuu": {},
+     "TaiSan": {}
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D11-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D11-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Văn Lâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": " "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D12-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D12-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Thị Mai"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "12a"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D13-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D13-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Mai Văn Nam"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "0",
+        "soThua": "0"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D14-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D14-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tô Thị Oanh"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListNha": [
+       {
+        "dienTich": 50
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D15-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103151
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D15-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hà Văn Phúc"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103152
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D16-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D16-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Kiều Văn Quang"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "8",
+        "soThua": "9"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D17-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D17-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lưu Thị Rạng"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "9",
+        "soThua": "10"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D18-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103181,
+     103182
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D18-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tạ Văn Sơn"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103181
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9181,
+        "soPhatHanh": "CS 009181",
+        "soVaoSo": "VS-9181"
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103182
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D19-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103191
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D19-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đinh Thị Tâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103191
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9191,
+        "soPhatHanh": "CS 009191"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D20-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     103201
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D20-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Châu Văn Út"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103201
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9201,
+        "soPhatHanh": "CS 009201"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D21-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D21-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Quách Thị Vân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D22-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D22-1"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "HTX Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "ThuaDat": {
+         "soHieuToBanDo": "15",
+         "soThuTuThua": "16"
+        }
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D23-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103231
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D23-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Từ Văn Xuân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103231,
+       "ThongTinGCN": {
+        "soVaoSo": "VS-3231"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D24-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103241
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D24-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Văn Thị Yến"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103241
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9241,
+        "soPhatHanh": "CS 009241"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G01",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     101
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T01"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn A"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "345"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Thị B"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G02",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     201,
+     202,
+     203
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T02"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Lê Văn C"
+        },
+        "Vo": {
+         "hoTen": "Phạm Thị D"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 201
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Lê Văn C"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 202
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Phạm Thị D"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 203
+      },
+      "ChuSoHuu": {}
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G03",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T03"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "Công ty  TNHH   Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": null,
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T04"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn E"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 401
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G05",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     501
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T05"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị F"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 501
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G06",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     601
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T06"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đặng Văn G"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 601
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G07",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     701
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T07"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Thị H"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 701
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9001,
+        "soPhatHanh": "CS 000001",
+        "soVaoSo": "VS-01"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G08",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     801
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T08"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Văn I"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 801
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G09",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T09"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Thị K"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G10",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     1001
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T10"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Văn L"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1001
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G11",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     1101,
+     1102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T11"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": " Mai  Văn M "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1101
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9101,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": "VS-02"
+       },
+       {
+        "giayChungNhanId": 9102,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": ""
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1102
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9103,
+        "soPhatHanh": "CS 000003"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G12",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": null,
+    "ThongTinDangKyVanHanh": null
+   },
+   {
+    "goiTinDongBoNId": "G01-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100101
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T01-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn A"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "345"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Thị B"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G02-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100201,
+     100202,
+     100203
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T02-1"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Lê Văn C"
+        },
+        "Vo": {
+         "hoTen": "Phạm Thị D"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100201
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Lê Văn C"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100202
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Phạm Thị D"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100203
+      },
+      "ChuSoHuu": {}
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G03-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T03-1"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "Công ty  TNHH   Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G05-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     100501
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T05-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị F"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100501
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G06-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     100601
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T06-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đặng Văn G"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100601
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G07-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100701
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T07-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Thị H"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100701
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9001,
+        "soPhatHanh": "CS 000001",
+        "soVaoSo": "VS-01"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G08-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     100801
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T08-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Văn I"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100801
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G09-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T09-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Thị K"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G10-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     101001
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T10-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Văn L"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101001
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G11-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     101101,
+     101102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T11-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": " Mai  Văn M "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101101
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9101,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": "VS-02"
+       },
+       {
+        "giayChungNhanId": 9102,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": ""
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101102
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9103,
+        "soPhatHanh": "CS 000003"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G12-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": null,
+    "ThongTinDangKyVanHanh": null
+   },
+   {
+    "goiTinDongBoNId": "D18",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3181,
+     3182
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D18"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tạ Văn Sơn"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3181
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9181,
+        "soPhatHanh": "CS 009181",
+        "soVaoSo": "VS-9181"
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3182
+      }
+     }
+    ]
+   }
+  ],
+  "state": {
+   "audit": {
+    "scanned": 18,
+    "gcn": 5,
+    "wrong": 1,
+    "pending": 16,
+    "fixed": 0,
+    "manual": 0,
+    "error": 1
+   },
+   "counts": {
+    "approve": 0,
+    "reject": 0,
+    "fix": 1,
+    "skip": 0,
+    "unknown": 0,
+    "warn": 0
+   },
+   "pos": 18,
+   "total": 70,
+   "scope": "all",
+   "running": false,
+   "stopping": false
+  },
+  "msg": "Lỗi: Đơn DON_D18: đã làm: Bỏ duyệt (khung phải) (2 bản ghi); HỎNG: Không xử lý – trạng thái trả về 0, cần 1. Đã dừng, kiểm tra tay đơn này.",
+  "report": {
+   "time": "",
+   "dot": "DOT-0001-ABCD",
+   "total": 70,
+   "scanned": 18,
+   "gcn": 5,
+   "pending": 16,
+   "pendingManual": 5,
+   "complete": false,
+   "findings": [
+    {
+     "pos": 18,
+     "page": 2,
+     "maDon": "DON_D18",
+     "goi": "D18",
+     "owners": "Tạ Văn Sơn",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181",
+     "gcnIds": "9181",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "error",
+     "fixed": "LỖI: Đơn DON_D18: đã làm: Bỏ duyệt (khung phải) (2 bản ghi); HỎNG: Không xử lý – trạng thái trả về 0, cần 1. Đã dừng, kiểm tra tay đơn này."
+    }
+   ],
+   "states": {
+    "trangThai=0, thiCong=0, vanHanh=-": 12,
+    "trangThai=0, thiCong=0, vanHanh=0/0": 1,
+    "trangThai=0, thiCong=0, vanHanh=0": 2,
+    "trangThai=0, thiCong=-1, vanHanh=-": 1,
+    "trangThai=1, thiCong=1, vanHanh=-": 1,
+    "trangThai=1, thiCong=1, vanHanh=3/3": 1
+   }
+  },
+  "logs": {
+   "DON_D18": {
+    "key": "DON_D18",
+    "maDon": "DON_D18",
+    "time": "",
+    "action": "LỖI – đã làm: Bỏ duyệt (khung phải) (2 bản ghi); HỎNG: Không xử lý (trạng thái trả về 0, cần 1)",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "18/70",
+    "owners": "Tạ Văn Sơn",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009181",
+    "soVaoSo": "VS-9181",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181"
+   }
+  }
+ },
+ "trang thiếu, đổi thứ tự": {
+  "error": "",
+  "writes": [
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D18\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D18-1\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D24\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"D24-1\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"G11\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoThiCong\",{\"goiTinDongBoNId\":\"G11-1\",\"actionProcessSyncDataThiCong\":0,\"trangThai\":1,\"processSyncDatas\":[]}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D18\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":3181},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":3182}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D18-1\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":103181},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":103182}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D24\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":3241}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"D24-1\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":103241}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"G11\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":1101},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":1102}],\"trangThai\":0}]",
+   "[\"UpdateStatusGoiTinDongBoVanHanh\",{\"goiTinDongBoNId\":\"G11-1\",\"processSyncDatas\":[{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":101101},{\"actionProcessSyncData\":-1,\"tinhHinhDangKyId\":101102}],\"trangThai\":0}]"
+  ],
+  "items": [
+   {
+    "goiTinDongBoNId": "D01",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D01"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn An"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "34"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D02",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3101,
+     3102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D02"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Trần Thị Bình"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "45"
+       },
+       {
+        "soTo": "3",
+        "soThua": "46"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Văn Cũ"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     },
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3102
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D03",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3301
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D03"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lê Văn Cường"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "7",
+        "soThua": "8"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3301
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9301,
+        "soPhatHanh": "CS 009301",
+        "soVaoSo": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D04",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "giayChungNhanIds": [
+     9401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D04"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Phạm Thị Dung"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "1"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D05",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D05"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn Em"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "9"
+       }
+      ]
+     },
+     "ListFile": [
+      {
+       "tenFile": "scan.pdf",
+       "laGiayChungNhan": true
+      }
+     ]
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D06",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D06",
+      "ThongTinCu": {
+       "soVaoSo": "VS-123"
+      }
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị Gấm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "4"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D07",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D07",
+      "ngayVaoSo": "/Date(-62135596800000)/",
+      "soPhatHanh": "-",
+      "loaiGiayChungNhan": "GCN mới"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Đặng Văn Hải"
+        },
+        "GiayChungNhanKetHon": {
+         "so": "KH-01"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "10",
+        "soThua": "11"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D08"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Văn Ích"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D09",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": ""
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Thị Kim"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D10",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D10"
+     },
+     "ChuSoHuu": {},
+     "TaiSan": {}
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D11",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D11"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Văn Lâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": " "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D12",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D12"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Thị Mai"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "12a"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D13",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D13"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Mai Văn Nam"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "0",
+        "soThua": "0"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D14",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D14"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tô Thị Oanh"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListNha": [
+       {
+        "dienTich": 50
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D15",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3151
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D15"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hà Văn Phúc"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3152
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D16",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D16"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Kiều Văn Quang"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "8",
+        "soThua": "9"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D17",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D17"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lưu Thị Rạng"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "9",
+        "soThua": "10"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D19",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     3191
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D19"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đinh Thị Tâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3191
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9191,
+        "soPhatHanh": "CS 009191"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D20",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     3201
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D20"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Châu Văn Út"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3201
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9201,
+        "soPhatHanh": "CS 009201"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D21",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D21"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Quách Thị Vân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D22",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D22"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "HTX Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "ThuaDat": {
+         "soHieuToBanDo": "15",
+         "soThuTuThua": "16"
+        }
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D23",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     3231
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D23"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Từ Văn Xuân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3231,
+       "ThongTinGCN": {
+        "soVaoSo": "VS-3231"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D01-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D01-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn An"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "34"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D02-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103101,
+     103102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D02-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Trần Thị Bình"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "45"
+       },
+       {
+        "soTo": "3",
+        "soThua": "46"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Văn Cũ"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     },
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103102
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D03-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103301
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D03-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lê Văn Cường"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "7",
+        "soThua": "8"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103301
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9301,
+        "soPhatHanh": "CS 009301",
+        "soVaoSo": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D04-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "giayChungNhanIds": [
+     109401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D04-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Phạm Thị Dung"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "1"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D05-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D05-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn Em"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "9"
+       }
+      ]
+     },
+     "ListFile": [
+      {
+       "tenFile": "scan.pdf",
+       "laGiayChungNhan": true
+      }
+     ]
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D06-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D06-1",
+      "ThongTinCu": {
+       "soVaoSo": "VS-123"
+      }
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị Gấm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "4"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D07-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D07-1",
+      "ngayVaoSo": "/Date(-62135596800000)/",
+      "soPhatHanh": "-",
+      "loaiGiayChungNhan": "GCN mới"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Đặng Văn Hải"
+        },
+        "GiayChungNhanKetHon": {
+         "so": "KH-01"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "10",
+        "soThua": "11"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D09-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": ""
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Thị Kim"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D10-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D10-1"
+     },
+     "ChuSoHuu": {},
+     "TaiSan": {}
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D11-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D11-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Văn Lâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": " "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D12-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D12-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Thị Mai"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "12a"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D13-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D13-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Mai Văn Nam"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "0",
+        "soThua": "0"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D14-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D14-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tô Thị Oanh"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListNha": [
+       {
+        "dienTich": 50
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D15-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103151
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D15-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hà Văn Phúc"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103152
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D16-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D16-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Kiều Văn Quang"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "8",
+        "soThua": "9"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D17-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D17-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lưu Thị Rạng"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "9",
+        "soThua": "10"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D19-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103191
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D19-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đinh Thị Tâm"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "2",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103191
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9191,
+        "soPhatHanh": "CS 009191"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D20-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     103201
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D20-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Châu Văn Út"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "3"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103201
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9201,
+        "soPhatHanh": "CS 009201"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D21-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D21-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Quách Thị Vân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "4",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D22-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D22-1"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "HTX Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "ThuaDat": {
+         "soHieuToBanDo": "15",
+         "soThuTuThua": "16"
+        }
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "D23-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     103231
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D23-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Từ Văn Xuân"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "5",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103231,
+       "ThongTinGCN": {
+        "soVaoSo": "VS-3231"
+       }
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G01",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     101
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T01"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn A"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "345"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Thị B"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G02",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     201,
+     202,
+     203
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T02"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Lê Văn C"
+        },
+        "Vo": {
+         "hoTen": "Phạm Thị D"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 201
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Lê Văn C"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 202
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Phạm Thị D"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 203
+      },
+      "ChuSoHuu": {}
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G03",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T03"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "Công ty  TNHH   Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": null,
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     401
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T04"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Hoàng Văn E"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 401
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G05",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     501
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T05"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị F"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 501
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G06",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     601
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T06"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đặng Văn G"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 601
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G07",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     701
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T07"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Thị H"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 701
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9001,
+        "soPhatHanh": "CS 000001",
+        "soVaoSo": "VS-01"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G08",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     801
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T08"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Văn I"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 801
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G09",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T09"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Thị K"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G10",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     1001
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T10"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Văn L"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1001
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G12",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": null,
+    "ThongTinDangKyVanHanh": null
+   },
+   {
+    "goiTinDongBoNId": "G01-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100101
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T01-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Nguyễn Văn A"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "12",
+        "soThua": "345"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100101
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Trần Thị B"
+        }
+       ]
+      },
+      "ListGiayChungNhan": []
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G02-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100201,
+     100202,
+     100203
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T02-1"
+     },
+     "ChuSoHuu": {
+      "ListVoChong": [
+       {
+        "Chong": {
+         "hoTen": "Lê Văn C"
+        },
+        "Vo": {
+         "hoTen": "Phạm Thị D"
+        }
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "3",
+        "soThua": "7"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100201
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Lê Văn C"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100202
+      },
+      "ChuSoHuu": {
+       "ListCaNhan": [
+        {
+         "hoTen": "Phạm Thị D"
+        }
+       ]
+      }
+     },
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100203
+      },
+      "ChuSoHuu": {}
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G03-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T03-1"
+     },
+     "ChuSoHuu": {
+      "ListToChuc": [
+       {
+        "tenToChuc": "Công ty  TNHH   Ví Dụ"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "2"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G05-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     100501
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T05-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Vũ Thị F"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100501
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G06-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     100601
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T06-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Đặng Văn G"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100601
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G07-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     100701
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T07-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Bùi Thị H"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 0,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100701
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9001,
+        "soPhatHanh": "CS 000001",
+        "soVaoSo": "VS-01"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G08-1",
+    "trangThaiGoiTinDongBo": 2,
+    "tinhHinhDangKyVanHanhIds": [
+     100801
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T08-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Ngô Văn I"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": 3,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 100801
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G09-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T09-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Dương Thị K"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": []
+   },
+   {
+    "goiTinDongBoNId": "G10-1",
+    "trangThaiGoiTinDongBo": 0,
+    "tinhHinhDangKyVanHanhIds": [
+     101001
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": -1,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T10-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Lý Văn L"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101001
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G12-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": null,
+    "ThongTinDangKyVanHanh": null
+   },
+   {
+    "goiTinDongBoNId": "D18",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     3181,
+     3182
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D18"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tạ Văn Sơn"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3181
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9181,
+        "soPhatHanh": "CS 009181",
+        "soVaoSo": "VS-9181"
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3182
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D24",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     3241
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D24"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Văn Thị Yến"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 3241
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9241,
+        "soPhatHanh": "CS 009241"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D18-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103181,
+     103182
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D18-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Tạ Văn Sơn"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "1",
+        "soThua": "5"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103181
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9181,
+        "soPhatHanh": "CS 009181",
+        "soVaoSo": "VS-9181"
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103182
+      }
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "D24-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     103241
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_D24-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": "Văn Thị Yến"
+       }
+      ]
+     },
+     "TaiSan": {
+      "ListThuaDat": [
+       {
+        "soTo": "6",
+        "soThua": "6"
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 103241
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9241,
+        "soPhatHanh": "CS 009241"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G11",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     1101,
+     1102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T11"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": " Mai  Văn M "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1101
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9101,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": "VS-02"
+       },
+       {
+        "giayChungNhanId": 9102,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": ""
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 1102
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9103,
+        "soPhatHanh": "CS 000003"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "goiTinDongBoNId": "G11-1",
+    "trangThaiGoiTinDongBo": 1,
+    "tinhHinhDangKyVanHanhIds": [
+     101101,
+     101102
+    ],
+    "ThongTinDangKyThiCong": {
+     "ActionProcessSyncData": 0,
+     "TinhHinhDangKy": {
+      "maDon": "DON_T11-1"
+     },
+     "ChuSoHuu": {
+      "ListCaNhan": [
+       {
+        "hoTen": " Mai  Văn M "
+       }
+      ]
+     }
+    },
+    "ThongTinDangKyVanHanh": [
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101101
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9101,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": "VS-02"
+       },
+       {
+        "giayChungNhanId": 9102,
+        "soPhatHanh": "CS 000002",
+        "soVaoSo": ""
+       }
+      ]
+     },
+     {
+      "ActionProcessSyncData": -1,
+      "TinhHinhDangKy": {
+       "tinhHinhDangKyId": 101102
+      },
+      "ListGiayChungNhan": [
+       {
+        "giayChungNhanId": 9103,
+        "soPhatHanh": "CS 000003"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "state": {
+   "audit": {
+    "scanned": 70,
+    "gcn": 23,
+    "wrong": 8,
+    "pending": 41,
+    "fixed": 6,
+    "manual": 2,
+    "error": 0
+   },
+   "counts": {
+    "approve": 0,
+    "reject": 0,
+    "fix": 6,
+    "skip": 0,
+    "unknown": 0,
+    "warn": 0
+   },
+   "pos": 70,
+   "total": 70,
+   "scope": "all",
+   "running": false,
+   "stopping": false
+  },
+  "msg": "Xong: quét 70/70 đơn trong … giây · lỡ duyệt 8 · đã sửa 6 · kiểm tra tay 2",
+  "report": {
+   "time": "",
+   "dot": "DOT-0001-ABCD",
+   "total": 70,
+   "scanned": 70,
+   "gcn": 23,
+   "pending": 41,
+   "pendingManual": 15,
+   "complete": true,
+   "findings": [
+    {
+     "pos": 18,
+     "page": 2,
+     "maDon": "DON_D18",
+     "goi": "D18",
+     "owners": "Tạ Văn Sơn",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181",
+     "gcnIds": "9181",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 20,
+     "page": 2,
+     "maDon": "DON_D20",
+     "goi": "D20",
+     "owners": "Châu Văn Út",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9201, soPhatHanh=CS 009201",
+     "gcnIds": "9201",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "other",
+     "stateLabel": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3)",
+     "result": "manual",
+     "fixed": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3) – kiểm tra tay"
+    },
+    {
+     "pos": 24,
+     "page": 3,
+     "maDon": "DON_D24",
+     "goi": "D24",
+     "owners": "Văn Thị Yến",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9241, soPhatHanh=CS 009241",
+     "gcnIds": "9241",
+     "why": "đã Thêm vào dữ liệu vận hành",
+     "history": false,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 41,
+     "page": 5,
+     "maDon": "DON_D18-1",
+     "goi": "D18-1",
+     "owners": "Tạ Văn Sơn",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181",
+     "gcnIds": "9181",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 43,
+     "page": 5,
+     "maDon": "DON_D20-1",
+     "goi": "D20-1",
+     "owners": "Châu Văn Út",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9201, soPhatHanh=CS 009201",
+     "gcnIds": "9201",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "other",
+     "stateLabel": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3)",
+     "result": "manual",
+     "fixed": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3) – kiểm tra tay"
+    },
+    {
+     "pos": 47,
+     "page": 5,
+     "maDon": "DON_D24-1",
+     "goi": "D24-1",
+     "owners": "Văn Thị Yến",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9241, soPhatHanh=CS 009241",
+     "gcnIds": "9241",
+     "why": "đã Thêm vào dữ liệu vận hành",
+     "history": false,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 57,
+     "page": 6,
+     "maDon": "DON_T11",
+     "goi": "G11",
+     "owners": "Mai Văn M",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (2), giayChungNhanId=9101, soPhatHanh=CS 000002, soVaoSo=VS-02",
+     "gcnIds": "9101, 9102, 9103",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    },
+    {
+     "pos": 68,
+     "page": 7,
+     "maDon": "DON_T11-1",
+     "goi": "G11-1",
+     "owners": "Mai Văn M",
+     "reason": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (2), giayChungNhanId=9101, soPhatHanh=CS 000002, soVaoSo=VS-02",
+     "gcnIds": "9101, 9102, 9103",
+     "why": "đã Cập nhật lịch sử",
+     "history": true,
+     "state": "approved",
+     "stateLabel": "đã thêm vào dữ liệu vận hành",
+     "result": "fixed",
+     "fixed": "đã sửa …"
+    }
+   ],
+   "states": {
+    "trangThai=0, thiCong=0, vanHanh=-": 25,
+    "trangThai=0, thiCong=0, vanHanh=0/0": 2,
+    "trangThai=0, thiCong=0, vanHanh=0": 8,
+    "trangThai=0, thiCong=-1, vanHanh=-": 2,
+    "trangThai=1, thiCong=1, vanHanh=-": 3,
+    "trangThai=1, thiCong=1, vanHanh=3/3": 2,
+    "trangThai=1, thiCong=0, vanHanh=0": 4,
+    "trangThai=2, thiCong=1, vanHanh=3": 4,
+    "trangThai=2, thiCong=1, vanHanh=-": 2,
+    "trangThai=1, thiCong=1, vanHanh=0": 2,
+    "trangThai=1, thiCong=1, vanHanh=3": 3,
+    "trangThai=1, thiCong=1, vanHanh=3/3/3": 2,
+    "trangThai=0, thiCong=0, vanHanh=3": 2,
+    "trangThai=1, thiCong=-1, vanHanh=-": 2,
+    "trangThai=0, thiCong=-1, vanHanh=-1": 2,
+    "trangThai=1, thiCong=1, vanHanh=3/0": 2,
+    "trangThai=1, thiCong=undefined, vanHanh=-": 2,
+    "trangThai=1, thiCong=0, vanHanh=-1/-1": 1
+   }
+  },
+  "logs": {
+   "DON_D18": {
+    "key": "DON_D18",
+    "maDon": "DON_D18",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "18/70",
+    "owners": "Tạ Văn Sơn",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009181",
+    "soVaoSo": "VS-9181",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181"
+   },
+   "DON_D24": {
+    "key": "DON_D24",
+    "maDon": "DON_D24",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "24/70",
+    "owners": "Văn Thị Yến",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009241",
+    "soVaoSo": "",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9241, soPhatHanh=CS 009241"
+   },
+   "DON_D18-1": {
+    "key": "DON_D18-1",
+    "maDon": "DON_D18-1",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "41/70",
+    "owners": "Tạ Văn Sơn",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009181",
+    "soVaoSo": "VS-9181",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9181, soPhatHanh=CS 009181, soVaoSo=VS-9181"
+   },
+   "DON_D24-1": {
+    "key": "DON_D24-1",
+    "maDon": "DON_D24-1",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "47/70",
+    "owners": "Văn Thị Yến",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 009241",
+    "soVaoSo": "",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (1), giayChungNhanId=9241, soPhatHanh=CS 009241"
+   },
+   "DON_T11": {
+    "key": "DON_T11",
+    "maDon": "DON_T11",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "57/70",
+    "owners": "Mai Văn M",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 000002 | CS 000003",
+    "soVaoSo": "VS-02",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (2), giayChungNhanId=9101, soPhatHanh=CS 000002, soVaoSo=VS-02"
+   },
+   "DON_T11-1": {
+    "key": "DON_T11-1",
+    "maDon": "DON_T11-1",
+    "time": "",
+    "action": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+    "actionTime": "",
+    "seq": 0,
+    "stt": "68/70",
+    "owners": "Mai Văn M",
+    "ownersRight": "",
+    "result": "KHÔNG DUYỆT",
+    "soPhatHanh": "CS 000002 | CS 000003",
+    "soVaoSo": "VS-02",
+    "note": "Khung phải đã có Giấy chứng nhận: ListGiayChungNhan (2), giayChungNhanId=9101, soPhatHanh=CS 000002, soVaoSo=VS-02"
+   }
+  }
+ }
+}

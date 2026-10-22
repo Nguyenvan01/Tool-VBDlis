@@ -1,0 +1,214 @@
+{
+ "fix: G01": {
+  "kind": "fix",
+  "label": "SỬA: Bỏ duyệt (khung phải) → Không xử lý",
+  "reqs": [
+   {
+    "name": "UpdateStatusGoiTinDongBoVanHanh",
+    "label": "Bỏ duyệt (khung phải)",
+    "body": {
+     "goiTinDongBoNId": "G01",
+     "processSyncDatas": [
+      {
+       "actionProcessSyncData": -1,
+       "tinhHinhDangKyId": 101
+      }
+     ],
+     "trangThai": 0
+    },
+    "expect": {
+     "trangThai": 0,
+     "vanHanh": {
+      "ids": [
+       101
+      ],
+      "action": -1
+     }
+    }
+   },
+   {
+    "name": "UpdateStatusGoiTinDongBoThiCong",
+    "label": "Không xử lý",
+    "body": {
+     "goiTinDongBoNId": "G01",
+     "actionProcessSyncDataThiCong": 0,
+     "trangThai": 1,
+     "processSyncDatas": []
+    },
+    "expect": {
+     "trangThai": 1,
+     "thiCong": 0
+    }
+   }
+  ]
+ },
+ "fix: G02": {
+  "kind": "fix",
+  "label": "SỬA: Bỏ duyệt (khung phải) (3 bản ghi) → Không xử lý",
+  "reqs": [
+   {
+    "name": "UpdateStatusGoiTinDongBoVanHanh",
+    "label": "Bỏ duyệt (khung phải) (3 bản ghi)",
+    "body": {
+     "goiTinDongBoNId": "G02",
+     "processSyncDatas": [
+      {
+       "actionProcessSyncData": -1,
+       "tinhHinhDangKyId": 201
+      },
+      {
+       "actionProcessSyncData": -1,
+       "tinhHinhDangKyId": 202
+      },
+      {
+       "actionProcessSyncData": -1,
+       "tinhHinhDangKyId": 203
+      }
+     ],
+     "trangThai": 0
+    },
+    "expect": {
+     "trangThai": 0,
+     "vanHanh": {
+      "ids": [
+       201,
+       202,
+       203
+      ],
+      "action": -1
+     }
+    }
+   },
+   {
+    "name": "UpdateStatusGoiTinDongBoThiCong",
+    "label": "Không xử lý",
+    "body": {
+     "goiTinDongBoNId": "G02",
+     "actionProcessSyncDataThiCong": 0,
+     "trangThai": 1,
+     "processSyncDatas": []
+    },
+    "expect": {
+     "trangThai": 1,
+     "thiCong": 0
+    }
+   }
+  ]
+ },
+ "fix: G03": {
+  "kind": "fix",
+  "label": "SỬA: Không xử lý",
+  "reqs": [
+   {
+    "name": "UpdateStatusGoiTinDongBoThiCong",
+    "label": "Không xử lý",
+    "body": {
+     "goiTinDongBoNId": "G03",
+     "actionProcessSyncDataThiCong": 0,
+     "trangThai": 1,
+     "processSyncDatas": []
+    },
+    "expect": {
+     "trangThai": 1,
+     "thiCong": 0
+    }
+   }
+  ]
+ },
+ "fix: G11": {
+  "kind": "fix",
+  "label": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+  "reqs": [
+   {
+    "name": "UpdateStatusGoiTinDongBoVanHanh",
+    "label": "Bỏ duyệt (khung phải) (2 bản ghi)",
+    "body": {
+     "goiTinDongBoNId": "G11",
+     "processSyncDatas": [
+      {
+       "actionProcessSyncData": -1,
+       "tinhHinhDangKyId": 1101
+      },
+      {
+       "actionProcessSyncData": -1,
+       "tinhHinhDangKyId": 1102
+      }
+     ],
+     "trangThai": 0
+    },
+    "expect": {
+     "trangThai": 0,
+     "vanHanh": {
+      "ids": [
+       1101,
+       1102
+      ],
+      "action": -1
+     }
+    }
+   },
+   {
+    "name": "UpdateStatusGoiTinDongBoThiCong",
+    "label": "Không xử lý",
+    "body": {
+     "goiTinDongBoNId": "G11",
+     "actionProcessSyncDataThiCong": 0,
+     "trangThai": 1,
+     "processSyncDatas": []
+    },
+    "expect": {
+     "trangThai": 1,
+     "thiCong": 0
+    }
+   }
+  ]
+ },
+ "fix: N03": {
+  "kind": "fix",
+  "label": "SỬA: Bỏ duyệt (khung phải) (2 bản ghi) → Không xử lý",
+  "reqs": [
+   {
+    "name": "UpdateStatusGoiTinDongBoVanHanh",
+    "label": "Bỏ duyệt (khung phải) (2 bản ghi)",
+    "body": {
+     "goiTinDongBoNId": "N03",
+     "processSyncDatas": [
+      {
+       "actionProcessSyncData": -1,
+       "tinhHinhDangKyId": 2301
+      },
+      {
+       "actionProcessSyncData": -1,
+       "tinhHinhDangKyId": 2302
+      }
+     ],
+     "trangThai": 0
+    },
+    "expect": {
+     "trangThai": 0,
+     "vanHanh": {
+      "ids": [
+       2301,
+       2302
+      ],
+      "action": -1
+     }
+    }
+   },
+   {
+    "name": "UpdateStatusGoiTinDongBoThiCong",
+    "label": "Không xử lý",
+    "body": {
+     "goiTinDongBoNId": "N03",
+     "actionProcessSyncDataThiCong": 0,
+     "trangThai": 1,
+     "processSyncDatas": []
+    },
+    "expect": {
+     "trangThai": 1,
+     "thiCong": 0
+    }
+   }
+  ]
+ }
+}

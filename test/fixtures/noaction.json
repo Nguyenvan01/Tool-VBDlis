@@ -1,0 +1,62 @@
+[
+  {
+    "name": "chưa xử lý nhưng mã bản ghi khung phải không khớp",
+    "row": 2,
+    "v": {
+      "goiTinDongBoNId": "N01", "trangThaiGoiTinDongBo": 0, "tinhHinhDangKyVanHanhIds": [2101, 2102],
+      "ThongTinDangKyThiCong": { "ActionProcessSyncData": 0, "TinhHinhDangKy": { "maDon": "DON_N01" }, "ChuSoHuu": { "ListCaNhan": [{ "hoTen": "Tạ Văn N" }] } },
+      "ThongTinDangKyVanHanh": [{ "ActionProcessSyncData": 3, "TinhHinhDangKy": { "tinhHinhDangKyId": 2101 } }]
+    }
+  },
+  {
+    "name": "đã Không xử lý nhưng khung phải còn Cập nhật lịch sử",
+    "row": 4,
+    "v": {
+      "goiTinDongBoNId": "N02", "trangThaiGoiTinDongBo": 1, "tinhHinhDangKyVanHanhIds": [2201],
+      "ThongTinDangKyThiCong": { "ActionProcessSyncData": 0, "TinhHinhDangKy": { "maDon": "DON_N02" }, "ChuSoHuu": { "ListCaNhan": [{ "hoTen": "Lưu Thị O" }] } },
+      "ThongTinDangKyVanHanh": [{ "ActionProcessSyncData": 3, "TinhHinhDangKy": { "tinhHinhDangKyId": 2201 } }]
+    }
+  },
+  {
+    "name": "đã duyệt, khung phải có bản ghi nhưng không Cập nhật lịch sử",
+    "row": 6,
+    "v": {
+      "goiTinDongBoNId": "N03", "trangThaiGoiTinDongBo": 1, "tinhHinhDangKyVanHanhIds": [2301, 2302],
+      "ThongTinDangKyThiCong": { "ActionProcessSyncData": 1, "TinhHinhDangKy": { "maDon": "DON_N03" }, "ChuSoHuu": { "ListCaNhan": [{ "hoTen": "Hà Văn P" }] } },
+      "ThongTinDangKyVanHanh": [
+        { "ActionProcessSyncData": 0, "TinhHinhDangKy": { "tinhHinhDangKyId": 2301 } },
+        { "ActionProcessSyncData": -1, "TinhHinhDangKy": { "tinhHinhDangKyId": 2302 } }
+      ]
+    }
+  },
+  {
+    "name": "thiếu mã gói tin VÀ trạng thái khác (dòng 1 đứng trước dòng 3)",
+    "row": 1,
+    "v": {
+      "goiTinDongBoNId": "", "trangThaiGoiTinDongBo": 2, "tinhHinhDangKyVanHanhIds": [],
+      "ThongTinDangKyThiCong": { "ActionProcessSyncData": 1, "TinhHinhDangKy": { "maDon": "DON_N04" } },
+      "ThongTinDangKyVanHanh": []
+    }
+  },
+  {
+    "name": "mã khung phải không khớp VÀ trạng thái khác (dòng 2 đứng trước dòng 3)",
+    "row": 2,
+    "v": {
+      "goiTinDongBoNId": "N05", "trangThaiGoiTinDongBo": 2, "tinhHinhDangKyVanHanhIds": [2501],
+      "ThongTinDangKyThiCong": { "ActionProcessSyncData": 1, "TinhHinhDangKy": { "maDon": "DON_N05" } },
+      "ThongTinDangKyVanHanh": []
+    }
+  },
+  {
+    "name": "chưa xử lý, khung trái -1, khung phải 2 bản ghi có Cập nhật lịch sử",
+    "row": 4,
+    "v": {
+      "goiTinDongBoNId": "N06", "trangThaiGoiTinDongBo": 0, "tinhHinhDangKyVanHanhIds": [2601, 2602],
+      "ThongTinDangKyThiCong": { "ActionProcessSyncData": -1, "TinhHinhDangKy": { "maDon": "DON_N06" }, "ChuSoHuu": { "ListCaNhan": [{ "hoTen": "Kiều Thị Q" }] } },
+      "ThongTinDangKyVanHanh": [
+        { "ActionProcessSyncData": 3, "TinhHinhDangKy": { "tinhHinhDangKyId": 2601 } },
+        { "ActionProcessSyncData": -1, "TinhHinhDangKy": { "tinhHinhDangKyId": 2602 } }
+      ]
+    }
+  }
+]

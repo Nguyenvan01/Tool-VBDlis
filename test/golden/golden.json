@@ -1,0 +1,531 @@
+{
+ "checkResponse: không có value": {
+  "duyet": "trạng thái trả về undefined, cần 1",
+  "go": "trạng thái trả về undefined, cần 1"
+ },
+ "checkResponse: phản hồi null": {
+  "duyet": "trạng thái trả về undefined, cần 0",
+  "go": "trạng thái trả về undefined, cần 0"
+ },
+ "checkResponse: thiCong 0 đúng (Không xử lý)": {
+  "duyet": "",
+  "go": ""
+ },
+ "checkResponse: thiCong sai action": {
+  "duyet": "actionProcessSyncDataThiCong trả về 1, cần -1",
+  "go": "actionProcessSyncDataThiCong trả về 1, cần -1"
+ },
+ "checkResponse: thiCong sai trangThai": {
+  "duyet": "trạng thái trả về 1, cần 0",
+  "go": "trạng thái trả về 1, cần 0"
+ },
+ "checkResponse: thiCong đúng": {
+  "duyet": "",
+  "go": ""
+ },
+ "checkResponse: vanHanh không phải JSON": {
+  "duyet": "khung phải chưa ghi nhận (actionProcessSyncDataVanHanh = <html>)",
+  "go": "khung phải chưa ghi nhận (actionProcessSyncDataVanHanh = <html>)"
+ },
+ "checkResponse: vanHanh sai action": {
+  "duyet": "khung phải chưa ghi nhận (actionProcessSyncDataVanHanh = {\"ListProcessSyncData\":[{\"tinhHinhDangKyId\":101,\"actionProcessSyncData\":0}]})",
+  "go": "khung phải chưa ghi nhận (actionProcessSyncDataVanHanh = {\"ListProcessSyncData\":[{\"tinhHinhDangKyId\":101,\"actionProcessSyncData\":0}]})"
+ },
+ "checkResponse: vanHanh thiếu 1 id": {
+  "duyet": "khung phải chưa ghi nhận (actionProcessSyncDataVanHanh = {\"ListProcessSyncData\":[{\"tinhHinhDangKyId\":101,\"actionProcessSyncData\":-1}]})",
+  "go": "khung phải chưa ghi nhận (actionProcessSyncDataVanHanh = {\"ListProcessSyncData\":[{\"tinhHinhDangKyId\":101,\"actionProcessSyncData\":-1}]})"
+ },
+ "checkResponse: vanHanh trống": {
+  "duyet": "khung phải chưa ghi nhận (actionProcessSyncDataVanHanh = trống)",
+  "go": "khung phải chưa ghi nhận (actionProcessSyncDataVanHanh = trống)"
+ },
+ "checkResponse: vanHanh đủ 2 id": {
+  "duyet": "",
+  "go": ""
+ },
+ "don: chưa xử lý nhưng khung phải đã Cập nhật lịch sử": {
+  "serverState": "pending",
+  "stateLabel": "chưa xử lý",
+  "stateLabelGo": "chưa xử lý",
+  "rawState": "trangThai=0, thiCong=0, vanHanh=3",
+  "historyIds": [
+   501
+  ],
+  "info": {
+   "maDon": "DON_T05",
+   "goi": "G05",
+   "owners": [
+    "Vũ Thị F"
+   ],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": [
+    501
+   ]
+  },
+  "undoFor": {
+   "kind": "unknown",
+   "label": "Gỡ duyệt: chưa xử lý – kiểm tra tay",
+   "reqs": []
+  }
+ },
+ "don: chưa xử lý, khung phải chưa làm gì": {
+  "serverState": "pending",
+  "stateLabel": "chưa xử lý",
+  "stateLabelGo": "chưa xử lý",
+  "rawState": "trangThai=0, thiCong=0, vanHanh=0",
+  "historyIds": [],
+  "info": {
+   "maDon": "DON_T06",
+   "goi": "G06",
+   "owners": [
+    "Đặng Văn G"
+   ],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": [
+    601
+   ]
+  },
+  "undoFor": {
+   "kind": "skip",
+   "label": "bỏ qua (chưa xử lý)",
+   "reqs": []
+  }
+ },
+ "don: thiếu cả khung trái, trangThai 1": {
+  "serverState": "other",
+  "stateLabel": "trạng thái khác (trangThai=1, thiCong=undefined, vanHanh=-)",
+  "stateLabelGo": "trạng thái khác (trangThai=1, thiCong=undefined, vanHanh=-)",
+  "rawState": "trangThai=1, thiCong=undefined, vanHanh=-",
+  "historyIds": [],
+  "info": {
+   "maDon": "",
+   "goi": "G12",
+   "owners": [],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": []
+  },
+  "undoFor": {
+   "kind": "skip",
+   "label": "bỏ qua (trạng thái khác (trangThai=1, thiCong=undefined, vanHanh=-))",
+   "reqs": []
+  }
+ },
+ "don: trangThai không có": {
+  "serverState": "other",
+  "stateLabel": "trạng thái khác (trangThai=undefined, thiCong=undefined, vanHanh=-)",
+  "stateLabelGo": "trạng thái khác (trangThai=undefined, thiCong=undefined, vanHanh=-)",
+  "rawState": "trangThai=undefined, thiCong=undefined, vanHanh=-",
+  "historyIds": [],
+  "info": {
+   "maDon": "DON_T13",
+   "goi": "G13",
+   "owners": [],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": []
+  },
+  "undoFor": {
+   "kind": "skip",
+   "label": "bỏ qua (trạng thái khác (trangThai=undefined, thiCong=undefined, vanHanh=-))",
+   "reqs": []
+  }
+ },
+ "don: đã Không xử lý": {
+  "serverState": "noaction",
+  "stateLabel": "đã Không xử lý",
+  "stateLabelGo": "đã Không xử lý",
+  "rawState": "trangThai=1, thiCong=0, vanHanh=0",
+  "historyIds": [],
+  "info": {
+   "maDon": "DON_T07",
+   "goi": "G07",
+   "owners": [
+    "Bùi Thị H"
+   ],
+   "ownersRight": [],
+   "gcn": [
+    {
+     "soPhatHanh": "CS 000001",
+     "soVaoSo": "VS-01"
+    }
+   ],
+   "vhIds": [
+    701
+   ]
+  },
+  "undoFor": {
+   "kind": "skip",
+   "label": "bỏ qua (đã Không xử lý)",
+   "reqs": []
+  }
+ },
+ "don: đã bị Bỏ duyệt trước đó (trangThai 0, -1)": {
+  "serverState": "pending",
+  "stateLabel": "chưa xử lý",
+  "stateLabelGo": "chưa xử lý",
+  "rawState": "trangThai=0, thiCong=-1, vanHanh=-1",
+  "historyIds": [],
+  "info": {
+   "maDon": "DON_T10",
+   "goi": "G10",
+   "owners": [
+    "Lý Văn L"
+   ],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": [
+    1001
+   ]
+  },
+  "undoFor": {
+   "kind": "skip",
+   "label": "bỏ qua (chưa xử lý)",
+   "reqs": []
+  }
+ },
+ "don: đã duyệt nhưng thiếu mã gói tin": {
+  "serverState": "approved",
+  "stateLabel": "đã thêm vào dữ liệu vận hành",
+  "stateLabelGo": "đã thêm vào dữ liệu vận hành",
+  "rawState": "trangThai=1, thiCong=1, vanHanh=3",
+  "historyIds": [
+   401
+  ],
+  "info": {
+   "maDon": "DON_T04",
+   "goi": "",
+   "owners": [
+    "Hoàng Văn E"
+   ],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": [
+    401
+   ]
+  },
+  "undoFor": {
+   "kind": "unknown",
+   "label": "Gỡ duyệt: không có mã gói tin – kiểm tra tay",
+   "reqs": []
+  }
+ },
+ "don: đã duyệt, khung phải 1 bản ghi đã Cập nhật lịch sử": {
+  "serverState": "approved",
+  "stateLabel": "đã thêm vào dữ liệu vận hành",
+  "stateLabelGo": "đã thêm vào dữ liệu vận hành",
+  "rawState": "trangThai=1, thiCong=1, vanHanh=3",
+  "historyIds": [
+   101
+  ],
+  "info": {
+   "maDon": "DON_T01",
+   "goi": "G01",
+   "owners": [
+    "Nguyễn Văn A"
+   ],
+   "ownersRight": [
+    "Trần Thị B"
+   ],
+   "gcn": [],
+   "vhIds": [
+    101
+   ]
+  },
+  "undoFor": {
+   "kind": "undo",
+   "label": "GỠ DUYỆT: Bỏ duyệt (khung phải) → Bỏ duyệt (khung trái)",
+   "reqs": [
+    {
+     "name": "UpdateStatusGoiTinDongBoVanHanh",
+     "label": "Bỏ duyệt (khung phải)",
+     "body": {
+      "goiTinDongBoNId": "G01",
+      "processSyncDatas": [
+       {
+        "actionProcessSyncData": -1,
+        "tinhHinhDangKyId": 101
+       }
+      ],
+      "trangThai": 0
+     },
+     "expect": {
+      "trangThai": 0,
+      "vanHanh": {
+       "ids": [
+        101
+       ],
+       "action": -1
+      }
+     }
+    },
+    {
+     "name": "UpdateStatusGoiTinDongBoThiCong",
+     "label": "Bỏ duyệt (khung trái)",
+     "body": {
+      "goiTinDongBoNId": "G01",
+      "actionProcessSyncDataThiCong": -1,
+      "trangThai": 0,
+      "processSyncDatas": []
+     },
+     "expect": {
+      "trangThai": 0,
+      "thiCong": -1
+     }
+    }
+   ]
+  }
+ },
+ "don: đã duyệt, khung phải 3 bản ghi (một lệnh VanHanh)": {
+  "serverState": "approved",
+  "stateLabel": "đã thêm vào dữ liệu vận hành",
+  "stateLabelGo": "đã thêm vào dữ liệu vận hành",
+  "rawState": "trangThai=1, thiCong=1, vanHanh=3/3/3",
+  "historyIds": [
+   201,
+   202,
+   203
+  ],
+  "info": {
+   "maDon": "DON_T02",
+   "goi": "G02",
+   "owners": [
+    "Lê Văn C",
+    "Phạm Thị D"
+   ],
+   "ownersRight": [
+    "Lê Văn C",
+    "Phạm Thị D"
+   ],
+   "gcn": [],
+   "vhIds": [
+    201,
+    202,
+    203
+   ]
+  },
+  "undoFor": {
+   "kind": "undo",
+   "label": "GỠ DUYỆT: Bỏ duyệt (khung phải) (3 bản ghi) → Bỏ duyệt (khung trái)",
+   "reqs": [
+    {
+     "name": "UpdateStatusGoiTinDongBoVanHanh",
+     "label": "Bỏ duyệt (khung phải) (3 bản ghi)",
+     "body": {
+      "goiTinDongBoNId": "G02",
+      "processSyncDatas": [
+       {
+        "actionProcessSyncData": -1,
+        "tinhHinhDangKyId": 201
+       },
+       {
+        "actionProcessSyncData": -1,
+        "tinhHinhDangKyId": 202
+       },
+       {
+        "actionProcessSyncData": -1,
+        "tinhHinhDangKyId": 203
+       }
+      ],
+      "trangThai": 0
+     },
+     "expect": {
+      "trangThai": 0,
+      "vanHanh": {
+       "ids": [
+        201,
+        202,
+        203
+       ],
+       "action": -1
+      }
+     }
+    },
+    {
+     "name": "UpdateStatusGoiTinDongBoThiCong",
+     "label": "Bỏ duyệt (khung trái)",
+     "body": {
+      "goiTinDongBoNId": "G02",
+      "actionProcessSyncDataThiCong": -1,
+      "trangThai": 0,
+      "processSyncDatas": []
+     },
+     "expect": {
+      "trangThai": 0,
+      "thiCong": -1
+     }
+    }
+   ]
+  }
+ },
+ "don: đã duyệt, khung phải có GCN (số phát hành, số vào sổ)": {
+  "serverState": "approved",
+  "stateLabel": "đã thêm vào dữ liệu vận hành",
+  "stateLabelGo": "đã thêm vào dữ liệu vận hành",
+  "rawState": "trangThai=1, thiCong=1, vanHanh=3/0",
+  "historyIds": [
+   1101
+  ],
+  "info": {
+   "maDon": "DON_T11",
+   "goi": "G11",
+   "owners": [
+    "Mai Văn M"
+   ],
+   "ownersRight": [],
+   "gcn": [
+    {
+     "soPhatHanh": "CS 000002",
+     "soVaoSo": "VS-02"
+    },
+    {
+     "soPhatHanh": "CS 000002",
+     "soVaoSo": ""
+    },
+    {
+     "soPhatHanh": "CS 000003",
+     "soVaoSo": ""
+    }
+   ],
+   "vhIds": [
+    1101,
+    1102
+   ]
+  },
+  "undoFor": {
+   "kind": "undo",
+   "label": "GỠ DUYỆT: Bỏ duyệt (khung phải) (2 bản ghi) → Bỏ duyệt (khung trái)",
+   "reqs": [
+    {
+     "name": "UpdateStatusGoiTinDongBoVanHanh",
+     "label": "Bỏ duyệt (khung phải) (2 bản ghi)",
+     "body": {
+      "goiTinDongBoNId": "G11",
+      "processSyncDatas": [
+       {
+        "actionProcessSyncData": -1,
+        "tinhHinhDangKyId": 1101
+       },
+       {
+        "actionProcessSyncData": -1,
+        "tinhHinhDangKyId": 1102
+       }
+      ],
+      "trangThai": 0
+     },
+     "expect": {
+      "trangThai": 0,
+      "vanHanh": {
+       "ids": [
+        1101,
+        1102
+       ],
+       "action": -1
+      }
+     }
+    },
+    {
+     "name": "UpdateStatusGoiTinDongBoThiCong",
+     "label": "Bỏ duyệt (khung trái)",
+     "body": {
+      "goiTinDongBoNId": "G11",
+      "actionProcessSyncDataThiCong": -1,
+      "trangThai": 0,
+      "processSyncDatas": []
+     },
+     "expect": {
+      "trangThai": 0,
+      "thiCong": -1
+     }
+    }
+   ]
+  }
+ },
+ "don: đã duyệt, khung phải trống": {
+  "serverState": "approved",
+  "stateLabel": "đã thêm vào dữ liệu vận hành",
+  "stateLabelGo": "đã thêm vào dữ liệu vận hành",
+  "rawState": "trangThai=1, thiCong=1, vanHanh=-",
+  "historyIds": [],
+  "info": {
+   "maDon": "DON_T03",
+   "goi": "G03",
+   "owners": [
+    "Công ty TNHH Ví Dụ"
+   ],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": []
+  },
+  "undoFor": {
+   "kind": "undo",
+   "label": "GỠ DUYỆT: Bỏ duyệt (khung trái)",
+   "reqs": [
+    {
+     "name": "UpdateStatusGoiTinDongBoThiCong",
+     "label": "Bỏ duyệt (khung trái)",
+     "body": {
+      "goiTinDongBoNId": "G03",
+      "actionProcessSyncDataThiCong": -1,
+      "trangThai": 0,
+      "processSyncDatas": []
+     },
+     "expect": {
+      "trangThai": 0,
+      "thiCong": -1
+     }
+    }
+   ]
+  }
+ },
+ "don: đã xử lý, khung trái -1 (trạng thái lạ, không lịch sử)": {
+  "serverState": "other",
+  "stateLabel": "trạng thái khác (trangThai=1, thiCong=-1, vanHanh=-)",
+  "stateLabelGo": "trạng thái khác (trangThai=1, thiCong=-1, vanHanh=-)",
+  "rawState": "trangThai=1, thiCong=-1, vanHanh=-",
+  "historyIds": [],
+  "info": {
+   "maDon": "DON_T09",
+   "goi": "G09",
+   "owners": [
+    "Dương Thị K"
+   ],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": []
+  },
+  "undoFor": {
+   "kind": "skip",
+   "label": "bỏ qua (trạng thái khác (trangThai=1, thiCong=-1, vanHanh=-))",
+   "reqs": []
+  }
+ },
+ "don: đã đồng bộ (trangThai 2) có lịch sử": {
+  "serverState": "other",
+  "stateLabel": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3)",
+  "stateLabelGo": "trạng thái khác (trangThai=2, thiCong=1, vanHanh=3)",
+  "rawState": "trangThai=2, thiCong=1, vanHanh=3",
+  "historyIds": [
+   801
+  ],
+  "info": {
+   "maDon": "DON_T08",
+   "goi": "G08",
+   "owners": [
+    "Ngô Văn I"
+   ],
+   "ownersRight": [],
+   "gcn": [],
+   "vhIds": [
+    801
+   ]
+  },
+  "undoFor": {
+   "kind": "unknown",
+   "label": "Gỡ duyệt: trạng thái khác (trangThai=2, thiCong=1, vanHanh=3) – kiểm tra tay",
+   "reqs": []
+  }
+ }
+}
