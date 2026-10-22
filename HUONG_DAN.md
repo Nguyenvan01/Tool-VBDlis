@@ -4,27 +4,39 @@ Extension gọi thẳng API của trang MPLIS, giống hệt khi bấm menu. Nó
 
 Side Panel có bốn tab: **Duyệt đơn** (gồm *Chạy tự động* và *Quét và sửa lỡ duyệt GCN*), **Gỡ duyệt**, **Không xử lý hết**, **ĐVHC 2 cấp**.
 
-## 1. Trước khi dùng bản 3 – làm MỘT lần
+## 1. Đang dùng bản cũ? Làm MỘT lần trước khi cài
 
-> ⚠ **Gỡ (Remove) extension là mất toàn bộ log của nó.** Phải xuất CSV ở cả hai bản cũ TRƯỚC khi gỡ.
+Bỏ qua mục này nếu máy bạn chưa từng cài *Auto duyệt 2.1.x* hoặc *Auto đơn 2.2.x (bỏ duyệt)*, hoặc extension riêng *Duyệt ĐVHC 2 cấp*.
 
-1. Nếu hai thư mục cũ `Auto duyệt 2.1.3` và `Auto đơn 2.1.4 (bỏ duyệt)` đang nằm trong Thùng rác: mở Thùng rác, chọn hai thư mục, bấm **Put Back** để chúng về đúng chỗ cũ. Phải về đúng chỗ cũ thì Chrome mới nhận lại extension và log của nó.
-2. Ở **bản Duyệt cũ**: mở Side Panel → **Xuất CSV** ở thẻ Thống kê (`duyet-don_….csv`) và ở thẻ Kiểm tra lỡ duyệt GCN (`lo-duyet-gcn_….csv`).
-3. Ở **bản Gỡ duyệt cũ**: mở Side Panel → **Xuất CSV** ở thẻ Thống kê bỏ duyệt (`bo-duyet_….csv`).
-4. Vào `chrome://extensions`, **tắt** hai extension cũ (gạt công tắc sang tắt). Chỉ gỡ (Remove) sau khi đã chắc chắn có đủ file CSV.
+> ⚠ **Gỡ (Remove) extension là mất toàn bộ log của nó.** Phải xuất CSV ở bản cũ TRƯỚC khi gỡ.
 
-**Không bật cùng lúc bản cũ và bản 3.** Hai bản sẽ cùng chạy trên một trang, tranh nhau phím Alt+Shift+S. Bản 3 không chặn được việc chạy chồng của extension khác.
+1. Ở **bản Duyệt cũ**: mở Side Panel → **Xuất CSV** ở thẻ Thống kê (`duyet-don_….csv`) và ở thẻ Kiểm tra lỡ duyệt GCN (`lo-duyet-gcn_….csv`).
+2. Ở **bản Gỡ duyệt cũ**: mở Side Panel → **Xuất CSV** ở thẻ Thống kê bỏ duyệt (`bo-duyet_….csv`).
+3. Ở **extension riêng Duyệt ĐVHC 2 cấp** (nếu có): **Xuất CSV** ở thẻ Thống kê duyệt ĐVHC 2 cấp (`duyet-dvhc_….csv`).
+4. Vào `chrome://extensions`, **tắt** các extension cũ (gạt công tắc sang tắt). Chỉ gỡ (Remove) sau khi đã chắc chắn có đủ file CSV.
 
-Bản 3 bắt đầu với thống kê trống. Log cũ không được chuyển sang; nó nằm trong các file CSV vừa xuất.
+**Không bật cùng lúc bản cũ và bản này.** Các bản sẽ cùng chạy trên một trang và có thể tranh nhau phím tắt. Extension này không chặn được việc chạy chồng của extension khác.
+
+Bản này bắt đầu với thống kê trống. Log cũ không được chuyển sang, nó nằm trong các file CSV vừa xuất.
 
 ## 2. Cài đặt (Load unpacked)
 
-1. Mở Chrome, vào `chrome://extensions`, bật **Developer mode** ở góc trên bên phải.
-2. Bấm **Load unpacked**, chọn thư mục `Bộ công cụ hỗ trợ VBDLIS` (thư mục có `manifest.json`).
-3. Ghim extension **"Bộ công cụ hỗ trợ VBDLIS (MPLIS)"** lên thanh công cụ. Bấm vào biểu tượng để mở Side Panel.
-4. Mở trang MPLIS. Nếu trang đang mở sẵn thì bấm **F5**.
+1. Tải code từ GitHub (https://github.com/Nguyenvan01/Tool-VBDlis):
+   - bấm **Code → Download ZIP** rồi giải nén vào một thư mục **cố định** (không để trong Downloads rồi xoá), **hoặc**
+   - `git clone https://github.com/Nguyenvan01/Tool-VBDlis.git`
+2. Mở Chrome, vào `chrome://extensions`, bật **Developer mode** ở góc trên bên phải.
+3. Bấm **Load unpacked**, chọn thư mục vừa tải (thư mục có file `manifest.json`).
+4. Ghim extension **"Bộ công cụ hỗ trợ VBDLIS (MPLIS)"** lên thanh công cụ. Bấm vào biểu tượng để mở Side Panel.
+5. Mở trang MPLIS. Nếu trang đang mở sẵn thì bấm **F5**.
 
-> Mỗi lần cập nhật extension: vào `chrome://extensions`, bấm **⟳** ở extension, rồi **F5** trang. Nếu quên, Side Panel hiện cảnh báo ⚠ và khoá nút chạy cho tới khi tải lại xong.
+> ⚠ **Đừng xoá hay di chuyển thư mục đã chọn.** Chrome chạy extension trực tiếp từ thư mục đó. Xoá thư mục thì extension mất, kèm theo toàn bộ log.
+
+**Cập nhật bản mới:**
+1. Lấy code mới vào **đúng thư mục cũ**: `git pull`, hoặc tải ZIP mới rồi chép đè lên các file cũ.
+2. Vào `chrome://extensions`, bấm **⟳** ở extension.
+3. **F5** trang MPLIS.
+
+Nếu quên bước 2 hoặc 3, Side Panel hiện cảnh báo ⚠ và khoá nút chạy cho tới khi tải lại xong. Cập nhật theo cách này giữ nguyên log.
 
 ## 3. Chuẩn bị trước mỗi lần chạy
 
@@ -54,18 +66,44 @@ Duyệt **tất cả các đơn chưa xử lý** của đợt đang mở; đơn 
 | Đơn đã bị **"Bỏ duyệt"** trước đó (ai đó đã chủ động gỡ duyệt) | **Kiểm tra tay**: extension không tự duyệt lại đè lên quyết định của người |
 | Còn lại: khung phải trống, hoặc **không có GCN** (kể cả khung phải có nhiều bản ghi) | **ĐƯỢC DUYỆT** |
 
-Extension coi là có thông tin GCN khi gặp **bất kỳ** dấu hiệu nào sau đây, ở bất kỳ đâu trong dữ liệu của đơn:
-- trường có tên chứa "GiayChungNhan" là danh sách có phần tử hoặc đối tượng khác rỗng (`ListGiayChungNhan`, `GiayChungNhan`, `giayChungNhanIds`…);
+Extension coi là có thông tin GCN khi gặp **bất kỳ** dấu hiệu nào sau đây, ở bất kỳ đâu trong dữ liệu của khung:
+- trường có tên chứa "GiayChungNhan" là danh sách có phần tử hoặc đối tượng khác rỗng (`ListGiayChungNhan`, `ListQuanLyMaGiayChungNhan`, `GiayChungNhan`, `giayChungNhanIds`…);
 - `giayChungNhanId` > 0, hoặc `laGiayChungNhan = true` (file quét chính là GCN);
-- Số phát hành, Số vào sổ, Ngày vào sổ, Mã GCN hoặc Số seri có giá trị.
+- Số phát hành, Số vào sổ, Số vào sổ cũ, Ngày vào sổ, Mã GCN hoặc Số seri có giá trị.
 
-Không tính: giấy chứng nhận **kết hôn**, loại / phiên bản / tình trạng GCN, ngày rỗng của máy chủ (`/Date(-62135596800000)/`). Toàn bộ quy tắc nằm trong `tools/run/rules.js`.
+Không tính:
+- giấy chứng nhận **kết hôn**;
+- loại / phiên bản / tình trạng GCN;
+- ngày rỗng của máy chủ (`/Date(-62135596800000)/`);
+- giá trị coi như rỗng: trống, `-`, `-/-`, `--`, `/`, "không có thông tin", "không có", "chưa có", `null`, `n/a`.
+
+Toàn bộ quy tắc nằm trong `tools/run/rules.js`.
+
+**Lệnh gửi:**
 
 | Đơn | Lệnh gửi |
 |---|---|
-| ĐƯỢC DUYỆT, chưa xử lý | *Thêm vào dữ liệu vận hành*, rồi *Cập nhật lịch sử* (khi khung phải có dữ liệu; nhiều bản ghi thì **một lệnh cho tất cả**). **Khung phải có số tờ / số thửa:** chỉ *Cập nhật lịch sử* các bản ghi **trùng số tờ / số thửa** với khung trái (mọi thửa của bản ghi đều có ở khung trái; `027` = `27`; không tính "tờ / thửa cũ"). Bản ghi không trùng **để nguyên**; không bản ghi nào trùng thì chỉ *Thêm vào*. Ghi chú của log ghi rõ tờ / thửa hai bên. Khung phải không có số tờ / số thửa ở bản ghi nào cũng **để nguyên** (chỉ *Thêm vào*). Muốn quay về cách cũ (Cập nhật lịch sử mọi bản ghi): đặt `historyByLand: false` trong `RULES` (`tools/run/rules.js`) rồi ⟳ extension |
-| KHÔNG DUYỆT, chưa xử lý | *Không xử lý* |
+| ĐƯỢC DUYỆT, chưa xử lý | Khung trái: *Thêm vào dữ liệu vận hành* → Khung phải: *Cập nhật lịch sử* các bản ghi trùng số tờ / số thửa (bảng dưới) |
+| KHÔNG DUYỆT, chưa xử lý | Khung trái: *Không xử lý* |
+| Kiểm tra tay | Không gửi gì |
 | Đã xử lý rồi | Bỏ qua. Đơn có GCN mà đã lỡ duyệt chỉ được đánh dấu ⚠ (sửa bằng *Quét và sửa*, mục 5) |
+
+**Đơn được duyệt: bản ghi khung phải nào được *Cập nhật lịch sử*:**
+
+| Khung phải | Cập nhật lịch sử |
+|---|---|
+| Trống (không có bản ghi) | Không có gì. Chỉ *Thêm vào* ở khung trái |
+| Mọi bản ghi trùng số tờ / số thửa với khung trái | Tất cả, gửi chung trong **một** lệnh |
+| Chỉ một số bản ghi trùng (VD A: tờ 27 thửa 125 trùng, B: tờ 30 thửa 5 không trùng) | **Chỉ các bản ghi trùng** (A). Bản ghi khác (B) **để nguyên** |
+| Có số tờ / số thửa nhưng không bản ghi nào trùng | Không bản ghi nào. Chỉ *Thêm vào* ở khung trái |
+| Bản ghi **không có** số tờ / số thửa | **Để nguyên** |
+
+- **Bản ghi trùng** là bản ghi mà *mọi* thửa của nó đều có ở khung trái. Bản ghi có thêm thửa không thuộc đơn thì không tính là trùng.
+- So theo giá trị số: `027` = `27`. Không tính "tờ / thửa cũ".
+- Đơn duyệt bình thường để trống cột Ghi chú. Đơn chỉ cập nhật một phần khung phải (hoặc không cập nhật bản ghi nào) thì Ghi chú ghi rõ, VD `Cập nhật lịch sử 1/2 bản ghi khung phải trùng tờ / thửa, bản ghi khác để nguyên (trái: tờ 27, thửa 125; phải: tờ 30, thửa 5; tờ 27, thửa 125)`.
+- Muốn quay về cách cũ (Cập nhật lịch sử **mọi** bản ghi khung phải): đặt `historyByLand: false` trong `RULES` (`tools/run/rules.js`), rồi ⟳ extension.
+
+> ⚠ **Chạy thử một đợt nhỏ trước.** Tên trường số tờ / số thửa và mã đơn ở khung phải chưa được xác nhận trên trang thật. Nếu đơn nào trong CSV cũng ghi *"Khung phải không có số tờ / số thửa"*, nghĩa là trang đặt tên trường khác: báo người sửa code, trong lúc chờ thì tắt `historyByLand`.
 
 **Tốc độ:**
 - Đợt **còn ít đơn chưa xử lý**: chỉ đọc các đơn *chưa xử lý* (lọc ở máy chủ). Extension kiểm bộ lọc trước khi tin; không đúng thì tự đọc cả đợt.
@@ -166,11 +204,12 @@ Bấm **Không xử lý hết** rồi xác nhận. Extension cũng chạy 2 bư�
 ## 11. Thống kê, log, xuất CSV
 
 - Mỗi tab có thẻ thống kê ở cuối. *Chạy tự động* và *Quét và sửa* ghi chung một log (**Thống kê duyệt**); Gỡ duyệt, Không xử lý hết, Duyệt ĐVHC 2 cấp mỗi công cụ một log riêng. Đơn bỏ qua không ghi log.
-- **Xuất CSV**: file UTF-8 mở bằng Excel không lỗi tiếng Việt (`duyet-don_….csv`, `lo-duyet-gcn_….csv`, `bo-duyet_….csv`, `khong-xu-ly-het_….csv`). Nếu Excel dồn hết vào một cột, đổi `csvSeparator: ','` thành `';'` trong `config.js`, rồi ⟳ extension.
+- **Xuất CSV**: file UTF-8 mở bằng Excel không lỗi tiếng Việt (`duyet-don_….csv`, `lo-duyet-gcn_….csv`, `bo-duyet_….csv`, `khong-xu-ly-het_….csv`, `duyet-dvhc_….csv`). Nếu Excel dồn hết vào một cột, đổi `csvSeparator: ','` thành `';'` trong `config.js`, rồi ⟳ extension.
 - **Log từng lần chạy**: chạy xong, thẻ công cụ hiện dòng *Lần chạy <giờ> · N đơn* và nút **Tải log lần chạy** (`lan-chay_<công cụ>_….csv`) – chỉ gồm các đơn của lần chạy đó. Lần chạy sau của cùng công cụ ghi đè, nên tải về ngay nếu cần giữ.
 - Log và CSV có thêm cột **Số tờ, Số thửa** (khung trái; đơn nhiều thửa ghi "3 | 3" và "45 | 46" theo cùng thứ tự).
 - **Xóa log**: nên xuất CSV trước khi xóa.
 - Chi tiết từng đơn chỉ in ra Console (F12), không được lưu.
+- ⚠ File CSV có **tên người thật**: không gửi qua kênh công khai, không đưa lên GitHub.
 
 ## 12. Thư mục
 
@@ -185,6 +224,12 @@ tools/undo/         Gỡ duyệt
 tools/noaction/     Không xử lý hết
 tools/dvhc/         Duyệt ĐVHC 2 cấp
 panel/              Side Panel
-test/               Kiểm thử tự động (node --test test/*.test.mjs); test/golden/ là kết quả bản cũ đã chốt để so sánh
-docs/               Tài liệu cho người sửa code
+test/               Kiểm thử tự động; test/golden/ là kết quả bản cũ đã chốt để so sánh
+docs/               Tài liệu cho người sửa code (KIEN_TRUC.md: kiến trúc, luật, "cần sửa ở đâu khi…")
+```
+
+Chạy kiểm thử (cần Node.js ≥ 20, không gửi request nào tới mplis.gov.vn):
+
+```bash
+node --test --test-timeout=60000 test/*.test.mjs
 ```
