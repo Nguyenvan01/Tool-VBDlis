@@ -25,15 +25,28 @@ const norm = (r, prefix, statsKey) => ({
   logs: logs(r.storage, prefix), stats: plain(r.storage[statsKey]) ?? null,
 });
 
+// Đơn bản mới CHỦ Ý gỡ khác bản cũ (gỡ hết trạng thái): G05 chưa xử lý mà khung phải còn Cập nhật lịch sử, G07 đã Không xử lý.
+// So với bản cũ thì bỏ các đơn này ra; số đếm chỉ so tổng. Hành vi mới của chúng kiểm riêng ở test "gỡ hết trạng thái".
+const CHANGED = /^(G0[57]|DON_T0[57])\b/;
+const keep = (r) => ({
+  ...r,
+  writes: r.writes.filter((w) => !CHANGED.test(JSON.parse(w)[1].goiTinDongBoNId)),
+  items: r.items.filter((v) => !CHANGED.test(v.goiTinDongBoNId || '')),
+  logs: Object.fromEntries(Object.entries(r.logs).filter(([k]) => !CHANGED.test(k))),
+  state: { ...r.state, counts: Object.values(r.state.counts).reduce((a, b) => a + b, 0), wDone: 0, wTotal: 0 },
+  msg: r.msg.replace(/\d+ đơn/g, '… đơn'),
+  stats: r.stats && Object.keys(r.stats).sort(),
+});
+
 // So bản mới với bản cũ trên cùng đợt và cùng kiểu máy chủ (opts: cấu hình máy chủ giả, hoặc hàm tạo cấu hình mới mỗi lần).
 // key: tên kịch bản trong test/golden/undo.json
 async function same(key, opts, check) {
   const dot = makeDot();
   const mk = typeof opts === 'function' ? opts : () => opts;
-  const o = await legacy('undo', key, async () => norm(await runOld(makeServer(dot, mk())), 'adxUndo:', 'adxUndoStats'));
+  const o = keep(await legacy('undo', key, async () => norm(await runOld(makeServer(dot, mk())), 'adxUndo:', 'adxUndoStats')));
   // So với bản cũ ở CÙNG độ song song (bản cũ: 3 đọc, 3 gửi) – bản mới mặc định 3 / 6 cho công cụ hai bước
   const n = await runNew(makeServer(dot, mk()), 'ADX_CONFIG.api.phasedReadAhead = 3; ADX_CONFIG.api.phasedWriteConcurrency = 3;');
-  const nn = norm(n, 'undo:log:', 'undo:stats');
+  const nn = keep(norm(n, 'undo:log:', 'undo:stats'));
   assert.equal(nn.error, o.error);
   assert.deepEqual(nn.writes, o.writes, 'tập lệnh ghi');
   assert.deepEqual(nn.items, o.items, 'dữ liệu trên máy chủ sau khi chạy');
@@ -87,15 +100,26 @@ test('= bản cũ: lỗi tạm thời (HTTP 500) ở lần đọc và lần ghi 
   assert.equal(n.calls.filter((c) => JSON.stringify(c) === JSON.stringify(first)).length, 2);
 });
 
-test('= bản cũ: phản hồi sai trạng thái ở khung trái → dừng, KIỂM TRA TAY (H1)', async () => {
+// Không so tập lệnh với bản cũ: dừng giữa chừng nên đơn nào kịp gửi phụ thuộc hàng đợi, mà G07 giờ cũng vào hàng
+test('phản hồi sai trạng thái ở khung trái → dừng, KIỂM TRA TAY (H1)', async () => {
   const fault = (c) => (c.name === 'UpdateStatusGoiTinDongBoThiCong' && c.body.goiTinDongBoNId === 'G02'
     ? { text: JSON.stringify({ success: true, value: { trangThai: 1, actionProcessSyncDataThiCong: 1 } }) } : null);
-  const n = await same('khung trái phản hồi sai', { fault });
+  const n = await runNew(makeServer(makeDot(), { fault }));
   assert.match(n.final.msg, /^Lỗi: Đơn DON_T02: đã làm: Bỏ duyệt \(khung phải\) \(3 bản ghi\); HỎNG: Bỏ duyệt \(khung trái\)/);
   const e = n.storage['undo:log:DON_T02'];
   assert.equal(e.result, 'KIỂM TRA TAY');
   assert.equal(e.note, 'Quyết định ban đầu: GỠ DUYỆT: Bỏ duyệt (khung phải) (3 bản ghi) → Bỏ duyệt (khung trái) · đã làm: Bỏ duyệt (khung phải) (3 bản ghi); HỎNG: Bỏ duyệt (khung trái)');
   assert.match(e.action, /^LỖI – /);
+});
+
+test('gỡ hết trạng thái: đơn đã Không xử lý và đơn Bỏ duyệt dở cũng về chưa xử lý', async () => {
+  const n = await runNew(makeServer(makeDot(), { filter1: 'ignored' }));
+  for (const goi of ['G05', 'G07', 'G05-1', 'G07-1']) {
+    const v = n.items.find((x) => x.goiTinDongBoNId === goi);
+    assert.equal(v.trangThaiGoiTinDongBo, 0, goi);
+    assert.ok(!v.ThongTinDangKyVanHanh.some((h) => h.ActionProcessSyncData === 3), `${goi}: khung phải còn Cập nhật lịch sử`);
+  }
+  assert.equal(n.items.find((x) => x.goiTinDongBoNId === 'G07').ThongTinDangKyThiCong.ActionProcessSyncData, -1);
 });
 
 test('bất biến 2: hỏng ở lệnh đầu → log có "chưa làm", thống kê đếm vào Kiểm tra tay', async () => {

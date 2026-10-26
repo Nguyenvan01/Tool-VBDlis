@@ -2,7 +2,7 @@
 
 Extension gọi thẳng API của trang MPLIS, giống hệt khi bấm menu. Nó không bấm nút và không đọc giao diện. Mọi công cụ nằm chung một Side Panel; mỗi lúc chỉ chạy được **một** công cụ.
 
-Side Panel có bốn tab: **Duyệt đơn** (gồm *Chạy tự động* và *Quét và sửa lỡ duyệt GCN*), **Gỡ duyệt**, **Không xử lý hết**, **ĐVHC 2 cấp**.
+Side Panel có năm tab: **Duyệt đơn** (gồm *Chạy tự động* và *Quét và sửa lỡ duyệt GCN*), **Gỡ duyệt**, **Không xử lý hết**, **ĐVHC 2 cấp**, **Duyệt (GCN)**.
 
 ## 1. Đang dùng bản cũ? Làm MỘT lần trước khi cài
 
@@ -130,19 +130,21 @@ Chạy lại **Quét và sửa** lần nữa để chắc chắn bảng không c
 
 ## 6. Gỡ duyệt
 
-Gỡ duyệt **mọi đơn đã duyệt** của đợt đang mở. Sau khi gỡ, đơn về lại *chưa xử lý*.
+Gỡ **hết trạng thái** của mọi đơn đã xử lý (đã duyệt hoặc đã *Không xử lý*) của đợt đang mở. Sau khi gỡ, đơn về lại *chưa xử lý*.
 
 Bấm **Gỡ duyệt** rồi xác nhận. Extension chạy 2 bước:
 1. **Đọc hết danh sách**, chưa gửi lệnh nào. Nó chỉ đọc các đơn *đã xử lý* (lọc ở máy chủ), nhưng chỉ tin bộ lọc khi đếm khớp; không khớp thì tự đọc cả đợt.
-2. **Gỡ** các đơn đã duyệt.
+2. **Gỡ** các đơn đã xử lý.
 
 Phải đọc hết rồi mới gỡ, vì mỗi lần gỡ thì máy chủ đổi thứ tự danh sách. Nếu vừa đọc vừa gỡ, có đơn bị sót.
 
 | Đơn | Lệnh gửi |
 |---|---|
 | **Đã duyệt** (khung trái đã *Thêm vào dữ liệu vận hành*), kể cả đơn do người duyệt tay | 1. Khung phải: *Bỏ duyệt* (một lệnh cho mọi bản ghi, nếu có) → 2. Khung trái: *Bỏ duyệt* |
-| Chưa duyệt (chưa xử lý, đã *Không xử lý*) | Bỏ qua |
-| Trạng thái lạ (VD khung phải đã *Cập nhật lịch sử* mà khung trái chưa *Thêm vào*, đã đồng bộ), thiếu mã gói tin | Không gửi gì, ghi **Kiểm tra tay** |
+| Đã *Không xử lý* | 1. Khung phải: *Bỏ duyệt* các bản ghi đang *Cập nhật lịch sử* (nếu có) → 2. Khung trái: *Bỏ duyệt* |
+| Chưa xử lý mà khung phải còn *Cập nhật lịch sử* (Bỏ duyệt dở) | Khung phải: *Bỏ duyệt* các bản ghi đó |
+| Chưa xử lý | Bỏ qua |
+| Trạng thái lạ có *Cập nhật lịch sử* (VD đã đồng bộ), thiếu mã gói tin | Không gửi gì, ghi **Kiểm tra tay** |
 
 ## 7. Không xử lý hết
 
@@ -184,34 +186,47 @@ Bấm **Không xử lý hết** rồi xác nhận. Extension cũng chạy 2 bư�
 - Chạy lại lần nữa là cách kiểm tra: lần sau không còn đơn nào phải gửi lệnh.
 - **Lần đầu chạy thử một đợt nhỏ**: lệnh *Bỏ duyệt* khung trái cho đơn đang *Không xử lý* chưa được ghi lại trên trang thật.
 
-## 9. Kiểm tra lỗi trong Console
+## 9. Duyệt (GCN)
+
+Giống hệt **Chạy tự động** (mục 4): cùng luật, cùng cách chạy, cùng cách chọn bản ghi khung phải để *Cập nhật lịch sử*. Chỉ khác ở đơn có GCN bên trái:
+
+| | Duyệt đơn · Chạy tự động | **Duyệt (GCN)** |
+|---|---|---|
+| Khung **trái** có Giấy chứng nhận | KHÔNG DUYỆT → *Không xử lý* | **Vẫn xét tiếp** các luật khác, đủ điều kiện thì **duyệt** (kể cả đơn đã bị *Bỏ duyệt*) |
+| Khung **phải** có Giấy chứng nhận | KHÔNG DUYỆT → *Không xử lý* | KHÔNG DUYỆT → *Không xử lý* |
+
+Bấm **Bắt đầu** ở tab *Duyệt (GCN)* rồi xác nhận. Log riêng: thẻ **Thống kê duyệt (GCN)**, file `duyet-gcn_….csv`.
+
+> ⚠ **Đừng chạy *Quét và sửa lỡ duyệt GCN* (tab Duyệt đơn) trên đợt đã chạy Duyệt (GCN).** *Quét và sửa* coi đơn có GCN bên trái mà đã duyệt là "lỡ duyệt", và sẽ gỡ chúng (Bỏ duyệt khung phải → Không xử lý).
+
+## 10. Kiểm tra lỗi trong Console
 
 - **Console của Side Panel** (chuột phải vào Side Panel → Inspect): phải sạch. Có dòng đỏ ở đây là lỗi của extension, hãy chụp lại gửi người sửa code.
 - **Console của trang MPLIS** (F12 trên trang): dòng có tiền tố `[Duyệt đơn]` là nhật ký chạy của extension (đọc danh sách, từng đơn, "Tốc độ: …").
 - Các cảnh báo khác trên trang MPLIS thường là của **chính trang**, không phải của extension. VD `libraries.min.js … [Violation] Permissions policy violation: unload is not allowed in this document`: thư viện của MPLIS đăng ký sự kiện `unload` mà Chrome không còn cho phép. Đây chỉ là cảnh báo (mức Violation), không ảnh hưởng extension. Extension không dùng `unload`.
 
-## 10. An toàn, tốc độ, dừng (mọi công cụ)
+## 11. An toàn, tốc độ, dừng (mọi công cụ)
 
 - Mỗi lệnh phải được máy chủ trả về đúng trạng thái mong đợi. Sai một lệnh là **dừng hẳn**. Đơn đó ghi **Kiểm tra tay**, cột Ghi chú ghi *quyết định ban đầu · đã làm · HỎNG · chưa làm* để sửa tay đúng chỗ. Extension không tự hoàn tác.
 - Lỗi mạng, máy chủ quá tải, quá thời gian chờ: tự **thử lại** (tối đa 2 lần). Mọi lệnh đặt đơn về một trạng thái cố định, nên gửi lại không gây sai.
 - **Dừng**: nút **Dừng**, phím **Esc** trên trang, hoặc **Alt+Shift+S**. Lần đọc danh sách đang chờ bị huỷ ngay. Đơn đang gửi lệnh dở thì gửi nốt (vài giây) rồi mới dừng, nên không đơn nào bị làm dở.
 - Tốc độ (Chrome chỉ mở tối đa 6 kết nối tới máy chủ):
-  - **Chạy tự động, Quét và sửa** đọc và gửi lệnh cùng lúc: 3 lần đọc danh sách + 3 đơn gửi lệnh song song.
+  - **Chạy tự động, Quét và sửa, Duyệt (GCN)** đọc và gửi lệnh cùng lúc: 3 lần đọc danh sách + 3 đơn gửi lệnh song song.
   - **Gỡ duyệt, Không xử lý hết, Duyệt ĐVHC 2 cấp** đọc hết rồi mới gửi, hai bước không chạy cùng lúc: bước 1 đọc **3** trang song song (thử 6 thì máy chủ quá tải), bước 2 gửi lệnh cho **6** đơn song song. Không đọc lại lần nào.
   - Chạy xong, Console (F12) in dòng **"Tốc độ: …"** (trung bình mỗi lần đọc / mỗi lệnh). Nếu so với trước thời gian trung bình tăng rõ thì máy chủ đang quá tải: đổi `phasedReadAhead` / `phasedWriteConcurrency` trong `config.js` về 3 rồi ⟳ extension.
   - Các con số nằm trong `config.js` → `api`. Vượt giới hạn (3 + 3 quá 6, hoặc một số quá 6) thì extension từ chối chạy.
 
-## 11. Thống kê, log, xuất CSV
+## 12. Thống kê, log, xuất CSV
 
-- Mỗi tab có thẻ thống kê ở cuối. *Chạy tự động* và *Quét và sửa* ghi chung một log (**Thống kê duyệt**); Gỡ duyệt, Không xử lý hết, Duyệt ĐVHC 2 cấp mỗi công cụ một log riêng. Đơn bỏ qua không ghi log.
-- **Xuất CSV**: file UTF-8 mở bằng Excel không lỗi tiếng Việt (`duyet-don_….csv`, `lo-duyet-gcn_….csv`, `bo-duyet_….csv`, `khong-xu-ly-het_….csv`, `duyet-dvhc_….csv`). Nếu Excel dồn hết vào một cột, đổi `csvSeparator: ','` thành `';'` trong `config.js`, rồi ⟳ extension.
+- Mỗi tab có thẻ thống kê ở cuối. *Chạy tự động* và *Quét và sửa* ghi chung một log (**Thống kê duyệt**); Gỡ duyệt, Không xử lý hết, Duyệt ĐVHC 2 cấp, Duyệt (GCN) mỗi công cụ một log riêng. Đơn bỏ qua không ghi log.
+- **Xuất CSV**: file UTF-8 mở bằng Excel không lỗi tiếng Việt (`duyet-don_….csv`, `lo-duyet-gcn_….csv`, `bo-duyet_….csv`, `khong-xu-ly-het_….csv`, `duyet-dvhc_….csv`, `duyet-gcn_….csv`). Nếu Excel dồn hết vào một cột, đổi `csvSeparator: ','` thành `';'` trong `config.js`, rồi ⟳ extension.
 - **Log từng lần chạy**: chạy xong, thẻ công cụ hiện dòng *Lần chạy <giờ> · N đơn* và nút **Tải log lần chạy** (`lan-chay_<công cụ>_….csv`) – chỉ gồm các đơn của lần chạy đó. Lần chạy sau của cùng công cụ ghi đè, nên tải về ngay nếu cần giữ.
 - Log và CSV có thêm cột **Số tờ, Số thửa** (khung trái; đơn nhiều thửa ghi "3 | 3" và "45 | 46" theo cùng thứ tự).
 - **Xóa log**: nên xuất CSV trước khi xóa.
 - Chi tiết từng đơn chỉ in ra Console (F12), không được lưu.
 - ⚠ File CSV có **tên người thật**: không gửi qua kênh công khai, không đưa lên GitHub.
 
-## 12. Thư mục
+## 13. Thư mục
 
 ```
 manifest.json       Khai báo extension; danh sách công cụ
@@ -223,6 +238,7 @@ tools/audit/        Quét và sửa lỡ duyệt GCN
 tools/undo/         Gỡ duyệt
 tools/noaction/     Không xử lý hết
 tools/dvhc/         Duyệt ĐVHC 2 cấp
+tools/gcn/          Duyệt (GCN) – dùng lại Chạy tự động, bỏ điều kiện GCN khung trái
 panel/              Side Panel
 test/               Kiểm thử tự động; test/golden/ là kết quả bản cũ đã chốt để so sánh
 docs/               Tài liệu cho người sửa code (KIEN_TRUC.md: kiến trúc, luật, "cần sửa ở đâu khi…")

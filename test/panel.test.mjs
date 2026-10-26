@@ -24,20 +24,20 @@ function card(p, name) {
   const report = sec.byClass('run-report')[0];
   return { sec, start, stop, state: sec.byClass('api-state')[0], report, line: report.byClass('run-line')[0].children[0], extra: sec.children.at(-1) };
 }
-const TOOLS = ['Chạy tự động', 'Quét và sửa lỡ duyệt GCN', 'Gỡ duyệt', 'Không xử lý hết', 'Duyệt ĐVHC 2 cấp'];
+const TOOLS = ['Chạy tự động', 'Quét và sửa lỡ duyệt GCN', 'Gỡ duyệt', 'Không xử lý hết', 'Duyệt ĐVHC 2 cấp', 'Duyệt (GCN)'];
 
-test('đúng bốn tab, đúng thứ tự, đúng tên, đúng vai trò ARIA; mặc định chọn Duyệt đơn', async () => {
+test('đúng năm tab, đúng thứ tự, đúng tên, đúng vai trò ARIA; mặc định chọn Duyệt đơn', async () => {
   const p = await boot(S());
   assert.match(read('panel/panel.html'), /<nav class="tabs" id="tabs" role="tablist"/);
   const tabs = p.tabs();
-  assert.deepEqual(tabs.map(label), ['Duyệt đơn', 'Gỡ duyệt', 'Không xử lý hết', 'ĐVHC 2 cấp']);
-  assert.deepEqual(tabs.map((t) => t.getAttribute('role')), ['tab', 'tab', 'tab', 'tab']);
-  assert.deepEqual(tabs.map((t) => t.getAttribute('aria-selected')), ['true', 'false', 'false', 'false']);
-  assert.deepEqual(tabs.map((t) => t.tabIndex), [0, -1, -1, -1]);
+  assert.deepEqual(tabs.map(label), ['Duyệt đơn', 'Gỡ duyệt', 'Không xử lý hết', 'ĐVHC 2 cấp', 'Duyệt (GCN)']);
+  assert.deepEqual(tabs.map((t) => t.getAttribute('role')), ['tab', 'tab', 'tab', 'tab', 'tab']);
+  assert.deepEqual(tabs.map((t) => t.getAttribute('aria-selected')), ['true', 'false', 'false', 'false', 'false']);
+  assert.deepEqual(tabs.map((t) => t.tabIndex), [0, -1, -1, -1, -1]);
   const panels = p.panels();
-  assert.deepEqual(panels.map((x) => x.getAttribute('role')), ['tabpanel', 'tabpanel', 'tabpanel', 'tabpanel']);
+  assert.deepEqual(panels.map((x) => x.getAttribute('role')), ['tabpanel', 'tabpanel', 'tabpanel', 'tabpanel', 'tabpanel']);
   assert.deepEqual(panels.map((x) => x.getAttribute('aria-labelledby')), tabs.map((t) => t.id));
-  assert.deepEqual(panels.map((x) => x.hidden), [false, true, true, true]);
+  assert.deepEqual(panels.map((x) => x.hidden), [false, true, true, true, true]);
 });
 
 test('mỗi tab chỉ chứa thẻ của công cụ đó; Duyệt đơn có cả Chạy tự động và Quét và sửa, một thẻ thống kê chung', async () => {
@@ -47,29 +47,32 @@ test('mỗi tab chỉ chứa thẻ của công cụ đó; Duyệt đơn có cả
     ['Gỡ duyệt', 'Thống kê bỏ duyệt'],
     ['Không xử lý hết', 'Thống kê Không xử lý hết'],
     ['Duyệt ĐVHC 2 cấp', 'Thống kê duyệt ĐVHC 2 cấp'],
+    ['Duyệt (GCN)', 'Thống kê duyệt (GCN)'],
   ]);
 });
 
 test('bấm tab và phím ← → Home End chuyển tab, đưa focus theo', async () => {
   const p = await boot(S());
   const tabs = p.tabs();
-  const shown = () => p.panels().map((x) => !x.hidden);
+  const shown = () => p.panels().findIndex((x) => !x.hidden);
+  const last = tabs.length - 1;
   tabs[2].click();
-  assert.deepEqual(shown(), [false, false, true, false]);
+  assert.equal(shown(), 2);
   assert.equal(tabs[2].getAttribute('aria-selected'), 'true');
   tabs[2].keydown('ArrowRight');
-  assert.deepEqual(shown(), [false, false, false, true]);
-  tabs[3].keydown('ArrowRight');
-  assert.deepEqual(shown(), [true, false, false, false]);
+  assert.equal(shown(), 3);
+  tabs[last].keydown('ArrowRight');
+  assert.equal(shown(), 0, 'tab cuối → vòng về tab đầu');
   assert.equal(p.doc.activeElement, tabs[0]);
   tabs[0].keydown('ArrowLeft');
-  assert.deepEqual(shown(), [false, false, false, true]);
-  tabs[3].keydown('Home');
-  assert.deepEqual(shown(), [true, false, false, false]);
+  assert.equal(shown(), last);
+  tabs[last].keydown('Home');
+  assert.equal(shown(), 0);
   tabs[0].keydown('End');
-  assert.deepEqual(shown(), [false, false, false, true]);
-  tabs[3].keydown('a');
-  assert.deepEqual(shown(), [false, false, false, true]);
+  assert.equal(shown(), last);
+  tabs[last].keydown('a');
+  assert.equal(shown(), last);
+  assert.equal(p.panels().filter((x) => !x.hidden).length, 1);
 });
 
 test('Gỡ duyệt đang chạy: nút chạy ở mọi thẻ khác bị khoá kèm "Đang chạy: Gỡ duyệt", nút Dừng bấm được, vẫn chuyển tab được', async () => {
@@ -86,7 +89,7 @@ test('Gỡ duyệt đang chạy: nút chạy ở mọi thẻ khác bị khoá k�
   assert.equal(u.line.textContent, 'Bước 1/2 · Đang đọc đơn đã xử lý 3 / 10');
   for (const name of TOOLS) assert.equal(card(p, name).stop.disabled, false, `Dừng ở ${name}`);
   // tab đang chạy có chấm báo hiệu (và chữ cho trình đọc màn hình)
-  assert.deepEqual(p.tabs().map((t) => t.classList.contains('running')), [false, true, false, false]);
+  assert.deepEqual(p.tabs().map((t) => t.classList.contains('running')), [false, true, false, false, false]);
   assert.equal(p.tabs()[1].byClass('sr-only')[0].textContent, ' (đang chạy)');
   // không chuyển tab tự động khi đang xem tab khác; vẫn bấm chuyển được
   assert.equal(p.tabs()[1].getAttribute('aria-selected'), 'true', 'mở Side Panel lúc đang chạy → chọn tab của công cụ đang chạy');
@@ -102,7 +105,7 @@ test('Gỡ duyệt đang chạy: nút chạy ở mọi thẻ khác bị khoá k�
 
 test('mở Side Panel khi Không xử lý hết đang chạy → chọn sẵn tab Không xử lý hết', async () => {
   const p = await boot(S({ tool: 'noaction', running: true, step: 'write', wDone: 1, wTotal: 4, counts: { change: 1, skip: 0, unknown: 0 } }));
-  assert.deepEqual(p.tabs().map((t) => t.getAttribute('aria-selected')), ['false', 'false', 'true', 'false']);
+  assert.deepEqual(p.tabs().map((t) => t.getAttribute('aria-selected')), ['false', 'false', 'true', 'false', 'false']);
 });
 
 test('không có gì chạy: nút chạy mở, nút Dừng khoá; bấm chạy gửi apiStart đúng công cụ', async () => {
@@ -172,6 +175,7 @@ test('thống kê đúng nhật ký của từng tab, cập nhật khi storage �
   assert.deepEqual(stats('Thống kê bỏ duyệt'), ['2 đơn', '2', '0']);
   assert.deepEqual(stats('Thống kê Không xử lý hết'), ['0 đơn', '0', '0']);
   assert.deepEqual(stats('Thống kê duyệt ĐVHC 2 cấp'), ['0 đơn', '0', '0', '0']);
+  assert.deepEqual(stats('Thống kê duyệt (GCN)'), ['0 đơn', '0', '0', '0']);
   await p.change('undo:stats', { total: 4, undo: 3, unknown: 1, next: 5 });
   assert.deepEqual(stats('Thống kê bỏ duyệt'), ['4 đơn', '3', '1']);
   assert.deepEqual(stats('Thống kê duyệt'), ['5 đơn', '3', '1', '1']);

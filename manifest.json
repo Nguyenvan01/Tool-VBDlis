@@ -43,6 +43,7 @@
         "tools/undo/rules.js", "tools/undo/tool.js",
         "tools/noaction/rules.js", "tools/noaction/tool.js",
         "tools/dvhc/rules.js", "tools/dvhc/tool.js",
+        "tools/gcn/tool.js",
         "core/runner.js"
       ],
       "run_at": "document_idle",

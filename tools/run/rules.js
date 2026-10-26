@@ -101,7 +101,9 @@ ADXRules.run = (() => {
 
   const anyList = (o) => !!o && Object.values(o).some((x) => Array.isArray(x) && x.length > 0);
 
-  function decide(v) {
+  // opts.leftGcn = false (công cụ Duyệt (GCN), tools/gcn/tool.js): khung trái có GCN vẫn duyệt, kể cả đơn đã bị Bỏ duyệt;
+  // khung phải có GCN vẫn Không xử lý
+  function decide(v, opts = {}) {
     const tc = v.ThongTinDangKyThiCong || {};
     const vh = Array.isArray(v.ThongTinDangKyVanHanh) ? v.ThongTinDangKyVanHanh : [];
     const vhIds = Array.isArray(v.tinhHinhDangKyVanHanhIds) ? v.tinhHinhDangKyVanHanhIds : [];
@@ -116,7 +118,9 @@ ADXRules.run = (() => {
     };
     const gRight = gcnSignals(vh);
     if (nonEmpty(v.giayChungNhanIds)) gRight.push('giayChungNhanIds');
-    const gLeft = gcnSignals(tc);
+    const leftGcn = gcnSignals(tc);
+    const gcnTab = opts.leftGcn === false && leftGcn.length > 0;
+    const gLeft = opts.leftGcn === false ? [] : leftGcn;
     const leftHasOwner = anyList(tc.ChuSoHuu);
     const leftHasLand = anyList(tc.TaiSan);
     const land = landProblems(tc.TaiSan);
@@ -153,7 +157,7 @@ ADXRules.run = (() => {
       res.reasons.push('Khung trái không thấy trường số tờ / số thửa – kiểm tra tay');
     } else if (!sameIds(vh.map((h) => (h.TinhHinhDangKy || {}).tinhHinhDangKyId), vhIds)) {
       res.reasons.push('Khung phải không khớp mã tình hình đăng ký – kiểm tra tay');
-    } else if (RULES.keepUndone && tc.ActionProcessSyncData === -1 && v.trangThaiGoiTinDongBo === 0) {
+    } else if (RULES.keepUndone && !gcnTab && tc.ActionProcessSyncData === -1 && v.trangThaiGoiTinDongBo === 0) {
       // Ai đó đã chủ động "Bỏ duyệt" đơn này – không tự duyệt lại đè lên quyết định của người
       res.reasons.push('Đơn đã bị "Bỏ duyệt" trước đó – kiểm tra tay, extension không tự duyệt lại');
     } else {

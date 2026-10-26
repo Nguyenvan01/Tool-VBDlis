@@ -38,7 +38,8 @@ for (const { name, v } of DON) {
   test(`info = bản Gỡ – ${name}`, () => {
     assert.deepEqual(plain(M.info(v)), OLD(name, v).info);
   });
-  test(`undoFor (kể cả lệnh, body, expect) = bản Gỡ – ${name}`, () => {
+  // Bản mới gỡ hết trạng thái – hai đơn này chủ ý khác bản cũ, kiểm ở test riêng bên dưới
+  if (!['G05', 'G07'].includes(v.goiTinDongBoNId)) test(`undoFor (kể cả lệnh, body, expect) = bản Gỡ – ${name}`, () => {
     assert.deepEqual(plain(U.undoFor(v, M.info(v))), OLD(name, v).undoFor);
   });
 }
@@ -55,6 +56,19 @@ for (const { name, resp, expect } of RESP) {
 test('fixture checkResponse có cả đúng lẫn sai', () => {
   const r = RESP.map(({ resp, expect }) => M.checkResponse(resp, expect) === '');
   assert.ok(r.includes(true) && r.includes(false));
+});
+
+test('gỡ hết trạng thái: đã Không xử lý → Bỏ duyệt khung trái; chưa xử lý mà khung phải còn lịch sử → Bỏ duyệt khung phải', () => {
+  const plan = (goi) => { const { v } = DON.find((c) => c.v.goiTinDongBoNId === goi); return U.undoFor(v, M.info(v)); };
+  const g7 = plan('G07');
+  assert.equal(g7.kind, 'undo');
+  assert.deepEqual(plain(g7.reqs.map((r) => [r.name, r.body])), [
+    ['UpdateStatusGoiTinDongBoThiCong', { goiTinDongBoNId: 'G07', actionProcessSyncDataThiCong: -1, trangThai: 0, processSyncDatas: [] }],
+  ]);
+  const g5 = plan('G05');
+  assert.equal(g5.kind, 'undo');
+  assert.deepEqual(plain(g5.reqs.map((r) => r.name)), ['UpdateStatusGoiTinDongBoVanHanh']);
+  assert.ok(g5.reqs[0].body.processSyncDatas.every((x) => x.actionProcessSyncData === -1));
 });
 
 test('bất biến 6: khung phải 3 bản ghi → MỘT lệnh VanHanh chứa cả 3', () => {

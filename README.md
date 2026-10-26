@@ -16,8 +16,9 @@ Extension gọi thẳng API của trang, **giống hệt khi bạn bấm menu**.
 |---|---|---|
 | **Duyệt đơn** | Chạy tự động | Duyệt mọi đơn **chưa xử lý** của đợt đang mở theo luật (bảng dưới) |
 | | Quét và sửa lỡ duyệt GCN | Tìm đơn **có Giấy chứng nhận mà đã lỡ duyệt**, rồi sửa: Bỏ duyệt khung phải → Không xử lý |
-| **Gỡ duyệt** | Gỡ duyệt | Đơn đã duyệt: Bỏ duyệt khung phải → Bỏ duyệt khung trái, đơn trở về *chưa xử lý* |
+| **Gỡ duyệt** | Gỡ duyệt | Gỡ hết trạng thái – đơn đã duyệt hoặc đã Không xử lý: Bỏ duyệt khung phải (nếu có) → Bỏ duyệt khung trái, đơn trở về *chưa xử lý* |
 | **Không xử lý hết** | Không xử lý hết | Đánh *Không xử lý* cho **mọi** đơn của đợt. Khung phải nào đã Cập nhật lịch sử thì Bỏ duyệt trước |
+| **Duyệt (GCN)** | Duyệt (GCN) | Như *Chạy tự động* nhưng **khung trái có Giấy chứng nhận vẫn duyệt** (kể cả đơn đã bị Bỏ duyệt). Khung phải có GCN vẫn không duyệt. Đừng chạy *Quét và sửa* trên đợt này |
 | **ĐVHC 2 cấp** | Duyệt ĐVHC 2 cấp | Hai khung **cùng số phát hành và cùng tên chủ** thì duyệt, không thì Không xử lý. Đơn đã xử lý sai luật thì gỡ rồi đánh lại |
 
 ### Luật của tab Duyệt đơn · Chạy tự động (tóm tắt)
@@ -105,6 +106,7 @@ tools/<id>/          Mỗi công cụ: rules.js (luật thuần) + tool.js (các
   undo/              Gỡ duyệt
   noaction/          Không xử lý hết
   dvhc/              Duyệt ĐVHC 2 cấp
+  gcn/               Duyệt (GCN): dùng lại Chạy tự động, bỏ điều kiện GCN khung trái
 panel/               Side Panel (HTML, CSS, view.js thuần, panel.js)
 test/                Kiểm thử tự động (máy chủ MPLIS giả, DOM giả, dữ liệu mẫu tên giả)
 docs/                Tài liệu cho người sửa code

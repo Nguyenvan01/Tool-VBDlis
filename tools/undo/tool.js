@@ -1,5 +1,5 @@
 /*
- * GỠ DUYỆT: Bỏ duyệt khung phải → Bỏ duyệt khung trái cho mọi đơn đã duyệt của đợt đang mở.
+ * GỠ DUYỆT (gỡ hết trạng thái): Bỏ duyệt khung phải → Bỏ duyệt khung trái cho mọi đơn đã xử lý của đợt đang mở.
  *
  * HAI BƯỚC – gỡ duyệt làm đổi thứ tự danh sách trên máy chủ (đơn vừa gỡ nhảy chỗ khác), nên vừa đọc vừa gỡ thì
  * có đơn bị đọc 2 lần và có đơn không bao giờ được đọc (bản 2.2.2: đọc 6 130 hồ sơ mà sót ~1 580). Vì vậy:
@@ -61,7 +61,8 @@
       return todo;
     }
 
-    // Bước 1 nhanh: chỉ đọc các đơn ĐÃ XỬ LÝ (lọc ở máy chủ) – đơn chưa xử lý không bao giờ cần gỡ.
+    // Bước 1 nhanh: chỉ đọc các đơn ĐÃ XỬ LÝ (lọc ở máy chủ) – đơn chưa xử lý không cần gỡ.
+    // ponytail: đơn chưa xử lý mà khung phải còn Cập nhật lịch sử (Bỏ duyệt dở) chỉ được gỡ khi phải đọc cả đợt.
     // ponytail: giá trị lọc '1' (đã xử lý) và '2' (đã đồng bộ) đoán theo trangThaiGoiTinDongBo – chỉ tin khi đếm khớp:
     // số đơn đọc được = cả đợt − chưa xử lý (− đã đồng bộ, nếu bộ lọc '1' không gồm chúng). Không khớp → null.
     async function readDone() {
@@ -100,7 +101,7 @@
     }
     if (st.stopping) return summary(st);
 
-    // Bước 2: gỡ duyệt Bỏ duyệt khung phải → Bỏ duyệt khung trái
+    // Bước 2: Bỏ duyệt khung phải → Bỏ duyệt khung trái
     api.log(`Đọc xong ${st.pos} đơn – cần gỡ ${todo.length} đơn`);
     Object.assign(st, { step: 'write', wTotal: todo.length });
     api.broadcast(true);
@@ -131,8 +132,9 @@
     panel: {
       start: 'Gỡ duyệt',
       style: 'warn',
-      confirm: 'GỠ DUYỆT TẤT CẢ các đơn đã duyệt của đợt đang mở?\n\n'
+      confirm: 'GỠ HẾT TRẠNG THÁI mọi đơn đã xử lý của đợt đang mở?\n\n'
         + '• Đơn đã Thêm vào dữ liệu vận hành: Bỏ duyệt khung phải → Bỏ duyệt khung trái\n'
+        + '• Đơn đã Không xử lý: Bỏ duyệt khung phải (nếu đã Cập nhật lịch sử) → Bỏ duyệt khung trái\n'
         + '• Kể cả đơn do người duyệt tay\n'
         + '• Trạng thái lạ (VD đã đồng bộ): không gửi gì, để kiểm tra tay\n'
         + '• Sau khi gỡ, đơn về "chưa xử lý"',

@@ -25,7 +25,7 @@
   // onlyFix: chỉ làm khi đơn cần SỬA (có GCN mà đang ở trạng thái đã duyệt) – dùng cho "Quét và sửa"
   async function handle(api, v, stt, onlyFix) {
     const st = api.state;
-    const d = Object.assign(R.decide(v), M.landOf(v)); // + số tờ / số thửa để ghi log
+    const d = Object.assign(R.decide(v, api.toolConfig.rules), M.landOf(v)); // + số tờ / số thửa để ghi log
     let p = R.planFor(v, d, { fixApproved: onlyFix });
     if (onlyFix && p.kind !== 'fix') {
       p = { kind: 'skip', label: `bỏ qua – không còn cần sửa (${M.stateLabel(v)})`, reqs: [] };

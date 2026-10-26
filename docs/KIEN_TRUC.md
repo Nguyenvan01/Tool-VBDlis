@@ -78,6 +78,7 @@ Bộ công cụ hỗ trợ VBDLIS/   ← chọn thư mục này khi Load unpacke
     noaction/tool.js     Không xử lý hết: đọc hết cả đợt rồi mới gửi
     dvhc/rules.js        dvhcFor, soPhatHanh (bảng luật mục 5.8)
     dvhc/tool.js         Duyệt ĐVHC 2 cấp: đọc hết cả đợt rồi mới gửi
+    gcn/tool.js          Duyệt (GCN): đăng ký lại công cụ run với config.rules = { leftGcn: false } (decide bỏ gLeft), nhật ký riêng gcn:*
   panel/                 panel.html, panel.css; view.js (thuần: nhóm tab, trạng thái thẻ, phím); panel.js (DOM). Không có mục cài đặt
   icons/
   test/                  *.test.mjs, lib/, fixtures/, golden/ (kết quả bản cũ đã chốt) – mục 9
@@ -165,6 +166,7 @@ ADXTools.register({
   "tools/undo/rules.js", "tools/undo/tool.js",
   "tools/noaction/rules.js", "tools/noaction/tool.js",
   "tools/dvhc/rules.js", "tools/dvhc/tool.js",
+  "tools/gcn/tool.js",
   "core/runner.js"
 ]
 ```
