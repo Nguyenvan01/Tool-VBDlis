@@ -12,11 +12,14 @@ const ADXCsv = (() => {
   const logRows = (log) => log.map((e, i) => [
     i + 1, e.time, e.stt ? '#' + e.stt : '', e.maDon, e.owners, e.ownersRight, e.soTo, e.soThua, e.result, e.soPhatHanh, e.soVaoSo, e.action, e.actionTime, e.note,
   ]);
+  // Log lần chạy (có thể nhiều đợt): thêm cột Đợt bàn giao ở cuối
+  const JOB_HEAD = [...LOG_HEAD, 'Đợt bàn giao'];
+  const jobRows = (log) => logRows(log).map((r, i) => [...r, log[i].dot || '']);
 
   function stamp(d = new Date()) {
     const p = (n) => String(n).padStart(2, '0');
     return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}-${p(d.getHours())}${p(d.getMinutes())}`;
   }
 
-  return { cell, build, LOG_HEAD, logRows, stamp };
+  return { cell, build, LOG_HEAD, logRows, JOB_HEAD, jobRows, stamp };
 })();

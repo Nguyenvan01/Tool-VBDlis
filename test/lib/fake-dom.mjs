@@ -104,8 +104,8 @@ export async function bootPanel({ frame, storage = {}, version }) {
       setTimeout(() => script.onerror(e), 0);
     }
   });
-  for (const id of ['tabs', 'panels']) {
-    const e = doc.createElement(id === 'tabs' ? 'nav' : 'main');
+  for (const id of ['dot', 'tabs', 'panels']) {
+    const e = doc.createElement({ dot: 'div', tabs: 'nav' }[id] || 'main');
     e.id = id;
     doc.body.appendChild(e);
   }

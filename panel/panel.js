@@ -89,12 +89,41 @@ function oldCode(s) {
 }
 
 // Khung đang chạy; nếu không thì khung vừa tải danh sách đơn GẦN NHẤT (mở đợt mới thì chạy đúng đợt mới,
-// không lấy nhầm khung cũ còn giữ đợt đã chạy xong)
+// không lấy nhầm khung cũ còn giữ đợt đã chạy xong); nhập mã đợt mà chưa khung nào tải danh sách: khung có mã xác thực
 const pickApi = (res) => res.find((r) => r.running)
   || res.filter((r) => r.hasCtx).sort((a, b) => (b.seenAt || 0) - (a.seenAt || 0))[0]
+  || res.find((r) => r.hasToken)
   || res.find((r) => 'hasCtx' in r) || null;
 
-// ---------------------------------------------------------------- dựng tab và thẻ
+// ---------------------------------------------------------------- mã đợt bàn giao nhập tay (không phải mở hộp thoại)
+// Không lưu: mở lại Side Panel là ô trống, tránh chạy nhầm đợt cũ
+const dotBox = {};
+// Các dòng đã gõ (bỏ dòng trống, bỏ trùng); mã nào sai dạng thì cả ô coi như chưa dùng được
+const typedDots = () => ADX.uniq(String((dotBox.input && dotBox.input.value) || '').split(/\r?\n/).map(ADX.norm));
+const badDots = () => typedDots().filter((x) => !ADX.isDot(x));
+const manualDots = () => (badDots().length ? [] : typedDots());
+function dotField(wrap) {
+  const lab = h('label', '', 'Mã đợt bàn giao – mỗi mã một dòng');
+  lab.setAttribute('for', 'dot-input');
+  dotBox.input = h('textarea');
+  dotBox.input.id = 'dot-input';
+  dotBox.input.rows = 2;
+  dotBox.input.spellcheck = false;
+  dotBox.input.autocomplete = 'off';
+  dotBox.input.placeholder = 'Để trống = đợt đang mở trên trang';
+  dotBox.hint = h('div', 'dot-hint');
+  dotBox.input.oninput = () => { showDotHint(); renderApi(last); };
+  wrap.append(lab, dotBox.input, dotBox.hint);
+}
+function showDotHint() {
+  const n = typedDots().length;
+  const bad = badDots();
+  dotBox.hint.className = 'dot-hint' + (bad.length ? ' err' : '');
+  dotBox.hint.textContent = bad.length ? `Sai dạng mã: ${bad[0]} – VD 36a06ac3-51c4-4929-8191-186a868d8346`
+    : n > 1 ? `${n} đợt – chạy lần lượt từng đợt; lỗi hoặc Dừng thì không chạy các đợt sau`
+      : n ? 'Chạy theo mã này, không cần mở hộp thoại "Xử lý đơn đăng ký"' : '';
+}
+
 let tabs = [];              // [{ label, tools, ns, tab, panel, dot, sr }]
 let sel = 0;                // tab đang chọn
 let last = null;            // trạng thái gần nhất của khung được chọn
@@ -158,6 +187,7 @@ function statsCard(ns) {
 
 function buildUi() {
   tabs = ADXView.groupTabs(ADXTools.list(), ADXTools.logNs);
+  dotField($('dot'));
   const nav = $('tabs');
   nav.style.gridTemplateColumns = `repeat(${tabs.length}, minmax(0, 1fr))`;
   tabs.forEach((g, i) => {
@@ -228,8 +258,9 @@ function renderApi(s) {
   const old = oldCode(s);
   for (const t of ADXTools.list()) {
     const c = cards.get(t.id);
-    const v = ADXView.cardView(t, s, old, errors.get(t.id) || '', runner ? runner.name : (s && s.tool) || '');
-    c.start.disabled = v.startDisabled;
+    const v = ADXView.cardView(t, s, old, errors.get(t.id) || '', runner ? runner.name : (s && s.tool) || '', manualDots());
+    // Gõ dở mã đợt (sai dạng) thì không cho chạy – tránh lặng lẽ chạy đợt đang mở trên trang
+    c.start.disabled = v.startDisabled || badDots().length > 0;
     c.stop.disabled = v.stopDisabled;
     setLabel(c.stop, v.stopText);
     c.dot.textContent = v.dot;
@@ -285,9 +316,12 @@ async function refreshApi() {
 async function start(t) {
   const s = pickApi(await sendAll({ cmd: 'apiStatus' }));
   // pickApi ưu tiên khung đang chạy: có khung nào đang chạy thì không cho chạy thêm
-  if (!s || !s.hasCtx || s.running) return renderApi(s);
-  if (!confirm(t.panel.confirm)) return;
-  const r = await sendFrame(s.frameId, { cmd: 'apiStart', tool: t.id });
+  const dots = manualDots();
+  if (badDots().length) return renderApi(s);
+  if (!s || !(dots.length ? s.hasToken : s.hasCtx) || s.running) return renderApi(s);
+  const which = dots.length > 1 ? `${dots.length} đợt bàn giao, chạy lần lượt:\n${dots.join('\n')}` : `Đợt bàn giao: ${dots[0] || s.dot}`;
+  if (!confirm(`${which}\n\n${t.panel.confirm}`)) return;
+  const r = await sendFrame(s.frameId, { cmd: 'apiStart', tool: t.id, dots });
   errors.set(t.id, (r && r.error) || '');
   renderApi(r);
 }
@@ -342,7 +376,7 @@ function downloadJob(t) {
   const job = jobs.get(t.id);
   if (!job) return;
   const name = `lan-chay_${t.id}_${ADXCsv.stamp(new Date(job.endedAt))}.csv`;
-  download(name, new Blob([ADXCsv.build(ADXCsv.LOG_HEAD, ADXCsv.logRows(job.entries))], { type: 'text/csv;charset=utf-8' }));
+  download(name, new Blob([ADXCsv.build(ADXCsv.JOB_HEAD, ADXCsv.jobRows(job.entries))], { type: 'text/csv;charset=utf-8' }));
 }
 
 async function exportCsv(ns) {

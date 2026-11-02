@@ -7,7 +7,7 @@ import { bootPanel } from './lib/fake-dom.mjs';
 
 // Trạng thái một khung trên trang MPLIS (stateObj của core/runner.js)
 const S = (o = {}) => ({
-  frame: 'https://x.mplis.gov.vn/', version: '3.0.0', hasCtx: true, dot: 'DOT-0001-ABCD', seenAt: 1,
+  frame: 'https://x.mplis.gov.vn/', version: '3.2.0', hasCtx: true, dot: 'DOT-0001-ABCD', seenAt: 1,
   tool: '', running: false, stopping: false, t0: 0, msg: '', step: '', scope: '', phase: '', pos: 0, total: 0, counts: {}, ...o,
 });
 // Khung giả: trả `page.s` (null = trang không có content script), ghi lại lỗi khi bấm chạy
@@ -116,7 +116,7 @@ test('không có gì chạy: nút chạy mở, nút Dừng khoá; bấm chạy g
   }
   await card(p, 'Không xử lý hết').start.click();
   await p.settle();
-  assert.deepEqual(plain(p.sent.filter((m) => m.cmd === 'apiStart')), [{ cmd: 'apiStart', tool: 'noaction' }]);
+  assert.deepEqual(plain(p.sent.filter((m) => m.cmd === 'apiStart')), [{ cmd: 'apiStart', tool: 'noaction', dots: [] }]);
 });
 
 test('lỗi khi bấm chạy chỉ hiện ở thẻ của công cụ đó', async () => {
@@ -294,7 +294,7 @@ test('log lần chạy: thẻ hiện "Lần chạy … · N đơn" + nút tải 
   row('Gỡ duyệt').all((e) => e.tagName === 'BUTTON')[0].click();
   const text = Buffer.from(await p.blobs.at(-1).arrayBuffer()).toString('utf8');
   const lines = text.split('\r\n');
-  assert.equal(lines[0], '﻿STT,Thời gian quét,Vị trí hồ sơ,Mã đơn,Chủ – khung trái (đơn mới),Chủ – khung phải (dữ liệu cũ),Số tờ,Số thửa,Kết quả,Số phát hành,Số vào sổ,Hành động đã làm,Thời gian hành động,Ghi chú');
+  assert.equal(lines[0], '﻿STT,Thời gian quét,Vị trí hồ sơ,Mã đơn,Chủ – khung trái (đơn mới),Chủ – khung phải (dữ liệu cũ),Số tờ,Số thửa,Kết quả,Số phát hành,Số vào sổ,Hành động đã làm,Thời gian hành động,Ghi chú,Đợt bàn giao');
   assert.equal(lines.length, 3);
   assert.match(lines[2], /^2,.*,DON_2,B,,3 \| 3,45 \| 46,KIỂM TRA TAY,/);
   // Đang chạy lại Gỡ duyệt → ẩn log của lần trước

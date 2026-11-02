@@ -1,4 +1,4 @@
-# Bộ công cụ hỗ trợ VBDLIS (MPLIS) 3.0.0 – Hướng dẫn sử dụng
+# Bộ công cụ hỗ trợ VBDLIS (MPLIS) 3.2.0 – Hướng dẫn sử dụng
 
 Extension gọi thẳng API của trang MPLIS, giống hệt khi bấm menu. Nó không bấm nút và không đọc giao diện. Mọi công cụ nằm chung một Side Panel; mỗi lúc chỉ chạy được **một** công cụ.
 
@@ -41,6 +41,16 @@ Nếu quên bước 2 hoặc 3, Side Panel hiện cảnh báo ⚠ và khoá nút
 ## 3. Chuẩn bị trước mỗi lần chạy
 
 **F5 trang, rồi mở hộp thoại "Xử lý đơn đăng ký" của đợt cần làm.** Lúc trang tải danh sách đơn, extension lấy *đợt bàn giao* và *mã xác thực* của phiên đăng nhập. Mã xác thực chỉ giữ trong bộ nhớ, không bao giờ được lưu. Chưa làm bước này thì Side Panel báo "Chưa thấy danh sách đơn".
+
+**Hoặc nhập mã đợt bàn giao, không cần mở hộp thoại.** Dán mã đợt vào ô **Mã đợt bàn giao** trên đầu Side Panel (VD `36a06ac3-51c4-4929-8191-186a868d8346`), **mỗi mã một dòng**, rồi bấm chạy như thường. Trang chỉ cần F5 sau khi đăng nhập, để extension lấy được mã xác thực.
+
+- Để trống ô này: chạy đợt đang mở trên trang, như cũ. Có mã trong ô: luôn chạy theo mã đó, kể cả khi trang đang mở một đợt khác. Câu xác nhận ghi rõ mã đợt sẽ chạy.
+- **Nhiều mã:** công cụ chạy **lần lượt** từng đợt theo thứ tự các dòng, xong đợt này mới sang đợt sau. Dòng trống và mã trùng được bỏ qua. Câu xác nhận liệt kê đủ các mã. Lúc chạy, góc thẻ hiện *Đợt 2/3 · …*, dòng ghi chú liệt kê kết quả từng đợt đã xong.
+- Một đợt bị **lỗi** hoặc bạn bấm **Dừng**: các đợt sau **không chạy**. Ghi chú báo còn bao nhiêu đợt chưa chạy. Sửa xong thì xoá các dòng đã chạy rồi chạy lại.
+- **Tải log lần chạy** gộp mọi đợt của lần đó, có thêm cột *Đợt bàn giao* ở cuối.
+- Mã sai dạng hoặc dán thiếu (dù chỉ một dòng): nút chạy bị khoá, dưới ô báo "Sai dạng mã: …".
+- Ô không được lưu. Đóng rồi mở lại Side Panel thì ô trống, để không chạy nhầm đợt cũ.
+- Nếu trang **chưa** tải danh sách lần nào, extension tự dựng yêu cầu lấy danh sách theo mẫu `listRequest` trong [config.js](config.js). Lần đầu dùng cách này, hãy chạy thử một đợt nhỏ. Nếu máy chủ báo lỗi lúc đọc danh sách, mở hộp thoại một lần cho bất kỳ đợt nào rồi chạy lại: extension sẽ dùng đúng yêu cầu trang vừa gửi, chỉ thay mã đợt.
 
 Trên Side Panel, chọn tab ở thanh trên cùng (bấm chuột, hoặc phím ← → khi đang đứng ở thanh tab). Mở Side Panel thì tab Duyệt đơn được chọn sẵn; nếu đang có công cụ chạy thì tab của công cụ đó được chọn.
 

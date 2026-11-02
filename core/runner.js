@@ -50,7 +50,8 @@
       frame: location.href,
       version: typeof ADX_VERSION === 'undefined' ? '' : ADX_VERSION,
       hasCtx: !!(c.listBody && c.token),
-      dot: c.listBody ? c.listBody.dotBanGiaoNId : '',
+      hasToken: !!c.token, // đủ để chạy theo mã đợt nhập tay, không cần mở hộp thoại
+      dot: st.running && runBody ? runBody.dotBanGiaoNId : c.listBody ? c.listBody.dotBanGiaoNId : '',
       seenAt: c.seenAt || 0,
       ...JSON.parse(JSON.stringify(st)),
     };
@@ -274,7 +275,8 @@
       soVaoSo: ADX.uniq(d.gcn.map((g) => g.soVaoSo)).join(' | '),
       ...fields,
     };
-    jobLog.set(key, { maDon: key, time: nowStr(), ...(jobLog.get(key) || {}), ...e });
+    const jk = `${runBody.dotBanGiaoNId}|${key}`; // nhiều đợt: cùng mã đơn ở hai đợt là hai dòng
+    jobLog.set(jk, { maDon: key, dot: runBody.dotBanGiaoNId, time: nowStr(), ...(jobLog.get(jk) || {}), ...e });
     if (jobOnly) return;
     logQueue.set(key, { ...(logQueue.get(key) || {}), ...e });
     if (!logTimer) logTimer = setTimeout(flushLog, 1500);
@@ -331,40 +333,63 @@
   }
 
   // ---------------------------------------------------------------- điều khiển
-  async function session(t) {
+  // Body lấy danh sách cho mã đợt nhập tay: body trang đã gửi (đợt nào cũng được) thay mã đợt, chưa có thì mẫu trong config.js
+  const bodyFor = (ctx, dot) => ({ ...JSON.parse(JSON.stringify(ctx.listBody || A.listRequest)), dotBanGiaoNId: dot });
+
+  // Một hoặc nhiều đợt (mã đợt nhập trên Side Panel, mỗi dòng một mã): chạy LẦN LƯỢT, mỗi đợt một lượt đầy đủ của công cụ.
+  // Lỗi hoặc bấm Dừng ở đợt nào thì không chạy các đợt sau. Log lần chạy gộp mọi đợt (cột Đợt bàn giao).
+  async function session(t, bodies) {
     tool = t;
-    st = { ...freshState(), tool: t.id, running: true, t0: Date.now(), counts: t.counts() };
     logNs = ADXTools.logNs(t);
-    runBody = self.ADXApiContext.get().listBody;
     perf = freshPerf();
     jobLog = new Map();
     stopCtl = new AbortController();
-    const api = {
-      state: st,
-      config: A,
-      toolConfig: t.config || {},
-      // Số lần đọc / số đơn gửi song song: công cụ "đọc hết rồi mới gửi" dùng được tới 6 cho mỗi bước (hai bước không chồng nhau)
-      limits: t.readBeforeWrite ? { read: A.phasedReadAhead, write: A.phasedWriteConcurrency } : { read: A.readAhead, write: A.writeConcurrency },
-      dot: runBody.dotBanGiaoNId,
-      getList, readPages, readItems, pool, execute, writeLog,
-      save: (key, value) => ADXLog.save(t.id, key, value),
-      broadcast, log, now: nowStr,
-    };
-    broadcast(true);
+    const t0 = Date.now();
+    const dots = bodies.map((b) => b.dotBanGiaoNId);
+    // Trạng thái nhiều đợt cho Side Panel: đang ở đợt pos / total, kết quả các đợt đã chạy
+    const batch = { pos: 0, total: bodies.length, done: [] };
+    for (const body of bodies) {
+      batch.pos++;
+      st = { ...freshState(), tool: t.id, running: true, t0: Date.now(), counts: t.counts(), batch };
+      runBody = body;
+      const api = {
+        state: st,
+        config: A,
+        toolConfig: t.config || {},
+        // Số lần đọc / số đơn gửi song song: công cụ "đọc hết rồi mới gửi" dùng được tới 6 cho mỗi bước (hai bước không chồng nhau)
+        limits: t.readBeforeWrite ? { read: A.phasedReadAhead, write: A.phasedWriteConcurrency } : { read: A.readAhead, write: A.writeConcurrency },
+        dot: runBody.dotBanGiaoNId,
+        getList, readPages, readItems, pool, execute, writeLog,
+        save: (key, value) => ADXLog.save(t.id, key, value),
+        broadcast, log, now: nowStr,
+      };
+      broadcast(true);
+      let ok = false;
+      try {
+        st.msg = await t.run(api);
+        ok = !st.stopping;
+      } catch (e) {
+        st.msg = e && e.stopped ? t.summary(st) : 'Lỗi: ' + ((e && e.message) || e);
+      }
+      batch.done.push({ dot: runBody.dotBanGiaoNId, msg: st.msg });
+      if (bodies.length > 1) log(`Đợt ${batch.pos}/${batch.total} (${runBody.dotBanGiaoNId}): ${st.msg}`);
+      if (!ok) break;
+    }
+    // Chạy hết nhiều đợt: câu tổng; dừng giữa chừng: giữ nguyên câu của đợt hỏng / dừng (Side Panel tách lỗi theo mẫu)
+    if (batch.total > 1 && batch.done.length === batch.total && !st.stopping && !/^Lỗi/.test(st.msg)) {
+      st.msg = `Xong – đã chạy hết ${batch.total} đợt bàn giao.`;
+    }
     try {
-      st.msg = await t.run(api);
-    } catch (e) {
-      st.msg = e && e.stopped ? t.summary(st) : 'Lỗi: ' + ((e && e.message) || e);
-    } finally {
       await flushLog();
+    } finally {
       // Log của lần chạy này (ghi đè lần trước của cùng công cụ) – Side Panel cho tải về sau khi xong
       if (alive()) {
         await ADXLog.save(t.id, 'job', {
-          tool: t.id, name: t.name, dot: runBody.dotBanGiaoNId, start: new Date(st.t0).toLocaleString('vi-VN'),
+          tool: t.id, name: t.name, dot: dots.join(', '), start: new Date(t0).toLocaleString('vi-VN'),
           end: nowStr(), endedAt: Date.now(), msg: st.msg, entries: [...jobLog.values()],
         }).catch((e) => console.warn('[Duyệt đơn] log lần chạy', e));
       }
-      log(`${st.msg} (${duration(Date.now() - st.t0)})`);
+      log(`${st.msg} (${duration(Date.now() - t0)})`);
       log(perfLine());
       st.running = false;
       st.stopping = false;
@@ -373,7 +398,8 @@
     }
   }
 
-  function start(id) {
+  // dots: các mã đợt bàn giao nhập trên Side Panel (mảng, hoặc một chuỗi; rỗng = đợt trang đang mở)
+  function start(id, dots = []) {
     if (st.running) return 'Đang chạy rồi';
     const t = ADXTools.get(id);
     if (!t) return `Không có công cụ "${id}"`;
@@ -381,9 +407,12 @@
     if (A.readAhead + A.writeConcurrency > 6) return 'Cấu hình sai: readAhead + writeConcurrency phải ≤ 6 (config.js)';
     if (A.phasedReadAhead > 6 || A.phasedWriteConcurrency > 6) return 'Cấu hình sai: phasedReadAhead, phasedWriteConcurrency mỗi số phải ≤ 6 (config.js)';
     const ctx = self.ADXApiContext && self.ADXApiContext.get();
-    if (!ctx || !ctx.listBody) return 'Chưa thấy danh sách đơn – hãy F5 trang rồi mở hộp thoại "Xử lý đơn đăng ký" trước';
+    dots = ADX.uniq([].concat(dots || []).map((x) => String(x || '').trim()));
+    const bad = dots.find((x) => !ADX.isDot(x));
+    if (bad) return `Mã đợt bàn giao "${bad}" không đúng dạng (VD 36a06ac3-51c4-4929-8191-186a868d8346)`;
+    if (!ctx || (!dots.length && !ctx.listBody)) return 'Chưa thấy danh sách đơn – hãy F5 trang rồi mở hộp thoại "Xử lý đơn đăng ký" trước, hoặc nhập mã đợt bàn giao';
     if (!ctx.token) return 'Chưa lấy được mã xác thực (__RequestVerificationToken) – hãy F5 trang rồi mở hộp thoại';
-    session(t);
+    session(t, dots.length ? dots.map((x) => bodyFor(ctx, x)) : [ctx.listBody]);
     return '';
   }
 
@@ -391,7 +420,7 @@
     const cmd = msg && msg.cmd;
     if (cmd === 'apiStatus') return void send(stateObj());
     if (cmd === 'apiStart') {
-      const err = start(msg.tool);
+      const err = start(msg.tool, msg.dots || msg.dot);
       return void send({ ...stateObj(), error: err });
     }
     if (cmd === 'apiStop') {

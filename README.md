@@ -4,7 +4,7 @@ Extension Chrome giúp cán bộ xử lý **đơn đăng ký trên MPLIS** (`*.m
 
 Extension gọi thẳng API của trang, **giống hệt khi bạn bấm menu**. Nó dùng chính phiên đăng nhập của bạn, không bấm nút thay bạn và không đọc giao diện. Mọi công cụ nằm chung một **Side Panel** (khung bên cạnh trang). Mỗi lúc chỉ chạy được một công cụ.
 
-- Phiên bản: **3.0.0**, Chrome Manifest V3
+- Phiên bản: **3.2.0**, Chrome Manifest V3
 - JavaScript thuần: không cần build, không có thư viện ngoài
 - Hướng dẫn sử dụng đầy đủ: [HUONG_DAN.md](HUONG_DAN.md)
 
@@ -53,7 +53,8 @@ Chi tiết từng trường hợp: [HUONG_DAN.md](HUONG_DAN.md), mục 4.
 ## Cách dùng
 
 1. Đăng nhập MPLIS, **F5 trang**, rồi mở hộp thoại **"Xử lý đơn đăng ký"** của đợt cần làm. Lúc trang tải danh sách đơn, extension lấy đợt bàn giao và mã xác thực.
-2. Mở Side Panel, chọn tab, bấm nút chạy, đọc kỹ câu xác nhận rồi bấm **OK**.
+   **Hoặc** dán mã đợt bàn giao vào ô **Mã đợt bàn giao** trên đầu Side Panel, mỗi mã một dòng (nhiều mã thì chạy lần lượt từng đợt). Cách này không cần mở hộp thoại, chỉ cần F5 trang sau khi đăng nhập ([HUONG_DAN.md](HUONG_DAN.md), mục 3).
+2. Mở Side Panel, chọn tab, bấm nút chạy, đọc kỹ câu xác nhận (có ghi mã đợt) rồi bấm **OK**.
 3. Theo dõi tiến độ trên thẻ. Chạy xong:
    - **Tải log lần chạy:** CSV chỉ gồm các đơn của lần vừa chạy.
    - **Xuất CSV** ở thẻ Thống kê: toàn bộ log của công cụ đó.

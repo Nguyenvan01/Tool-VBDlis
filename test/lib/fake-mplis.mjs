@@ -132,7 +132,8 @@ export const NEW_RUNNER = 'core/runner.js';
 export const legacyFiles = (ver) => ['config.js', 'common.js', 'content/api-context.js', 'content/api-rules.js', 'content/api-run.js'].map((f) => `legacy/${ver}/${f}`);
 
 // Nạp bộ máy vào vm như một khung của trang MPLIS. ctxType: 'vbdlis3:ctx' (bản mới) | 'adx:ctx' (bản cũ)
-export function boot({ files, server, ctxType, patch = '' }) {
+// list: body trang đã gửi khi tải danh sách; null = trang chưa mở hộp thoại lần nào (chỉ có mã xác thực)
+export function boot({ files, server, ctxType, patch = '', list = LIST_BODY }) {
   const storage = makeStorage();
   const runtime = [];
   const message = [];
@@ -155,8 +156,8 @@ export function boot({ files, server, ctxType, patch = '' }) {
   vm.runInContext(`ADX_CONFIG.api.retryDelayMs = 1; ${patch}`, ctx);
   const data = {
     type: ctxType, token: TOKEN,
-    listUrl: 'https://test.mplis.gov.vn/dc/TichHopDongBoDuLieuAjax/KiemTraDuLieuChuyenDoi',
-    listBody: JSON.stringify(LIST_BODY),
+    listUrl: list ? 'https://test.mplis.gov.vn/dc/TichHopDongBoDuLieuAjax/KiemTraDuLieuChuyenDoi' : '',
+    listBody: list ? JSON.stringify(list) : '',
   };
   // ev.source phải là `window` nhìn từ trong vm (global bên trong, khác đối tượng sandbox bên ngoài)
   const inner = vm.runInContext('globalThis', ctx);
@@ -173,8 +174,8 @@ export function boot({ files, server, ctxType, patch = '' }) {
 }
 
 // Chạy một lần từ đầu tới cuối, trả kết quả cuối cùng
-export async function runOnce({ files, server, ctxType, start, patch }) {
-  const b = boot({ files, server, ctxType, patch });
+export async function runOnce({ files, server, ctxType, start, patch, list }) {
+  const b = boot({ files, server, ctxType, patch, list });
   const started = await b.send(start);
   const final = await b.finish();
   return { started, final, storage: b.storage, calls: server.calls, items: server.items, b };

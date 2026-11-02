@@ -37,16 +37,23 @@ const ADXView = (() => {
 
   // Trạng thái hiển thị của thẻ công cụ t, từ trạng thái s của khung được chọn.
   // old: cảnh báo lệch phiên bản ('' nếu không); error: lỗi lần bấm chạy gần nhất của t; runnerName: tên công cụ đang chạy
-  function cardView(t, s, old, error, runnerName) {
+  // dots: các mã đợt bàn giao nhập trên Side Panel (đã đúng dạng; [] = đợt trang đang mở) – chỉ cần mã xác thực, không cần mở hộp thoại
+  function cardView(t, s, old, error, runnerName, dots = []) {
     const running = !!(s && s.running);
     const mine = !!(s && s.tool === t.id);
+    const dot = dots[0] || '';
+    const ready = !!(s && (dot ? s.hasToken : s.hasCtx));
+    const shown = running ? s.dot : dot || (s && s.dot);
+    const batch = s && s.batch && s.batch.total > 1 ? s.batch : null; // lần chạy nhiều đợt (của công cụ s.tool)
     const v = {
       // Mỗi tab trình duyệt chỉ một công cụ chạy: đang chạy thì khoá nút chạy của MỌI công cụ
-      startDisabled: running || !s || !s.hasCtx || !!old,
+      startDisabled: running || !ready || !!old,
       // Nút Dừng ở thẻ nào cũng dừng được công cụ đang chạy
       stopDisabled: !running || !!s.stopping,
       stopText: running && s.stopping ? 'Đang dừng…' : 'Dừng',
-      dot: s && s.dot ? 'Đợt ' + s.dot.slice(0, 8) + '…' : '',
+      dot: running && batch ? `Đợt ${batch.pos}/${batch.total} · ${shown.slice(0, 8)}…`
+        : !running && dots.length > 1 ? `${dots.length} đợt`
+          : shown ? 'Đợt ' + shown.slice(0, 8) + '…' : '',
       state: '',
       stateCls: 'api-state',
       report: null,
@@ -67,15 +74,17 @@ const ADXView = (() => {
     } else if (mine && s.msg) {
       v.state = s.msg;
       v.stateCls += /^Lỗi|Chưa|đang chạy/.test(s.msg) ? ' err' : /^Xong/.test(s.msg) ? ' ok' : '';
-    } else if (!s.hasCtx) {
-      v.state = 'Chưa thấy danh sách đơn: F5 trang rồi mở hộp thoại "Xử lý đơn đăng ký" (extension cần lấy đợt bàn giao và mã xác thực từ lần trang tải danh sách).';
+    } else if (!ready && dot) {
+      v.state = 'Chưa lấy được mã xác thực: F5 trang MPLIS (đã đăng nhập) rồi thử lại.';
+    } else if (!ready) {
+      v.state = 'Chưa thấy danh sách đơn: F5 trang rồi mở hộp thoại "Xử lý đơn đăng ký" (extension cần lấy đợt bàn giao và mã xác thực từ lần trang tải danh sách), hoặc nhập mã đợt bàn giao ở ô trên.';
     }
     v.error = v.stateCls.endsWith(' err') ? splitError(v.state) : null;
 
     // Nhãn trạng thái ở đầu thẻ – chỉ khi dữ liệu có thật, cùng thứ tự ưu tiên với dòng trạng thái
     const badge = (cls, text) => ({ cls, text });
     const manual = t.panel.manual ? t.panel.manual(s || {}) : (s && s.counts && s.counts.unknown) || 0;
-    if (!s || (old && !running) || (!running && !s.hasCtx)) v.badge = badge('idle', 'Chưa sẵn sàng');
+    if (!s || (old && !running) || (!running && !ready)) v.badge = badge('idle', 'Chưa sẵn sàng');
     else if (running) v.badge = mine ? badge('run', 'Đang chạy') : null;
     else if (error) v.badge = /^Chưa/.test(error) ? badge('idle', 'Chưa sẵn sàng') : badge('err', 'Lỗi');
     else if (mine && /^Lỗi/.test(s.msg)) v.badge = badge('err', 'Lỗi');
@@ -84,9 +93,19 @@ const ADXView = (() => {
     // Tiến độ chỉ của lần chạy gần nhất của CHÍNH công cụ này – không lẫn giữa các thẻ
     if (mine && (running || s.msg)) {
       const p = t.panel.progress(s);
-      v.report = { text: p.text, pct: p.pct, live: running, counters: t.panel.counters(s), note: t.panel.note ? t.panel.note(s) : '' };
+      const note = t.panel.note ? t.panel.note(s) : '';
+      v.report = { text: p.text, pct: p.pct, live: running, counters: t.panel.counters(s), note: batch ? [batchNote(batch, running), note].filter(Boolean).join('\n') : note };
     }
     return v;
+  }
+
+  // Nhiều đợt: kết quả từng đợt đã chạy, đợt đang chạy, số đợt chưa chạy (khi dừng giữa chừng)
+  function batchNote(b, running) {
+    const lines = b.done.map((x, i) => `Đợt ${i + 1}/${b.total} (${x.dot.slice(0, 8)}…): ${x.msg}`);
+    const left = b.total - b.done.length - (running ? 1 : 0);
+    if (running) lines.push(`Đang chạy đợt ${b.pos}/${b.total}` + (left ? `, còn ${left} đợt` : ''));
+    else if (left) lines.push(`Chưa chạy ${left} đợt sau đó.`);
+    return lines.join('\n');
   }
 
   // Phím trên thanh tab: ← → (vòng), Home, End

@@ -4,7 +4,7 @@
  */
 // Phiên bản – PHẢI trùng "version" trong manifest.json. Side Panel dùng số này để phát hiện
 // extension chưa được tải lại (⟳) hoặc trang vẫn đang chạy code cũ (chưa F5).
-const ADX_VERSION = '3.0.0';
+const ADX_VERSION = '3.2.0';
 
 const ADX_CONFIG = {
   // Giá trị coi như RỖNG (so sánh đã chuẩn hóa: Unicode NFC, chữ thường, gộp khoảng trắng)
@@ -16,6 +16,11 @@ const ADX_CONFIG = {
     list: 'KiemTraDuLieuChuyenDoi',              // lấy danh sách đơn (rất chậm: 5–10 giây cho 5 đơn)
     thiCong: 'UpdateStatusGoiTinDongBoThiCong',  // khung trái: Thêm vào dữ liệu vận hành / Không xử lý / Bỏ duyệt
     vanHanh: 'UpdateStatusGoiTinDongBoVanHanh',  // khung phải: Cập nhật lịch sử / Bỏ duyệt
+    // Nhập mã đợt bàn giao trên Side Panel mà trang CHƯA tải danh sách lần nào (chưa mở hộp thoại "Xử lý đơn đăng ký"):
+    // body lấy danh sách dựng từ mẫu này + dotBanGiaoNId + start / length / trangThai. Trang đã tải danh sách (đợt nào cũng được)
+    // thì dùng body trang vừa gửi, chỉ thay mã đợt. Máy chủ báo lỗi khi đọc → mở hộp thoại một lần, F12 → Network →
+    // KiemTraDuLieuChuyenDoi → Payload, chép các trường còn thiếu vào đây.
+    listRequest: { requestQueries: { trangThai: '-1' } },
 
     // ---- tốc độ
     runPageSize: 10,      // số đơn mỗi lần lấy danh sách

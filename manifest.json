@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Bộ công cụ hỗ trợ VBDLIS (MPLIS)",
-  "version": "3.0.0",
+  "version": "3.2.0",
   "description": "Xử lý đơn đăng ký trên MPLIS qua API, mỗi chức năng là một công cụ trong cùng Side Panel. Có thống kê và xuất CSV.",
   "permissions": ["storage", "unlimitedStorage", "webNavigation", "sidePanel"],
   "host_permissions": ["https://*.mplis.gov.vn/*"],

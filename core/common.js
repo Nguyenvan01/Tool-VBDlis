@@ -18,6 +18,8 @@ const ADX = {
   uniq(arr) {
     return [...new Set(arr.filter(Boolean))];
   },
+  // Mã đợt bàn giao (GUID), VD 36a06ac3-51c4-4929-8191-186a868d8346
+  isDot: (s) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(String(s || '').trim()),
   sleep: (ms) => new Promise((r) => setTimeout(r, ms)),
   duration(ms) {
     const s = Math.round(ms / 1000);
