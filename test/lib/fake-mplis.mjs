@@ -9,8 +9,11 @@ export const LIST_BODY = { dotBanGiaoNId: 'DOT-0001-ABCD', requestQueries: { tra
 const LIST = 'KiemTraDuLieuChuyenDoi';
 const THI_CONG = 'UpdateStatusGoiTinDongBoThiCong';
 const VAN_HANH = 'UpdateStatusGoiTinDongBoVanHanh';
+const DONG_BO = 'DongBoDonDaDuyet';
 const clone = (x) => JSON.parse(JSON.stringify(x));
-export const isWrite = (c) => c.name !== LIST;
+// Lệnh ghi cho từng đơn (không tính lệnh đồng bộ cả đợt)
+export const isWrite = (c) => c.name !== LIST && c.name !== DONG_BO;
+export const isSync = (c) => c.name === DONG_BO;
 
 // Đợt mẫu: các đơn trong don.json, nhân thêm `copies` bản có mã khác (đơn thiếu mã gói tin chỉ giữ một bản).
 // Bỏ đơn không có trangThaiGoiTinDongBo: máy chủ thật không trả đơn như vậy, và nó làm phép đếm của bộ lọc luôn lệch.
@@ -66,6 +69,7 @@ export function makeServer(dons, opts = {}) {
       const n = Math.min(body.length, maxPage);
       return { success: true, value: clone(list.slice(body.start, body.start + n)), recordsTotal: list.length };
     }
+    if (name === DONG_BO) return { success: true };
     const i = items.findIndex((x) => x.goiTinDongBoNId === body.goiTinDongBoNId);
     if (i < 0) return { success: false, message: 'không có gói tin' };
     const v = items[i];

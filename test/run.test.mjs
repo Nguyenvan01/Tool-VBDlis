@@ -3,13 +3,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { loadScripts, readJson, read, plain, NEW_CORE, legacyRules, LEGACY_DUYET } from './lib/vm.mjs';
-import { makeDot, makeServer, runOnce, isWrite, NEW_FILES, NEW_RUNNER, legacyFiles, TOKEN } from './lib/fake-mplis.mjs';
+import { makeDot, makeServer, runOnce, isWrite, isSync, LIST_BODY, NEW_FILES, NEW_RUNNER, legacyFiles, TOKEN } from './lib/fake-mplis.mjs';
 import { legacy } from './lib/golden.mjs';
 
 const loadNew = () => loadScripts([...NEW_CORE, 'tools/run/rules.js']);
 const loadOld = () => loadScripts(legacyRules(LEGACY_DUYET)); // chỉ gọi khi còn legacy/
 // So với bản Duyệt 2.1.3: tắt luật mới historyByLand (bản cũ Cập nhật lịch sử mọi bản ghi) – luật mới kiểm ở run-to-thua.test.mjs
-const OLD_RULE = 'ADXRules.run.RULES.historyByLand = false;';
+// Bản cũ không đồng bộ đợt khi xong – tắt khi so; đồng bộ kiểm ở cuối file
+const OLD_RULE = 'ADXRules.run.RULES.historyByLand = false; ADXTools.get(\'run\').config.syncWhenDone = false;';
 const RR = loadNew().get('ADXRules.run');
 RR.RULES.historyByLand = false;
 const DUYET = readJson('test/fixtures/duyet.json');
@@ -285,4 +286,53 @@ test('log có số tờ / số thửa; log lần chạy lưu khi xong, khớp c�
   const job2 = r2.storage['run:job'];
   assert.ok(job2.endedAt >= job1.endedAt && job2.entries.length < job1.entries.length);
   assert.ok(job2.entries.every((e) => e.result !== 'ĐƯỢC DUYỆT'));
+});
+
+// ---------------------------------------------------------------- đồng bộ đợt khi duyệt xong (DongBoDonDaDuyet)
+const runSync = (server) => runOnce({ files: NEW, server, ctxType: 'vbdlis3:ctx', start: { cmd: 'apiStart', tool: 'run' }, patch: 'ADXRules.run.RULES.historyByLand = false;' });
+// Đợt không có đơn nào phải để lại kiểm tra tay → chạy xong là hết đơn chưa xử lý
+const DOT_CLEAN = () => DOT_MANY().filter((v) => RR.planFor(v, RR.decide(v), { fixApproved: false }).kind !== 'unknown');
+
+test('đồng bộ: duyệt xong hết đơn của đợt → gọi DongBoDonDaDuyet MỘT lần cho đợt, sau mọi lệnh ghi', async () => {
+  const r = await runSync(makeServer(DOT_CLEAN()));
+  assert.equal(r.final.counts.unknown, 0);
+  assert.ok(r.final.counts.approve > 0);
+  const syncs = r.calls.filter(isSync);
+  assert.deepEqual(plain(syncs.map((c) => c.body)), [{ dotBanGiaoNId: LIST_BODY.dotBanGiaoNId }]);
+  assert.equal(syncs[0].token, TOKEN);
+  assert.ok(r.calls.indexOf(syncs[0]) > r.calls.findLastIndex(isWrite), 'đồng bộ sau lệnh ghi cuối');
+  assert.ok(r.items.every((v) => v.trangThaiGoiTinDongBo !== 0));
+  assert.match(r.final.msg, /^Xong – đã xử lý \d+ đơn .*\. Đã đồng bộ đơn đã duyệt của đợt\.$/);
+});
+
+test('đồng bộ: đợt đã xử lý hết từ trước → vẫn đồng bộ', async () => {
+  const server = makeServer(DOT_CLEAN());
+  await runSync(server);
+  const n = server.calls.length;
+  const r = await runSync(server);
+  assert.equal(r.calls.slice(n).filter(isWrite).length, 0);
+  assert.equal(r.calls.slice(n).filter(isSync).length, 1);
+  assert.equal(r.final.msg, 'Không còn đơn nào chưa xử lý. Đã đồng bộ đơn đã duyệt của đợt.');
+});
+
+test('đồng bộ: còn đơn kiểm tra tay (chưa xử lý) → KHÔNG đồng bộ, báo số đơn còn lại', async () => {
+  const r = await runSync(makeServer(DOT_MANY()));
+  assert.ok(r.final.counts.unknown > 0);
+  assert.equal(r.calls.filter(isSync).length, 0);
+  const left = r.items.filter((v) => v.trangThaiGoiTinDongBo === 0).length;
+  assert.ok(r.final.msg.endsWith(` Chưa đồng bộ: đợt còn ${left} đơn chưa xử lý.`), r.final.msg);
+});
+
+test('đồng bộ: máy chủ báo lỗi khi đồng bộ → báo lỗi rõ (đơn đã duyệt vẫn giữ)', async () => {
+  const r = await runSync(makeServer(DOT_CLEAN(), { fault: (c) => isSync(c) && { text: JSON.stringify({ success: false, message: 'hỏng' }) } }));
+  assert.equal(r.calls.filter(isSync).length, 1);
+  assert.match(r.final.msg, /^Lỗi: Đã duyệt xong nhưng đồng bộ đợt lỗi – DongBoDonDaDuyet: máy chủ báo lỗi .*hỏng\. Hãy đồng bộ tay trên trang\.$/);
+  assert.ok(r.items.every((v) => v.trangThaiGoiTinDongBo !== 0));
+});
+
+test('đồng bộ: tắt syncWhenDone → không đồng bộ', async () => {
+  const r = await runOnce({ files: NEW, server: makeServer(DOT_CLEAN()), ctxType: 'vbdlis3:ctx', start: { cmd: 'apiStart', tool: 'run' },
+    patch: "ADXRules.run.RULES.historyByLand = false; ADXTools.get('run').config.syncWhenDone = false;" });
+  assert.equal(r.calls.filter(isSync).length, 0);
+  assert.doesNotMatch(r.final.msg, /đồng bộ/);
 });

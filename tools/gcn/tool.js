@@ -27,7 +27,8 @@
         + 'Giống "Duyệt đơn" nhưng KHUNG TRÁI CÓ GIẤY CHỨNG NHẬN VẪN DUYỆT (kể cả đơn đã bị Bỏ duyệt).\n\n'
         + '• Khung phải không có GCN: Thêm vào dữ liệu vận hành → Cập nhật lịch sử (khung phải chỉ các bản ghi trùng số tờ / số thửa; bản ghi khác để nguyên)\n'
         + '• Khung phải có GCN: Không xử lý\n'
-        + '• Đã xử lý rồi: bỏ qua\n\n'
+        + '• Đã xử lý rồi: bỏ qua\n'
+        + '• Xong mà đợt không còn đơn chưa xử lý: Đồng bộ đơn đã duyệt của đợt\n\n'
         + '⚠ Đừng chạy "Quét và sửa lỡ duyệt GCN" (tab Duyệt đơn) trên đợt này: nó sẽ gỡ các đơn có GCN bên trái vừa duyệt.',
       counters: (s) => [
         { label: 'Đã duyệt', value: s.counts.approve, cls: 'ok' },

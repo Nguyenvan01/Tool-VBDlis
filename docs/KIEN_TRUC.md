@@ -387,6 +387,9 @@ Phản hồi lệnh ghi: `{success: true, value: {trangThai, actionProcessSyncDa
 | Bỏ duyệt khung trái | `…ThiCong` | `thiCong(goi, -1, label, 0)` | `{trangThai:0, thiCong:-1}` |
 | Cập nhật lịch sử | `UpdateStatusGoiTinDongBoVanHanh` | `vanHanh(goi, ids, 3, 1, label)` | `{trangThai:1, vanHanh:{ids, action:3}}` |
 | Bỏ duyệt khung phải | `…VanHanh` | `vanHanh(goi, ids, -1, 0, label)` | `{trangThai:0, vanHanh:{ids, action:-1}}` |
+| Đồng bộ đơn đã duyệt của đợt | `DongBoDonDaDuyet` (`A.dongBo`) | `api.syncDot()` – body `{dotBanGiaoNId}` | `{success:true}` |
+
+`run` / `gcn` gọi `api.syncDot()` khi chạy xong (không bấm Dừng, không lỗi) và đếm lại ở máy chủ thấy đợt còn 0 đơn chưa xử lý (`config.syncWhenDone`, mặc định bật). Còn đơn (VD kiểm tra tay) thì không đồng bộ, ghi lý do vào câu tổng kết.
 
 ## 11. Cần sửa ở đâu khi…
 
@@ -399,7 +402,7 @@ Phản hồi lệnh ghi: `{success: true, value: {trangThai, actionProcessSyncDa
 | Đổi luật Không xử lý hết | `noactionFor` trong `tools/noaction/rules.js`, bảng mục 5.7, `test/noaction.test.mjs` |
 | Đổi luật Duyệt ĐVHC 2 cấp | `dvhcFor` trong `tools/dvhc/rules.js`, bảng mục 5.8, `test/dvhc.test.mjs` |
 | Đổi luật duyệt / dấu hiệu GCN / tên trường số tờ, số thửa | Khác bản cũ có chủ đích (22/10/2026): khung phải có số tờ / số thửa thì so theo từng bản ghi (bản ghi trùng = mọi thửa của nó có ở khung trái). Cờ `RULES.historyByLand` (mặc định true; false = như bản cũ, test so bản cũ chạy với false). Đơn vẫn duyệt (Thêm vào); bản ghi không có số tờ / số thửa coi là không trùng; chỉ một phần / không bản ghi nào trùng → `decide` trả thêm `lsIds` (có thể rỗng), `planFor` chỉ Cập nhật lịch sử các mã đó (vẫn MỘT lệnh; rỗng → không gửi lệnh khung phải). Ghi chú log của đơn duyệt = các lý do sau lý do đầu (`recs` / `match` trong `decide`, test `test/run-to-thua.test.mjs`). `tools/run/rules.js` (`decide`, `GCN_KEY`, `GCN_VALUES`, `GCN_IGNORE`, `TO_KEY`, `THUA_KEY`); cờ bật / tắt: `RULES` cùng file. Test `run` sẽ báo khác bản cũ: cập nhật có chủ đích |
-| Đổi cách chạy của Chạy tự động (tỉ lệ đọc cả đợt, số lượt) | `config` trong `tools/run/tool.js` (`fullScanRatio`, `maxPasses`) |
+| Đổi cách chạy của Chạy tự động (tỉ lệ đọc cả đợt, số lượt, tự đồng bộ đợt khi xong) | `config` trong `tools/run/tool.js` (`fullScanRatio`, `maxPasses`, `syncWhenDone`) |
 | Đổi điều kiện "lỡ duyệt", cỡ trang quét | `run()` và `CONFIG` trong `tools/audit/tool.js` |
 | Tốc độ, thử lại, timeout | `config.js` → `api`: `readAhead` + `writeConcurrency` ≤ 6 (Chạy tự động, Quét và sửa); `phasedReadAhead`, `phasedWriteConcurrency` mỗi số ≤ 6 (Gỡ duyệt, Không xử lý hết). Đổi xong xem dòng "Tốc độ: …" |
 | Cột CSV nhật ký | `ADXCsv.LOG_HEAD` / `logRows` trong `core/csv.js` (chung mọi công cụ) |

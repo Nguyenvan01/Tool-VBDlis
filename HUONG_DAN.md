@@ -120,6 +120,8 @@ Toàn bộ quy tắc nằm trong `tools/run/rules.js`.
 - Đợt **mới** (phần lớn chưa xử lý): đọc lần lượt cả đợt, đơn nào đọc xong là gửi lệnh ngay.
 - Chạy xong, extension **đếm lại** số đơn chưa xử lý. Còn sót (ngoài các đơn để kiểm tra tay) thì tự chạy thêm lượt.
 
+**Đồng bộ đợt:** chạy xong mà đợt **không còn đơn nào chưa xử lý** (kể cả đơn *kiểm tra tay*), extension tự gọi *Đồng bộ đơn đã duyệt* cho cả đợt (`DongBoDonDaDuyet`) – dòng tổng kết báo *"Đã đồng bộ đơn đã duyệt của đợt."*. Còn đơn chưa xử lý thì **không** đồng bộ, dòng tổng kết báo *"Chưa đồng bộ: đợt còn N đơn chưa xử lý."* – xử lý tay xong thì bấm chạy lại để đồng bộ. Đồng bộ lỗi: đơn đã duyệt vẫn giữ, hãy đồng bộ tay trên trang. Áp dụng cả cho **Duyệt (GCN)**. Tắt: `syncWhenDone: false` trong `tools/run/tool.js`.
+
 ## 5. Quét và sửa lỡ duyệt GCN (tab Duyệt đơn)
 
 **Đơn lỡ duyệt** là đơn không được duyệt vì có Giấy chứng nhận, nhưng:

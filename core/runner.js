@@ -332,6 +332,12 @@
     writeLog(d, stt, { result, note, action: plan.label, actionTime: nowStr() });
   }
 
+  // Đồng bộ các đơn đã duyệt của đợt đang chạy (cả đợt, một lệnh). Dừng thì vẫn gửi xong.
+  async function syncDot() {
+    log(`Đồng bộ đơn đã duyệt của đợt ${runBody.dotBanGiaoNId}`);
+    return post(A.dongBo, { dotBanGiaoNId: runBody.dotBanGiaoNId }, A.syncTimeoutMs, false);
+  }
+
   // ---------------------------------------------------------------- điều khiển
   // Body lấy danh sách cho mã đợt nhập tay: body trang đã gửi (đợt nào cũng được) thay mã đợt, chưa có thì mẫu trong config.js
   const bodyFor = (ctx, dot) => ({ ...JSON.parse(JSON.stringify(ctx.listBody || A.listRequest)), dotBanGiaoNId: dot });
@@ -359,7 +365,7 @@
         // Số lần đọc / số đơn gửi song song: công cụ "đọc hết rồi mới gửi" dùng được tới 6 cho mỗi bước (hai bước không chồng nhau)
         limits: t.readBeforeWrite ? { read: A.phasedReadAhead, write: A.phasedWriteConcurrency } : { read: A.readAhead, write: A.writeConcurrency },
         dot: runBody.dotBanGiaoNId,
-        getList, readPages, readItems, pool, execute, writeLog,
+        getList, readPages, readItems, pool, execute, writeLog, syncDot,
         save: (key, value) => ADXLog.save(t.id, key, value),
         broadcast, log, now: nowStr,
       };

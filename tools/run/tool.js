@@ -9,6 +9,7 @@
  *     luôn có readAhead lần đọc đang chạy, đơn nào đọc xong là gửi lệnh ngay.
  *   - Gửi lệnh cho nhiều đơn cùng lúc (writeConcurrency); trong MỘT đơn vẫn gửi lần lượt Thêm vào → Cập nhật lịch sử.
  * ĐỘ CHÍNH XÁC: chạy xong đếm lại số đơn chưa xử lý; còn sót (ngoài các đơn để kiểm tra tay) thì tự chạy thêm lượt.
+ * ĐỒNG BỘ: chạy xong mà đợt không còn đơn nào chưa xử lý (kể cả đơn kiểm tra tay) thì gọi DongBoDonDaDuyet cho cả đợt.
  */
 (() => {
   const R = ADXRules.run;
@@ -58,8 +59,31 @@
     const c = st.counts;
     const did = c.approve + c.reject;
     if (st.stopping) return `Đã dừng – đã xử lý ${did} đơn trong ${took}.`;
-    if (!did && !c.unknown && !c.warn) return 'Không còn đơn nào chưa xử lý.';
-    return `Xong – đã xử lý ${did} đơn trong ${took}` + (c.unknown ? `, ${c.unknown} đơn cần kiểm tra tay` : '') + '.';
+    const sync = st.sync ? ` ${st.sync}` : '';
+    if (!did && !c.unknown && !c.warn) return 'Không còn đơn nào chưa xử lý.' + sync;
+    return `Xong – đã xử lý ${did} đơn trong ${took}` + (c.unknown ? `, ${c.unknown} đơn cần kiểm tra tay` : '') + '.' + sync;
+  }
+
+  // Duyệt xong toàn bộ đơn của đợt (đếm lại ở máy chủ: không còn đơn chưa xử lý) → đồng bộ đơn đã duyệt của đợt
+  async function syncIfDone(api) {
+    const st = api.state;
+    const left = M.totalOf(await api.getList('0', 0, 1));
+    if (left > 0) {
+      st.sync = `Chưa đồng bộ: đợt còn ${left} đơn chưa xử lý.`;
+      api.log(st.sync);
+      return;
+    }
+    st.phase = 'Đang đồng bộ đơn đã duyệt…';
+    api.broadcast(true);
+    try {
+      await api.syncDot();
+    } catch (e) {
+      throw new Error(`Đã duyệt xong nhưng đồng bộ đợt lỗi – ${(e && e.message) || e}. Hãy đồng bộ tay trên trang.`);
+    } finally {
+      st.phase = '';
+    }
+    st.sync = 'Đã đồng bộ đơn đã duyệt của đợt.';
+    api.log(st.sync);
   }
 
   async function run(api) {
@@ -68,7 +92,7 @@
     const T = api.toolConfig;
     const P = A.runPageSize;
     const seen = { acted: new Set(), kept: new Set() };
-    Object.assign(st, { done: 0, before: 0 });
+    Object.assign(st, { done: 0, before: 0, sync: '' });
 
     // Đọc lần lượt cả đợt (vị trí cố định). Đọc danh sách và gửi lệnh chạy song song, không chờ nhau theo trang:
     // đơn nào đọc xong là gửi lệnh ngay, trong lúc các trang sau vẫn đang được đọc.
@@ -196,6 +220,7 @@
         await runAll(null);
       }
     }
+    if (T.syncWhenDone && !st.stopping) await syncIfDone(api);
     return summary(st);
   }
 
@@ -207,6 +232,7 @@
     config: {
       fullScanRatio: 0.5, // tỉ lệ đơn chưa xử lý từ mức này trở lên thì đọc cả đợt (có đọc trước) thay vì chỉ đọc đơn chưa xử lý
       maxPasses: 3,       // chạy xong còn sót đơn chưa xử lý thì chạy thêm lượt, tối đa bấy nhiêu lượt
+      syncWhenDone: true, // chạy xong mà đợt không còn đơn chưa xử lý → gọi DongBoDonDaDuyet cho cả đợt (false = không đồng bộ)
     },
     log: {
       title: 'Thống kê duyệt',
@@ -227,7 +253,8 @@
       confirm: 'Chạy TẤT CẢ các đơn chưa xử lý của đợt đang mở?\n\n'
         + '• Không có GCN: Thêm vào dữ liệu vận hành → Cập nhật lịch sử (khung phải chỉ các bản ghi trùng số tờ / số thửa; bản ghi khác để nguyên)\n'
         + '• Có GCN: Không xử lý\n'
-        + '• Đã xử lý rồi: bỏ qua',
+        + '• Đã xử lý rồi: bỏ qua\n'
+        + '• Xong mà đợt không còn đơn chưa xử lý: Đồng bộ đơn đã duyệt của đợt',
       // Tiến độ "Chạy tự động": thanh tiến độ + 4 ô số (như renderRun của bản cũ)
       progress(s) {
         const pending = s.scope === 'pending';

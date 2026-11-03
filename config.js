@@ -16,6 +16,7 @@ const ADX_CONFIG = {
     list: 'KiemTraDuLieuChuyenDoi',              // lấy danh sách đơn (rất chậm: 5–10 giây cho 5 đơn)
     thiCong: 'UpdateStatusGoiTinDongBoThiCong',  // khung trái: Thêm vào dữ liệu vận hành / Không xử lý / Bỏ duyệt
     vanHanh: 'UpdateStatusGoiTinDongBoVanHanh',  // khung phải: Cập nhật lịch sử / Bỏ duyệt
+    dongBo: 'DongBoDonDaDuyet',                  // đồng bộ các đơn đã duyệt của một đợt, body { dotBanGiaoNId } (ghi lại 03/11/2026)
     // Nhập mã đợt bàn giao trên Side Panel mà trang CHƯA tải danh sách lần nào (chưa mở hộp thoại "Xử lý đơn đăng ký"):
     // body lấy danh sách dựng từ mẫu này + dotBanGiaoNId + start / length / trangThai. Trang đã tải danh sách (đợt nào cũng được)
     // thì dùng body trang vừa gửi, chỉ thay mã đợt. Máy chủ báo lỗi khi đọc → mở hộp thoại một lần, F12 → Network →
@@ -44,6 +45,7 @@ const ADX_CONFIG = {
     // chỉ chồng thêm truy vấn nặng lên máy chủ (truy vấn cũ vẫn chạy) – nên chờ lâu. Bấm Dừng vẫn huỷ ngay.
     listTimeoutMs: 300000,
     writeTimeoutMs: 60000, // chờ tối đa cho một lệnh ghi
+    syncTimeoutMs: 300000, // chờ tối đa cho lệnh đồng bộ cả đợt (DongBoDonDaDuyet)
   },
 
   // Nếu mở CSV bằng Excel mà dữ liệu dồn vào 1 cột, đổi thành ';'
