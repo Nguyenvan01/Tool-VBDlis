@@ -103,7 +103,8 @@ const ADXView = (() => {
   function batchNote(b, running) {
     const lines = b.done.map((x, i) => `Đợt ${i + 1}/${b.total} (${x.dot.slice(0, 8)}…): ${x.msg}`);
     const left = b.total - b.done.length - (running ? 1 : 0);
-    if (running) lines.push(`Đang chạy đợt ${b.pos}/${b.total}` + (left ? `, còn ${left} đợt` : ''));
+    if (running && b.wait) lines.push(b.wait);
+    else if (running) lines.push(`Đang chạy đợt ${b.pos}/${b.total}` + (left ? `, còn ${left} đợt` : ''));
     else if (left) lines.push(`Chưa chạy ${left} đợt sau đó.`);
     return lines.join('\n');
   }

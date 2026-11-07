@@ -65,8 +65,11 @@ test('mã đợt sai dạng → từ chối, không gửi gì; không mã đợt
 const DOT2 = 'cc36b344-033f-4672-a3bf-26004be20719';
 const DOT3 = '0e1f2a3b-4c5d-4e6f-8a9b-0c1d2e3f4a5b';
 // Máy chủ giả nhiều đợt: mỗi mã đợt một danh sách riêng; lỗi theo ý muốn ở lệnh ghi của một đợt
-function multiServer(dots, failDot) {
-  const servers = Object.fromEntries(dots.map((d) => [d, makeServer(DOT_DATA(), d === failDot ? { fault: (c) => (isWrite(c) ? { status: 200, text: '{"success":false}' } : null) } : {})]));
+// failWrites: số lệnh ghi đầu tiên của failDot bị lỗi (mặc định: lỗi mãi)
+function multiServer(dots, failDot, failWrites = Infinity) {
+  let bad = 0;
+  const fault = (c) => (isWrite(c) && bad++ < failWrites ? { status: 200, text: '{"success":false}' } : null);
+  const servers = Object.fromEntries(dots.map((d) => [d, makeServer(DOT_DATA(), d === failDot ? { fault } : {})]));
   const calls = [];
   return {
     calls,
@@ -97,13 +100,25 @@ test('nhiều đợt: chạy lần lượt (đợt sau chỉ bắt đầu khi đ
   for (const d of [DOT, DOT2, DOT3]) assert.ok(job.entries.some((e) => e.dot === d && e.maDon === 'DON_D02'), 'cùng mã đơn ở hai đợt là hai dòng');
 });
 
-test('nhiều đợt: lỗi ở đợt 2 → dừng, không chạy đợt 3, giữ nguyên câu lỗi', async () => {
+test('nhiều đợt: đợt 2 lỗi mãi → chạy lại đủ batchRetries lần rồi vẫn chạy tiếp đợt 3, câu tổng báo Lỗi', async () => {
   const server = multiServer([DOT, DOT2, DOT3], DOT2);
   const r = await runMany(server, [DOT, DOT2, DOT3]);
-  assert.match(r.final.msg, /^Lỗi: Đơn \S+: HỎNG: .+ Đã dừng, kiểm tra tay đơn này\.$/);
-  assert.equal(server.calls.filter((c) => c.dot === DOT3).length, 0);
-  assert.deepEqual(plain(r.final.batch.done.map((x) => x.dot)), [DOT, DOT2]);
-  assert.equal(r.final.batch.total, 3);
+  assert.equal(r.final.msg, 'Lỗi: 1/3 đợt bàn giao vẫn lỗi sau 3 lần chạy lại – xem ghi chú từng đợt; các đợt khác đã chạy xong.');
+  const order = server.calls.map((c) => c.dot).filter((d, i, a) => d !== a[i - 1]);
+  assert.deepEqual(order, [DOT, DOT2, DOT3], 'chạy lại đợt 2 ngay tại chỗ, xong mới sang đợt 3');
+  assert.equal(server.calls.filter((c) => c.dot === DOT2 && c.write).length, 4 * 3, 'đợt 2: 1 lần đầu + 3 lần chạy lại, mỗi lần 3 đơn gửi song song (writeConcurrency) đều hỏng ở lệnh đầu');
+  assert.ok(server.calls.some((c) => c.dot === DOT3 && c.write), 'đợt 3 vẫn chạy');
+  assert.deepEqual(plain(r.final.batch.done.map((x) => x.dot)), [DOT, DOT2, DOT3]);
+  assert.match(r.final.batch.done[1].msg, /^Lỗi: Đơn \S+: HỎNG: .+ Đã dừng, kiểm tra tay đơn này\. \(đã chạy lại 3 lần\)$/);
+  assert.match(r.final.batch.done[2].msg, /^Xong/);
+  assert.equal(r.final.batch.wait, undefined);
+});
+
+test('nhiều đợt: đợt 2 lỗi tạm (lệnh ghi đầu hỏng) → chờ, chạy lại đợt 2 thành công, câu tổng Xong', async () => {
+  const server = multiServer([DOT, DOT2, DOT3], DOT2, 1);
+  const r = await runMany(server, [DOT, DOT2, DOT3]);
+  assert.equal(r.final.msg, 'Xong – đã chạy hết 3 đợt bàn giao.');
+  assert.ok(r.final.batch.done.every((x) => /^Xong/.test(x.msg)));
 });
 
 test('nhiều đợt: một mã sai dạng → từ chối cả lần chạy, không gửi gì', async () => {

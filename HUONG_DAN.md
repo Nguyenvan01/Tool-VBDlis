@@ -46,7 +46,8 @@ Nếu quên bước 2 hoặc 3, Side Panel hiện cảnh báo ⚠ và khoá nút
 
 - Để trống ô này: chạy đợt đang mở trên trang, như cũ. Có mã trong ô: luôn chạy theo mã đó, kể cả khi trang đang mở một đợt khác. Câu xác nhận ghi rõ mã đợt sẽ chạy.
 - **Nhiều mã:** công cụ chạy **lần lượt** từng đợt theo thứ tự các dòng, xong đợt này mới sang đợt sau. Dòng trống và mã trùng được bỏ qua. Câu xác nhận liệt kê đủ các mã. Lúc chạy, góc thẻ hiện *Đợt 2/3 · …*, dòng ghi chú liệt kê kết quả từng đợt đã xong.
-- Một đợt bị **lỗi** hoặc bạn bấm **Dừng**: các đợt sau **không chạy**. Ghi chú báo còn bao nhiêu đợt chưa chạy. Sửa xong thì xoá các dòng đã chạy rồi chạy lại.
+- Một đợt bị **lỗi**: công cụ **chờ 60 giây rồi chạy lại cả đợt đó** (tối đa 3 lần, ghi chú hiện đang chờ). Vẫn lỗi thì ghi lỗi của đợt đó và **chạy tiếp các đợt sau**. Hết lượt, câu kết quả báo số đợt còn lỗi, ghi chú ghi lỗi của từng đợt. Chạy lại riêng các đợt đó sau khi kiểm tra tay. Đổi số lần / thời gian chờ: `batchRetries`, `batchRetryDelayMs` trong `config.js`.
+- Bạn bấm **Dừng** (kể cả lúc đang chờ chạy lại): dừng hẳn, các đợt sau **không chạy**. Ghi chú báo còn bao nhiêu đợt chưa chạy.
 - **Tải log lần chạy** gộp mọi đợt của lần đó, có thêm cột *Đợt bàn giao* ở cuối.
 - Mã sai dạng hoặc dán thiếu (dù chỉ một dòng): nút chạy bị khoá, dưới ô báo "Sai dạng mã: …".
 - Ô không được lưu. Đóng rồi mở lại Side Panel thì ô trống, để không chạy nhầm đợt cũ.

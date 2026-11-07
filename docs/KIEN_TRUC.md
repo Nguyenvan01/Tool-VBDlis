@@ -90,7 +90,7 @@ Bộ công cụ hỗ trợ VBDLIS/   ← chọn thư mục này khi Load unpacke
 | Việc | Lõi | Công cụ |
 |---|---|---|
 | Lấy token, đợt bàn giao | `core/hook.js`, `core/context.js` | – |
-| Dựng body đọc danh sách (`listBody` chụp lúc bắt đầu + `start`, `length`, `requestQueries.trangThai`). Có mã đợt nhập trên Side Panel (`apiStart.dots`, mỗi dòng một mã; nhiều mã thì `runner.session` chạy lần lượt, lỗi / Dừng thì thôi các đợt sau, `state.batch` = `{pos, total, done[]}`): `listBody` của trang thay `dotBanGiaoNId`; trang chưa tải danh sách thì dùng mẫu `ADX_CONFIG.api.listRequest` (`runner.bodyFor`) | `runner.start` / `getList` | chỉ truyền `trangThai` |
+| Dựng body đọc danh sách (`listBody` chụp lúc bắt đầu + `start`, `length`, `requestQueries.trangThai`). Có mã đợt nhập trên Side Panel (`apiStart.dots`, mỗi dòng một mã; nhiều mã thì `runner.session` chạy lần lượt, đợt lỗi thì chờ `batchRetryDelayMs` rồi chạy lại cả đợt, tối đa `batchRetries` lần, vẫn lỗi thì sang đợt sau; bấm Dừng thì thôi các đợt sau; `state.batch` = `{pos, total, done[], wait?}`): `listBody` của trang thay `dotBanGiaoNId`; trang chưa tải danh sách thì dùng mẫu `ADX_CONFIG.api.listRequest` (`runner.bodyFor`) | `runner.start` / `getList` | chỉ truyền `trangThai` |
 | Gửi HTTP, thử lại, timeout, nhận ra hết phiên | `runner.post` / `postOnce` | – |
 | Đọc trước, trang trả thiếu, đóng generator | `runner.readPages` / `readItems` | chọn `size`, `ahead` |
 | Gửi lệnh cho một đơn, kiểm `expect`, ghi log lỗi, dừng | `runner.execute` | dựng `plan.reqs` bằng `ADXModel.thiCong` / `vanHanh` |

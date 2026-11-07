@@ -157,7 +157,7 @@ export function boot({ files, server, ctxType, patch = '', list = LIST_BODY }) {
   ctx.addEventListener = (type, fn) => { if (type === 'message') message.push(fn); };
   for (const f of files) vm.runInContext(read(f), ctx, { filename: f });
   // Thử lại nhanh cho test (bản thật chờ 3 giây)
-  vm.runInContext(`ADX_CONFIG.api.retryDelayMs = 1; ${patch}`, ctx);
+  vm.runInContext(`ADX_CONFIG.api.retryDelayMs = 1; ADX_CONFIG.api.batchRetryDelayMs = 1; ${patch}`, ctx);
   const data = {
     type: ctxType, token: TOKEN,
     listUrl: list ? 'https://test.mplis.gov.vn/dc/TichHopDongBoDuLieuAjax/KiemTraDuLieuChuyenDoi' : '',

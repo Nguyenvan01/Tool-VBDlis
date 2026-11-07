@@ -41,6 +41,10 @@ const ADX_CONFIG = {
     // ---- độ chính xác / chống lỗi mạng
     retries: 2,           // lỗi mạng / máy chủ quá tải / quá thời gian: thử lại tối đa bấy nhiêu lần
     retryDelayMs: 3000,   // chờ trước khi thử lại (lần 2 chờ gấp đôi…)
+    // Chạy nhiều đợt: một đợt lỗi thì chờ rồi chạy lại CẢ đợt đó (đọc lại từ đầu), hết số lần vẫn lỗi thì sang đợt sau.
+    // Bấm Dừng vẫn dừng hẳn, không chạy các đợt sau.
+    batchRetries: 3,           // chạy lại đợt lỗi tối đa bấy nhiêu lần
+    batchRetryDelayMs: 60000,  // chờ trước mỗi lần chạy lại đợt lỗi
     // Chờ tối đa cho một lần lấy danh sách. Máy chủ có lúc mất hơn 120 giây (16/10/2026, tab Duyệt đơn): huỷ sớm rồi gửi lại
     // chỉ chồng thêm truy vấn nặng lên máy chủ (truy vấn cũ vẫn chạy) – nên chờ lâu. Bấm Dừng vẫn huỷ ngay.
     listTimeoutMs: 300000,

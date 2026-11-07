@@ -343,7 +343,8 @@
   const bodyFor = (ctx, dot) => ({ ...JSON.parse(JSON.stringify(ctx.listBody || A.listRequest)), dotBanGiaoNId: dot });
 
   // Một hoặc nhiều đợt (mã đợt nhập trên Side Panel, mỗi dòng một mã): chạy LẦN LƯỢT, mỗi đợt một lượt đầy đủ của công cụ.
-  // Lỗi hoặc bấm Dừng ở đợt nào thì không chạy các đợt sau. Log lần chạy gộp mọi đợt (cột Đợt bàn giao).
+  // Đợt nào lỗi: chờ A.batchRetryDelayMs rồi chạy lại cả đợt đó, tối đa A.batchRetries lần; vẫn lỗi thì sang đợt sau.
+  // Bấm Dừng (kể cả lúc đang chờ chạy lại) thì không chạy các đợt sau. Log lần chạy gộp mọi đợt (cột Đợt bàn giao).
   async function session(t, bodies) {
     tool = t;
     logNs = ADXTools.logNs(t);
@@ -354,36 +355,56 @@
     const dots = bodies.map((b) => b.dotBanGiaoNId);
     // Trạng thái nhiều đợt cho Side Panel: đang ở đợt pos / total, kết quả các đợt đã chạy
     const batch = { pos: 0, total: bodies.length, done: [] };
+    const many = bodies.length > 1;
+    const maxTries = many ? 1 + Math.max(0, A.batchRetries || 0) : 1;
+    let userStop = false;
+    let failed = 0;
     for (const body of bodies) {
       batch.pos++;
-      st = { ...freshState(), tool: t.id, running: true, t0: Date.now(), counts: t.counts(), batch };
       runBody = body;
-      const api = {
-        state: st,
-        config: A,
-        toolConfig: t.config || {},
-        // Số lần đọc / số đơn gửi song song: công cụ "đọc hết rồi mới gửi" dùng được tới 6 cho mỗi bước (hai bước không chồng nhau)
-        limits: t.readBeforeWrite ? { read: A.phasedReadAhead, write: A.phasedWriteConcurrency } : { read: A.readAhead, write: A.writeConcurrency },
-        dot: runBody.dotBanGiaoNId,
-        getList, readPages, readItems, pool, execute, writeLog, syncDot,
-        save: (key, value) => ADXLog.save(t.id, key, value),
-        broadcast, log, now: nowStr,
-      };
-      broadcast(true);
       let ok = false;
-      try {
-        st.msg = await t.run(api);
-        ok = !st.stopping;
-      } catch (e) {
-        st.msg = e && e.stopped ? t.summary(st) : 'Lỗi: ' + ((e && e.message) || e);
+      for (let attempt = 1; attempt <= maxTries; attempt++) {
+        st = { ...freshState(), tool: t.id, running: true, t0: Date.now(), counts: t.counts(), batch };
+        const api = {
+          state: st,
+          config: A,
+          toolConfig: t.config || {},
+          // Số lần đọc / số đơn gửi song song: công cụ "đọc hết rồi mới gửi" dùng được tới 6 cho mỗi bước (hai bước không chồng nhau)
+          limits: t.readBeforeWrite ? { read: A.phasedReadAhead, write: A.phasedWriteConcurrency } : { read: A.readAhead, write: A.writeConcurrency },
+          dot: runBody.dotBanGiaoNId,
+          getList, readPages, readItems, pool, execute, writeLog, syncDot,
+          save: (key, value) => ADXLog.save(t.id, key, value),
+          broadcast, log, now: nowStr,
+        };
+        broadcast(true);
+        try {
+          st.msg = await t.run(api);
+          ok = !st.stopping;
+        } catch (e) {
+          st.msg = e && e.stopped ? t.summary(st) : 'Lỗi: ' + ((e && e.message) || e);
+        }
+        if (st.stopping) { userStop = true; break; }
+        if (ok || attempt === maxTries) break;
+        // Lỗi: chờ rồi chạy lại cả đợt (bấm Dừng lúc chờ thì thôi)
+        const wait = A.batchRetryDelayMs || 0;
+        log(`Đợt ${batch.pos}/${batch.total} (${runBody.dotBanGiaoNId}): ${st.msg} – chờ ${secs(wait)} giây rồi chạy lại (lần ${attempt}/${maxTries - 1})`);
+        batch.wait = `${st.msg} → chờ ${secs(wait)} giây rồi chạy lại đợt ${batch.pos}/${batch.total} (lần ${attempt}/${maxTries - 1})`;
+        broadcast(true);
+        await pause(wait, true);
+        delete batch.wait;
+        if (st.stopping) { userStop = true; break; }
       }
-      batch.done.push({ dot: runBody.dotBanGiaoNId, msg: st.msg });
-      if (bodies.length > 1) log(`Đợt ${batch.pos}/${batch.total} (${runBody.dotBanGiaoNId}): ${st.msg}`);
-      if (!ok) break;
+      if (!ok && !userStop) failed++;
+      const tries = !ok && !userStop && maxTries > 1 ? ` (đã chạy lại ${maxTries - 1} lần)` : '';
+      batch.done.push({ dot: runBody.dotBanGiaoNId, msg: st.msg + tries });
+      if (many) log(`Đợt ${batch.pos}/${batch.total} (${runBody.dotBanGiaoNId}): ${st.msg}${tries}`);
+      if (userStop) break;
     }
-    // Chạy hết nhiều đợt: câu tổng; dừng giữa chừng: giữ nguyên câu của đợt hỏng / dừng (Side Panel tách lỗi theo mẫu)
-    if (batch.total > 1 && batch.done.length === batch.total && !st.stopping && !/^Lỗi/.test(st.msg)) {
-      st.msg = `Xong – đã chạy hết ${batch.total} đợt bàn giao.`;
+    // Chạy hết nhiều đợt: câu tổng (có đợt vẫn lỗi thì báo Lỗi, chi tiết từng đợt ở ghi chú); bấm Dừng: giữ câu của đợt đang dừng
+    if (many && !userStop && batch.done.length === batch.total) {
+      st.msg = failed
+        ? `Lỗi: ${failed}/${batch.total} đợt bàn giao vẫn lỗi sau ${maxTries - 1} lần chạy lại – xem ghi chú từng đợt; các đợt khác đã chạy xong.`
+        : `Xong – đã chạy hết ${batch.total} đợt bàn giao.`;
     }
     try {
       await flushLog();
