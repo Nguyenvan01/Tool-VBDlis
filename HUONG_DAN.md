@@ -85,6 +85,7 @@ Extension coi là có thông tin GCN khi gặp **bất kỳ** dấu hiệu nào 
 Không tính:
 - giấy chứng nhận **kết hôn**;
 - loại / phiên bản / tình trạng GCN;
+- **cờ GCN rỗng**: file quét có `laGiayChungNhan = true` nhưng không có tên file, mô tả, trích yếu, đường dẫn, mã GCN hay phiên bản GCN (màn hình vẫn hiện *"Giấy chứng nhận: -/-"*). Đơn **chưa xử lý** như vậy được duyệt, ghi chú log *"Bỏ qua cờ GCN rỗng ở file quét … – nên xem lại"*. Đơn đã *Không xử lý* từ trước vẫn bỏ qua, muốn duyệt thì duyệt tay;
 - ngày rỗng của máy chủ (`/Date(-62135596800000)/`);
 - giá trị coi như rỗng: trống, `-`, `-/-`, `--`, `/`, "không có thông tin", "không có", "chưa có", `null`, `n/a`.
 

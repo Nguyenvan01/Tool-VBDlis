@@ -19,6 +19,10 @@ ADXRules.run = (() => {
     // ponytail: tên trường số tờ / số thửa khung phải chưa xác nhận trên trang thật – nếu sai, mọi đơn chỉ được Thêm vào;
     // tắt cờ này để quay về cách cũ trong lúc sửa TO_KEY / THUA_KEY
     historyByLand: true,
+    // File quét có laGiayChungNhan = true nhưng không có tên file, mô tả, trích yếu, đường dẫn, mã / phiên bản GCN
+    // (VD DON_24645745, màn hình hiện "Giấy chứng nhận: -/-") → không tính là GCN; đơn duyệt có ghi chú riêng trong log.
+    // Chỉ đổi quyết định cho đơn CHƯA XỬ LÝ – đơn đã Không xử lý vẫn bỏ qua. false = như cũ: cờ nào cũng là GCN.
+    ignoreEmptyGcnFlag: true,
   };
 
   // Ngày rỗng của máy chủ (.NET DateTime.MinValue) – coi như không có giá trị
@@ -39,6 +43,23 @@ ADXRules.run = (() => {
   const GCN_KEY = /giaychungnhan/i;
   const GCN_IGNORE = /kethon|^loai|^version|^tinhtrang/i;
   const GCN_VALUES = /^(soPhatHanh|soVaoSo|soVaoSoCu|ngayVaoSo|maGiayChungNhan|soSeri|soSerial)$/i;
+  // Cờ GCN rỗng: file quét đánh dấu là GCN mà không có gì cho biết đó là giấy nào (xem RULES.ignoreEmptyGcnFlag)
+  const FILE_INFO = ['tenGiayTo', 'tenFile', 'moTa', 'trichYeu', 'duongDan'];
+  const emptyGcnFlag = (o) => RULES.ignoreEmptyGcnFlag && o.laGiayChungNhan === true
+    && FILE_INFO.every((k) => !nonEmpty(o[k] == null ? null : String(o[k])))
+    && !(Number(o.giayChungNhanId) > 0) && o.versionGiayChungNhan == null && !o.GiayChungNhan;
+  // Số file có cờ GCN rỗng; một file có thể lặp ở nhiều chỗ (ListHoSoQuet và DanhSachThongTinHoSo) → đếm theo nodeId
+  function emptyGcnFlags(root) {
+    const files = new Set();
+    const walk = (o, depth) => {
+      if (!o || typeof o !== 'object' || depth > 14) return;
+      if (Array.isArray(o)) { o.forEach((x) => walk(x, depth + 1)); return; }
+      if (emptyGcnFlag(o)) files.add(o.nodeId || o);
+      for (const v of Object.values(o)) if (v && typeof v === 'object') walk(v, depth + 1);
+    };
+    walk(root, 0);
+    return files.size;
+  }
   function gcnSignals(root) {
     const out = [];
     const seen = new Set();
@@ -53,7 +74,7 @@ ADXRules.run = (() => {
         } else if (GCN_KEY.test(k) && !GCN_IGNORE.test(k)) {
           if (Array.isArray(v) ? v.length > 0 : v && typeof v === 'object') out.push(`${k} (${Array.isArray(v) ? v.length : 1})`);
           else if (typeof v === 'number' && v > 0 && /id$/i.test(k)) out.push(`${k}=${v}`);
-          else if (v === true) out.push(k);
+          else if (v === true && !(/^laGiayChungNhan$/i.test(k) && emptyGcnFlag(o))) out.push(k);
           else if (typeof v === 'string' && /ids$/i.test(k) && nonEmpty(v)) out.push(k);
         }
         if (v && typeof v === 'object') walk(v, depth + 1);
@@ -164,6 +185,8 @@ ADXRules.run = (() => {
       // Khung phải có nhiều bản ghi mà không có GCN vẫn ĐƯỢC DUYỆT (chỉ có GCN mới không duyệt)
       res.status = 'approve';
       res.reasons.push(vh.length ? 'Khung phải không có Giấy chứng nhận' : 'Khung phải trống');
+      const empty = emptyGcnFlags(vh) + (opts.leftGcn === false ? 0 : emptyGcnFlags(tc));
+      if (empty) res.reasons.push(`Bỏ qua cờ GCN rỗng ở file quét (${empty} file đánh dấu là GCN nhưng không có tên, mô tả, mã GCN) – nên xem lại`);
       // Chỉ một phần (hoặc không) bản ghi khung phải trùng tờ / thửa → chỉ Cập nhật lịch sử các bản ghi đó
       if (RULES.historyByLand && match.length < vhIds.length) {
         res.lsIds = match.map((r) => r.id);
